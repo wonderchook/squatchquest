@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Demo Mode — PNW Wilds Scavenger Hunt | SquatchSighting</title>
+<meta name="description" content="Try the PNW Wilds Bigfoot scavenger hunt from anywhere! Scan these QR codes to demo the experience.">
+<meta name="theme-color" content="#6a4c93">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Quicksand:wght@400;600;700&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pink: #f0b8c8;
+  --pink-light: #fce4ec;
+  --purple: #9b7cb8;
+  --purple-dark: #6a4c93;
+  --green: #4a7c59;
+  --green-dark: #2d5a3e;
+  --cream: #fef9f0;
+  --brown: #5d4037;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, var(--pink-light) 0%, var(--cream) 30%, #e8f5e9 100%);
+  min-height: 100vh;
+  color: var(--brown);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--purple);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+
+.back-btn:hover { background: var(--purple-dark); }
+
+.header {
+  text-align: center;
+  padding: 12px 10px 20px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.8rem;
+  color: var(--purple-dark);
+  line-height: 1.2;
+}
+
+.header .subtitle {
+  font-size: 1rem;
+  color: var(--green-dark);
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.header p {
+  font-size: 0.95rem;
+  color: var(--brown);
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.instructions {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 2px solid var(--pink);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.instructions h3 {
+  font-family: 'Lilita One', cursive;
+  color: var(--green-dark);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.instructions ol {
+  padding-left: 20px;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.qr-card {
+  background: white;
+  border-radius: 16px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border: 2px solid #e0d5c5;
+  transition: transform 0.2s;
+}
+
+.qr-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--purple);
+}
+
+.qr-card .stop-number {
+  display: inline-block;
+  background: var(--purple);
+  color: white;
+  font-family: 'Lilita One', cursive;
+  font-size: 0.8rem;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.qr-card .stop-name {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--purple-dark);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.qr-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.footer a { color: var(--purple); text-decoration: none; }
+
+@media (max-width: 360px) {
+  .qr-grid { gap: 10px; }
+  .qr-card { padding: 10px; }
+  .header h1 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="./" class="back-btn">&#x1f5fa;&#xfe0f; Back to Adventure Map</a>
+
+  <div class="header">
+    <div style="font-size: 3rem;">&#x1f4f1;&#x1f9b6;&#x1f4f1;</div>
+    <h1>Demo Mode</h1>
+    <div class="subtitle">Try the hunt from anywhere!</div>
+    <p>Scan these QR codes with your phone camera to try the scavenger hunt without being in downtown Chehalis.</p>
+  </div>
+
+  <div class="instructions">
+    <h3>&#x1f4cb; How to Demo</h3>
+    <ol>
+      <li>Open <a href="./" style="color:var(--purple); font-weight:700;">squatchsight.ing/pnwwilds</a> on your <strong>phone</strong></li>
+      <li>Point your phone camera at a QR code below <strong>on this screen</strong></li>
+      <li>Answer the trivia question that unlocks</li>
+      <li>Come back and scan another!</li>
+    </ol>
+  </div>
+
+  <div class="qr-grid">
+    <div class="qr-card">
+      <div class="stop-number">#2</div>
+      <div class="stop-name">&#x1f411; Ewe & I</div>
+      <img src="../scavenger_hunt/art_qr_codes/02-ewe-and-i-QR.png" alt="Ewe and I QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#3</div>
+      <div class="stop-name">&#x1f485; JJ Nails</div>
+      <img src="../scavenger_hunt/art_qr_codes/03-jj-nails-QR.png" alt="JJ Nails QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#4</div>
+      <div class="stop-name">&#x1f9b6; Bigfoot Treasures</div>
+      <img src="../scavenger_hunt/art_qr_codes/04-bigfoot-treasures-QR.png" alt="Bigfoot Treasures QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#5</div>
+      <div class="stop-name">&#x1f332; Spruce</div>
+      <img src="../scavenger_hunt/art_qr_codes/05-spruce-QR.png" alt="Spruce QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#6</div>
+      <div class="stop-name">&#x1f3a8; Book 'N' Brush</div>
+      <img src="../scavenger_hunt/art_qr_codes/06-book-brush-QR.png" alt="Book N Brush QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#7</div>
+      <div class="stop-name">&#x1f41f; NW Salmon Smokehouse</div>
+      <img src="../scavenger_hunt/art_qr_codes/07-smokehouse-QR.png" alt="NW Salmon Smokehouse QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#8</div>
+      <div class="stop-name">&#x1f436; Doggie Designs</div>
+      <img src="../scavenger_hunt/art_qr_codes/08-doggie-designs-QR.png" alt="Doggie Designs QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#9</div>
+      <div class="stop-name">&#x1f6cb;&#xfe0f; Furniture World</div>
+      <img src="../scavenger_hunt/art_qr_codes/09-furniture-world-QR.png" alt="Furniture World QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#10</div>
+      <div class="stop-name">&#x1f3b2; Diversified Games</div>
+      <img src="../scavenger_hunt/art_qr_codes/10-diversified-games-QR.png" alt="Diversified Games QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#11</div>
+      <div class="stop-name">&#x2615; Mint City Coffee</div>
+      <img src="../scavenger_hunt/art_qr_codes/11-mint-city-coffee-QR.png" alt="Mint City Coffee QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#12</div>
+      <div class="stop-name">&#x1f45f; Brunswig's Shoes</div>
+      <img src="../scavenger_hunt/art_qr_codes/12-brunswigs-shoes-QR.png" alt="Brunswig's Shoes QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#13</div>
+      <div class="stop-name">&#x1f3ea; Smith's Mercantile</div>
+      <img src="../scavenger_hunt/art_qr_codes/13-smiths-mercantile-QR.png" alt="Smith's Mercantile QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#14</div>
+      <div class="stop-name">&#x1f33f; Nature Nurture Farmacy</div>
+      <img src="../scavenger_hunt/art_qr_codes/14-farmacy-QR.png" alt="Nature Nurture Farmacy QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#16</div>
+      <div class="stop-name">&#x1f363; Royal Sushi & Teriyaki</div>
+      <img src="../scavenger_hunt/art_qr_codes/16-royal-sushi-QR.png" alt="Royal Sushi and Teriyaki QR code">
+    </div>
+    <div class="qr-card">
+      <div class="stop-number">#17</div>
+      <div class="stop-name">&#x1f32e; Taqueria Lolita</div>
+      <img src="../scavenger_hunt/art_qr_codes/17-taqueria-lolita-QR.png" alt="Taqueria Lolita QR code">
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>PNW Wilds Market Street Adventure &bull; Demo Mode<br>
+    <a href="./">Back to Adventure Map</a> &bull; <a href="/">SquatchSighting</a></p>
+  </div>
+</div>
+</body>
+</html>

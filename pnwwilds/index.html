@@ -666,6 +666,7 @@ const STOPS = [
     name: "Nature Nurture Farmacy",
     address: "Downtown Chehalis",
     icon: "\ud83c\udf3f",
+    website: "https://www.naturenurturefarmacy.org/",
     question: "Bigfoot's been foraging in the woods for years, but he just discovered Nature Nurture Farmacy has an even more selection. What can he grab from their herbal apothecary that he can't find under a log?",
     options: [
       "A packet of open-pollinated seeds from their community seed library (he wants to start a garden in his cave)",
@@ -681,6 +682,7 @@ const STOPS = [
     name: "Book 'N' Brush",
     address: "Downtown Chehalis",
     icon: "\ud83c\udfa8",
+    website: "https://www.booknbrush.com/",
     question: "Bigfoot finally comes out of the woods and wanders into Book 'N' Brush. He's amazed \u2014 this shop has been here since 1969! What does he NOT find inside?",
     options: [
       "Fine art supplies and custom framing",
@@ -696,6 +698,7 @@ const STOPS = [
     name: "Bigfoot Treasures",
     address: "Downtown Chehalis",
     icon: "\ud83e\uddb6",
+    website: "https://experiencechehalis.com/business/bigfoot-treasure/",
     question: "Bigfoot walks into his favorite store in town \u2014 a place literally named after him! What's the ONE thing he can't find on the shelves?",
     options: [
       "Cryptid and paranormal-themed T-shirts and stickers",
@@ -711,6 +714,7 @@ const STOPS = [
     name: "Ewe & I",
     address: "566 N Market Blvd",
     icon: "\ud83d\udc11",
+    website: "https://www.eweandiyarns.com/",
     question: "Bigfoot needs a cozy sweater for the chilly PNW winters. He shuffles into Ewe & I for supplies. What can he find at this local yarn store?",
     options: [
       "Only basic acrylic yarn in three colors",
@@ -726,6 +730,7 @@ const STOPS = [
     name: "Diversified Games",
     address: "551 N Market Blvd",
     icon: "\ud83c\udfb2",
+    website: "https://experiencechehalis.com/business/diversified-games/",
     question: "It's game night in Bigfoot's cave! He heads to Diversified Games to stock up. This shop has been going strong since 1999 \u2014 which of these can Bigfoot actually find there?",
     options: [
       "Comic books, graphic novels, and manga",
@@ -741,6 +746,7 @@ const STOPS = [
     name: "Spruce",
     address: "534 N Market Blvd",
     icon: "\ud83c\udf32",
+    website: "https://spruceshoppe.com/",
     question: "Bigfoot has a hot date and wants to \"spruce\" up! He walks into Spruce Skin & Wax Shoppe for a glow-up. What can he actually get done here?",
     options: [
       "A full haircut and beard trim (he's very attached to his look)",
@@ -756,6 +762,7 @@ const STOPS = [
     name: "NW Salmon Smokehouse",
     address: "486 N Market Blvd",
     icon: "\ud83d\udc1f",
+    website: "https://nwsalmonsmokehouse.com/",
     question: "Bigfoot LOVES salmon \u2014 he catches them right out of the river! But at NW Salmon Smokehouse & Artisan Market, they do things a little fancier. Which of these is a real menu item?",
     options: [
       "Smoked salmon chowder",
@@ -771,6 +778,7 @@ const STOPS = [
     name: "JJ Nails",
     address: "542 N Market Blvd",
     icon: "\ud83d\udc85",
+    website: "https://experiencechehalis.com/business/jj-nails/",
     question: "Bigfoot's toenails are getting out of control \u2014 each one is the size of a dinner plate. He squeezes into JJ Nails for some help. Which of these services can their nail techs actually do for him?",
     options: [
       "Only basic nail clipping \u2014 nothing fancy",
@@ -786,6 +794,7 @@ const STOPS = [
     name: "Royal Sushi & Teriyaki",
     address: "575 N Market Blvd",
     icon: "\ud83c\udf63",
+    website: "https://royalchehalis.com/",
     question: "Bigfoot walks into Royal Sushi & Teriyaki and stares at the menu. He sees something called \"hamachi\" \u2014 what is it?",
     options: [
       "A spicy dipping sauce made from wasabi and honey",
@@ -801,6 +810,7 @@ const STOPS = [
     name: "Smith's Mercantile",
     address: "464 N Market Blvd",
     icon: "\ud83c\udfea",
+    website: "https://www.shopsmithsmercantile.com/",
     question: "Bigfoot sneaks into Smith's Mercantile looking for a new outfit. What kind of shop is he in?",
     options: [
       "A hardware store \u2014 nothing but hammers and nails",
@@ -816,6 +826,7 @@ const STOPS = [
     name: "Taqueria Lolita",
     address: "337 NW Chehalis Ave",
     icon: "\ud83c\udf2e",
+    website: "https://taquerialolitawa.com/",
     question: "Bigfoot discovers tacos for the first time at Taqueria Lolita and instantly falls in love. Now for a taco trivia question \u2014 how many tacos does the average American eat per year?",
     options: [
       "About 10 \u2014 most people stick to Taco Tuesday",
@@ -831,6 +842,7 @@ const STOPS = [
     name: "Furniture World",
     address: "563 N Market Blvd",
     icon: "\ud83d\udecb\ufe0f",
+    website: "https://experiencechehalis.com/business/furniture-world/",
     question: "Bigfoot is tired of sleeping on a pile of leaves. He goes to Furniture World to upgrade. This family-owned business has been in the furniture industry for over 40 years \u2014 how many locations do they have across Western Washington?",
     options: [
       "Just this one \u2014 it's a hidden gem",
@@ -846,6 +858,7 @@ const STOPS = [
     name: "Doggie Designs",
     address: "571 N Market Blvd",
     icon: "\ud83d\udc36",
+    website: "https://doggiedesignspetgrooming.com/",
     question: "Bigfoot brings his best friend (a very large wolf pup he adopted) to Doggie Designs for a spa day. Which of these is NOT a real service they offer?",
     options: [
       "De-shedding treatments",
@@ -1093,6 +1106,7 @@ function renderStop(stopId) {
         <h3>Already Completed!</h3>
         <p>You've already conquered this stop, adventurer! Bigfoot is impressed.</p>
         <p style="font-size:0.85rem; color:var(--purple); font-style:italic; margin-top:8px;">${stop.funFact}</p>
+        ${stop.website ? `<a href="${stop.website}" target="_blank" rel="noopener" class="nav-btn" style="display:inline-flex; text-decoration:none; margin-top:8px; background:var(--green);">🌐 Visit ${stop.name}</a>` : ''}
         <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Back to Adventure Map</button>
       </div>
     `;
@@ -1109,7 +1123,7 @@ function renderStop(stopId) {
     <div class="stop-card">
       <div class="business-icon">${stop.icon}</div>
       <div class="business-name">${stop.name}</div>
-      <div class="business-address">\ud83d\udccd ${stop.address}</div>
+      <div class="business-address">\ud83d\udccd ${stop.address}${stop.website ? ` · <a href="${stop.website}" target="_blank" rel="noopener" style="color:#7b5ea7;">Visit website</a>` : ''}</div>
       <div class="question-label">\ud83e\uddb6 Bigfoot wants to know...</div>
       <div class="question">${stop.question}</div>
       <div class="options" id="options-${stop.id}">
@@ -1151,10 +1165,13 @@ function handleAnswer(stopId, selectedIdx) {
   saveState();
 
   if (isCorrect) {
+    const visitLink = stop.website ? `<div style="margin-top:8px;"><a href="${stop.website}" target="_blank" rel="noopener" style="color:#7b5ea7; font-weight:600; font-size:0.9rem;">🌐 Visit ${stop.name}</a></div>` : '';
+
     resultDiv.innerHTML = `
       <div class="result-msg correct">
         \ud83c\udf1f Correct! Bigfoot approves! \ud83e\uddb6
         <div class="fun-fact">${stop.funFact}</div>
+        ${visitLink}
       </div>
       <div style="text-align:center">
         <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
@@ -1166,6 +1183,7 @@ function handleAnswer(stopId, selectedIdx) {
       <div class="result-msg wrong">
         \ud83d\ude04 Nice try! The answer was <strong>${String.fromCharCode(65 + stop.correct)}</strong> \u2014 but Bigfoot still gives you credit for showing up!
         <div class="fun-fact">${stop.funFact}</div>
+        ${visitLink}
       </div>
       <div style="text-align:center">
         <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>

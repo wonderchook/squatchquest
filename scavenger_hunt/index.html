@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SquatchSight.ing — Custom Bigfoot Scavenger Hunts</title>
+<meta name="theme-color" content="#6a4c93">
+<meta name="description" content="Custom Bigfoot-themed QR code scavenger hunts for your community, downtown, or event. Built in the Pacific Northwest.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦶</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Quicksand:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pink: #f0b8c8;
+  --pink-light: #fce4ec;
+  --purple: #9b7cb8;
+  --purple-dark: #6a4c93;
+  --green: #4a7c59;
+  --green-light: #7cb87c;
+  --green-dark: #2d5a3e;
+  --cream: #fef9f0;
+  --brown: #5d4037;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, var(--pink-light) 0%, var(--cream) 30%, #e8f5e9 100%);
+  min-height: 100vh;
+  color: var(--brown);
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.content { position: relative; z-index: 1; }
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 40px 10px 20px;
+  margin-bottom: 20px;
+}
+
+.header .bigfoot-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 12px;
+  animation: wobble 3s ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.header h1 {
+  font-family: 'Lilita One', cursive;
+  font-size: 2.8rem;
+  color: var(--purple-dark);
+  text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.header .subtitle {
+  font-size: 1.15rem;
+  color: var(--green-dark);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.header .tagline {
+  font-size: 0.95rem;
+  color: var(--purple);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 3px solid var(--pink);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card h2 {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.5rem;
+  color: var(--purple-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: var(--brown);
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.card ul li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card ul li::before {
+  content: '🦶';
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+/* Hunt links */
+.hunt-card {
+  border-color: var(--green-light);
+  background: linear-gradient(135deg, white 0%, #f0f9f0 100%);
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.hunt-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+.hunt-card .hunt-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.4rem;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+
+.hunt-card .hunt-location {
+  font-size: 0.85rem;
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.hunt-card .hunt-desc {
+  font-size: 0.9rem;
+  color: var(--brown);
+  margin-top: 8px;
+}
+
+.hunt-card .hunt-badge {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+/* Team section */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.team-member {
+  text-align: center;
+  padding: 16px;
+  background: var(--cream);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-2px);
+}
+
+.team-member .team-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.team-member .team-name {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.1rem;
+  color: var(--purple-dark);
+  margin-bottom: 4px;
+}
+
+.team-member .team-role {
+  font-size: 0.8rem;
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+/* CTA */
+.cta-section {
+  text-align: center;
+  padding: 24px;
+  margin-top: 8px;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+  color: white;
+  font-family: 'Lilita One', cursive;
+  font-size: 1.2rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(106, 76, 147, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(106, 76, 147, 0.4);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 0.8rem;
+  color: var(--purple);
+}
+
+.footer a {
+  color: var(--purple-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+/* Forest background */
+.bg-decor {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-decor svg { width: 100%; height: 100%; }
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 2.2rem; }
+  .team-grid { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="content">
+
+  <!-- Header -->
+  <div class="header">
+    <span class="bigfoot-icon">🦶</span>
+    <h1>SquatchSight.ing</h1>
+    <div class="subtitle">Custom Bigfoot Scavenger Hunts</div>
+    <div class="tagline">QR-powered adventures for your downtown, your trails, your community</div>
+  </div>
+
+  <!-- What is this? -->
+  <div class="card">
+    <h2>👁️ What is SquatchSighting?</h2>
+    <p>We build custom Bigfoot-themed QR code scavenger hunts that bring people together in real places. Whether it's a downtown shopping district, a local trail system, or a community event — we create fun, phone-powered adventures that get people exploring.</p>
+    <p>Each hunt features:</p>
+    <ul>
+      <li>Weatherproof QR code stickers placed at real locations</li>
+      <li>A mobile-friendly web app — no downloads required</li>
+      <li>Custom Bigfoot-themed trivia and challenges at each stop</li>
+      <li>Progress tracking so participants can see how many sightings they've made</li>
+      <li>Support for local businesses and community organizations</li>
+    </ul>
+  </div>
+
+  <!-- How it works -->
+  <div class="card">
+    <h2>🗺️ How It Works</h2>
+    <p>We work with you to design a scavenger hunt tailored to your community:</p>
+    <ul>
+      <li><strong>Pick your locations</strong> — local businesses, trail markers, landmarks, or event stations</li>
+      <li><strong>We build the hunt</strong> — custom questions, Bigfoot lore, and a beautiful mobile app</li>
+      <li><strong>QR stickers go up</strong> — weatherproof stickers that participants scan at each stop</li>
+      <li><strong>People explore!</strong> — walk, discover, answer questions, track progress</li>
+    </ul>
+    <p>Everything runs in the browser. No app store. No accounts. Just scan and go.</p>
+  </div>
+
+  <!-- Active Hunts -->
+  <div class="card">
+    <h2>🌲 Active Hunts</h2>
+    <p>Check out our current adventures:</p>
+  </div>
+
+  <a href="/pnwwilds/" class="card hunt-card">
+    <div class="hunt-title">🏔️ PNW Wilds Market Street Adventure</div>
+    <div class="hunt-location">Downtown Chehalis, WA</div>
+    <div class="hunt-desc">13 local businesses, Bigfoot-themed trivia, and a walk through the heart of downtown. Visit Nature Nurture Farmacy, Book and Brush, Bigfoot Treasures, and more!</div>
+    <span class="hunt-badge">March 7, 2026</span>
+  </a>
+
+  <!-- Who's behind this -->
+  <div class="card">
+    <h2>🤝 Who's Behind This</h2>
+    <p>SquatchSighting is built by a team of Pacific Northwest humans (and a few friendly AIs) who believe that community engagement should be fun, accessible, and a little weird.</p>
+    <div class="team-grid">
+      <a href="https://cascadiatm.com" target="_blank" rel="noopener" class="team-member">
+        <span class="team-icon">🏔️</span>
+        <div class="team-name">Cascadia TM</div>
+        <div class="team-role">Technical Mentorship</div>
+      </a>
+      <a href="https://marikaolson.com" target="_blank" rel="noopener" class="team-member">
+        <span class="team-icon">✨</span>
+        <div class="team-name">Marika Olson</div>
+        <div class="team-role">Strategy & Consulting</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p style="margin-bottom: 16px; font-weight: 600; color: var(--green-dark);">Want a custom scavenger hunt for your town or event?</p>
+    <a href="mailto:hello@squatchsight.ing" class="cta-button">Get In Touch 🦶</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Made with 🌲 in the Pacific Northwest</p>
+    <p style="margin-top: 8px;">
+      <a href="https://cascadiatm.com">Cascadia TM</a> · <a href="https://marikaolson.com">Marika Olson</a>
+    </p>
+  </div>
+
+</div>
+</div>
+
+<!-- Forest background decoration -->
+<div class="bg-decor">
+  <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+    <path d="M0 200 L0 120 Q120 80 240 100 Q360 120 480 90 Q600 60 720 80 Q840 100 960 70 Q1080 40 1200 80 Q1320 120 1440 90 L1440 200Z" fill="#2d5a3e" opacity="0.3"/>
+    <path d="M0 200 L0 140 Q180 110 360 130 Q540 150 720 120 Q900 90 1080 120 Q1260 150 1440 110 L1440 200Z" fill="#4a7c59" opacity="0.2"/>
+  </svg>
+</div>
+
+</body>
+</html>

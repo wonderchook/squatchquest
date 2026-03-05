@@ -2,11 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>PNW Wilds Market Street Adventure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>PNW Wilds Market Street Adventure — Bigfoot Scavenger Hunt | SquatchSighting</title>
 <meta name="theme-color" content="#6a4c93">
-<meta name="description" content="A Bigfoot Scavenger Hunt in Downtown Chehalis - March 7, 2026">
-<link rel="manifest" href="data:application/json,{}">
+<meta name="description" content="A free 15-stop Bigfoot-themed QR scavenger hunt through Downtown Chehalis, WA. Visit local businesses, answer Sasquatch trivia, and enter to win prizes! March 7, 2026.">
+<meta name="keywords" content="scavenger hunt, Bigfoot, Chehalis, QR code, PNW Wilds, Market Street, Sasquatch, Downtown Chehalis, free event">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://squatchsight.ing/pnwwilds/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PNW Wilds Market Street Adventure — Bigfoot Scavenger Hunt">
+<meta property="og:description" content="Free 15-stop Bigfoot scavenger hunt in Downtown Chehalis, WA. Scan QR codes, answer trivia, win prizes. March 7, 2026.">
+<meta property="og:url" content="https://squatchsight.ing/pnwwilds/">
+<meta property="og:site_name" content="SquatchSighting">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PNW Wilds Market Street Adventure — Bigfoot Scavenger Hunt">
+<meta name="twitter:description" content="Free 15-stop Bigfoot scavenger hunt in Downtown Chehalis. March 7, 2026.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "PNW Wilds Market Street Adventure",
+  "description": "A free 15-stop Bigfoot-themed QR scavenger hunt through Downtown Chehalis, WA. Visit local businesses, answer Sasquatch trivia, and enter a prize drawing.",
+  "startDate": "2026-03-07T10:00:00-08:00",
+  "endDate": "2026-03-07T17:00:00-08:00",
+  "image": "https://squatchsight.ing/assets/patches/squatch-map-compass.jpg",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Downtown Chehalis — Market Street",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "North Market Boulevard",
+      "addressLocality": "Chehalis",
+      "addressRegion": "WA",
+      "postalCode": "98532",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "SquatchSighting",
+    "url": "https://squatchsight.ing/"
+  },
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Quicksand:wght@400;600;700&display=swap');
 
@@ -83,7 +141,47 @@ body {
   font-style: italic;
 }
 
-/* Bigfoot emoji/icon */
+.header .benefiting {
+  font-size: 0.85rem;
+  color: var(--green-dark);
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* Bigfoot logo */
+.bigfoot-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 40%;
+  border: 3px solid var(--purple-dark);
+  box-shadow: 0 3px 12px rgba(106,76,147,0.2);
+  filter: blur(0.5px) saturate(1.1) contrast(1.05);
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.logo-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 12px;
+  border: 3px solid var(--purple-dark);
+  box-shadow: 0 3px 12px rgba(106,76,147,0.2);
+}
+
+.logo-wrapper .bigfoot-logo {
+  width: 200px;
+  height: 200px;
+  margin: -35px 0 0 -40px;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Bigfoot emoji/icon (for stop cards) */
 .bigfoot-icon {
   font-size: 3rem;
   display: block;
@@ -165,8 +263,8 @@ body {
 
 .stop-card .business-address {
   text-align: center;
-  font-size: 0.8rem;
-  color: #999;
+  font-size: 0.9rem;
+  color: #767676;
   margin-bottom: 16px;
 }
 
@@ -318,11 +416,34 @@ body {
   background: #f1f8e9;
 }
 
+.hub-card.unlocked {
+  border-color: var(--purple);
+  background: #f3e5f5;
+  animation: gentlePulse 2s ease infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+  50% { box-shadow: 0 2px 16px rgba(155, 124, 184, 0.3); }
+}
+
+.hub-card.locked {
+  cursor: default;
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+}
+
+.hub-card.locked:hover {
+  transform: none;
+  border-color: #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
 .hub-card .hub-icon { font-size: 2rem; margin-bottom: 6px; display: block; }
 .hub-card .hub-name { font-weight: 700; font-size: 0.85rem; color: var(--purple-dark); line-height: 1.2; }
 .hub-card .hub-status { font-size: 0.75rem; margin-top: 4px; }
 .hub-card .hub-status.done { color: var(--green); }
-.hub-card .hub-status.pending { color: #bbb; }
+.hub-card .hub-status.pending { color: #767676; }
 
 .hub-card .checkmark {
   display: inline-block;
@@ -460,7 +581,7 @@ body {
   text-align: center;
   padding: 20px;
   font-size: 0.75rem;
-  color: #aaa;
+  color: #767676;
   margin-top: 30px;
 }
 
@@ -509,6 +630,31 @@ body {
   margin: 12px 0;
 }
 
+/* Back to SquatchSightling button */
+.back-to-site {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.9);
+  color: var(--purple-dark);
+  border: 2px solid var(--purple);
+  border-radius: 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+  text-decoration: none;
+}
+
+.back-to-site:hover { 
+  background: var(--purple); 
+  color: white;
+  transform: scale(1.02); 
+}
+
 /* Responsive tweaks */
 @media (max-width: 360px) {
   .header h1 { font-size: 1.6rem; }
@@ -522,7 +668,7 @@ body {
 <div class="container">
   <!-- Background decoration -->
   <div class="bg-decor">
-    <svg viewBox="0 0 480 200" preserveAspectRatio="none">
+    <svg viewBox="0 0 480 200" preserveAspectRatio="none" aria-hidden="true">
       <!-- Mountains -->
       <polygon points="0,200 60,80 120,140 180,50 240,120 300,60 360,130 420,70 480,200" fill="#c5b3d4" opacity="0.3"/>
       <polygon points="0,200 40,120 100,160 160,100 220,150 280,90 340,160 400,110 480,200" fill="#7cb87c" opacity="0.25"/>
@@ -540,265 +686,259 @@ body {
   <div class="footer">
     <p>PNW Wilds Market Street Adventure &bull; March 7, 2026<br>
     Benefiting <strong>Nature Nurture Farmacy</strong> &amp; <strong>Lewis County Historical Museum</strong><br>
-    Downtown Chehalis, WA</p>
+    Downtown Chehalis, WA<br><br>
+    <a href="/" style="color: var(--purple); font-weight: 600;">← Back to SquatchSightling</a></p>
+    <p style="margin-top:8px"><a href="#" onclick="if(confirm('Reset all progress? This cannot be undone!')){localStorage.removeItem('pnw_wilds_hunt_2026');location.href='?';}return false;">Reset Progress</a></p>
   </div>
 </div>
 
 <script>
-// ============ CONFIG ============
-// To connect a Google Form for entry collection:
-// 1. Create a Google Form with fields: Team Name, Team Size, Email, Phone, Favorite Stop, Completed At, Score
-// 2. Get the form's action URL and field entry IDs
-// 3. Fill in below:
-const GOOGLE_FORM_URL = ''; // e.g. 'https://docs.google.com/forms/d/e/XXXXX/formResponse'
-const FORM_FIELDS = {
-  teamName: '',    // e.g. 'entry.123456'
-  teamSize: '',    // e.g. 'entry.234567'
-  email: '',       // e.g. 'entry.345678'
-  phone: '',       // e.g. 'entry.456789'
-  favorite: '',    // e.g. 'entry.567890'
-  completedAt: '', // e.g. 'entry.678901'
-  score: '',       // e.g. 'entry.789012'
-};
-
-function submitToGoogleForm() {
-  const formData = new URLSearchParams();
-  if (FORM_FIELDS.teamName) formData.append(FORM_FIELDS.teamName, state.teamName);
-  if (FORM_FIELDS.teamSize) formData.append(FORM_FIELDS.teamSize, state.teamSize);
-  if (FORM_FIELDS.email) formData.append(FORM_FIELDS.email, state.email || '');
-  if (FORM_FIELDS.phone) formData.append(FORM_FIELDS.phone, state.phone || '');
-  if (FORM_FIELDS.favorite) formData.append(FORM_FIELDS.favorite, state.favorite || '');
-  if (FORM_FIELDS.completedAt) formData.append(FORM_FIELDS.completedAt, state.completedAt || new Date().toISOString());
-  if (FORM_FIELDS.score) formData.append(FORM_FIELDS.score, `${getCompletedCount()}/${TOTAL_STOPS}`);
-
-  // Fire-and-forget POST (Google Forms doesn't support CORS, so we use no-cors)
-  fetch(GOOGLE_FORM_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: formData.toString()
-  }).catch(() => {
-    // Silently fail — the confirmation screen still shows
-    // Kate can check the Google Sheet for entries
-  });
-}
-
 // ============ SCAVENGER HUNT DATA ============
 const STOPS = [
   {
-    id: 1,
-    name: "Nature Nurture Farmacy",
-    address: "Downtown Chehalis",
-    icon: "\ud83c\udf3f",
-    question: "Bigfoot stumbles out of the forest with a nasty case of poison oak. He limps into Nature Nurture Farmacy begging for help. What does the pharmacist recommend?",
-    options: [
-      "A bath in essential oils & oatmeal (Bigfoot-sized tub not included)",
-      "Rub more poison oak on it \u2014 fight fire with fire!",
-      "A jar of Sasquatch Soothing Salve (patent pending)",
-      "Just shake it off and go back to the woods"
-    ],
-    correct: 0,
-    funFact: "Nature Nurture Farmacy specializes in natural remedies that even a Sasquatch would love! \ud83c\udf3f"
-  },
-  {
-    id: 2,
-    name: "Book and Brush",
-    address: "Downtown Chehalis",
-    icon: "\ud83c\udfa8",
-    question: "Bigfoot wants to paint a self-portrait but keeps snapping the tiny brushes! What art style would best capture his magnificent wild side?",
-    options: [
-      "Impressionism \u2014 all those blurry photos of him are basically impressionist already",
-      "Abstract \u2014 nobody can tell what he looks like anyway!",
-      "Bob Ross-style happy little trees (with a happy big Bigfoot)",
-      "Pointillism \u2014 one dot for each hair on his body (this could take a while)"
-    ],
-    correct: 2,
-    funFact: "Book and Brush is the perfect place to unleash your inner artist \u2014 Bigfoot-sized creativity welcome! \ud83d\uddbc\ufe0f"
-  },
-  {
-    id: 3,
-    name: "Bigfoot Treasures",
-    address: "Downtown Chehalis",
-    icon: "\ud83e\uddb6",
-    question: "Deep in Bigfoot's secret cave, he keeps a treasure collection. What's the MOST prized item on his shelf at Bigfoot Treasures?",
-    options: [
-      "A signed copy of \"How to Avoid Trail Cameras: A Memoir\"",
-      "The world's largest collection of blurry photographs of himself",
-      "A plaster cast of his OWN footprint \u2014 he thinks it's hilarious",
-      "A tiny pair of human shoes he finds absolutely adorable"
-    ],
-    correct: 2,
-    funFact: "Bigfoot Treasures is full of unique finds that even a Sasquatch would want for his cave! \ud83d\udc8e"
-  },
-  {
-    id: 4,
+    id: 2, key: "wool3e",
     name: "Ewe & I",
     address: "566 N Market Blvd",
     icon: "\ud83d\udc11",
-    question: "Bigfoot needs a cozy sweater for the chilly PNW winters. He shuffles into Ewe & I for yarn. How many skeins would it take to knit a Bigfoot-sized sweater?",
+    question: "Bigfoot needs a cozy sweater for the chilly PNW winters. He shuffles into Ewe & I for supplies. What can he find at this local yarn store?",
     options: [
-      "42 skeins (and two very tired knitting needles)",
-      "Just one \u2014 if it's from a REALLY big sheep",
-      "87 skeins and a dream",
-      "Trick question: Bigfoot runs too warm for sweaters!"
-    ],
-    correct: 2,
-    funFact: "Ewe & I carries beautiful yarns perfect for knitting everything from baby booties to Bigfoot beanies! \ud83e\uddf6"
-  },
-  {
-    id: 5,
-    name: "Diversified Games",
-    address: "551 N Market Blvd",
-    icon: "\ud83c\udfb2",
-    question: "It's game night in Bigfoot's cave! He invites some forest friends over. What's Bigfoot's favorite board game to play?",
-    options: [
-      "Hide & Seek: Championship Edition (he's undefeated since 1967)",
-      "Clue \u2014 \"It was the Sasquatch, in the forest, with the big feet\"",
-      "Bigfoot vs. the Board \u2014 he keeps accidentally flipping the table",
-      "Dungeons & Dragons \u2014 he always plays himself"
-    ],
-    correct: 0,
-    funFact: "Diversified Games has everything from board games to card games \u2014 perfect for your own cave game night! \ud83c\udfae"
-  },
-  {
-    id: 6,
-    name: "Spruce",
-    address: "534 N Market Blvd",
-    icon: "\ud83c\udf32",
-    question: "Bigfoot has a hot date and wants to \"spruce\" up! He walks into Spruce for a makeover. What treatment does he book first?",
-    options: [
-      "Full-body de-tangling session (estimated time: 6 hours)",
-      "\"The Sasquatch Special\" \u2014 deep conditioning for all 8 million hairs",
-      "Just a nice cologne that smells like pine trees and mystery",
-      "A mud mask (he's already halfway there from living in the woods)"
+      "Only basic acrylic yarn in three colors",
+      "Independently dyed yarns and supplies for knitting, spinning, weaving, and felting",
+      "Pre-made Bigfoot-sized sweaters (one size fits all Sasquatch)",
+      "Just knitting needles \u2014 you have to bring your own yarn"
     ],
     correct: 1,
-    funFact: "Spruce will have you looking fabulous \u2014 no Sasquatch-level grooming challenges required! \u2728"
+    funFact: "Ewe & I is a full fiber arts shop carrying independently dyed yarns alongside national brands, plus tools and supplies for knitting, spinning, weaving, and felting! \ud83e\uddf6"
   },
   {
-    id: 7,
-    name: "NW Salmon Smokehouse",
-    address: "486 N Market Blvd",
-    icon: "\ud83d\udc1f",
-    question: "Bigfoot LOVES salmon \u2014 he catches them right out of the river! But how many pounds of smoked salmon from NW Salmon Smokehouse can he eat in one sitting?",
-    options: [
-      "A modest 12 pounds (he's watching his figure)",
-      "47 pounds and he's still eyeing the gift baskets",
-      "He doesn't eat it \u2014 he just likes the smoky smell on his fur",
-      "One sample tray (he's surprisingly polite about free samples)"
-    ],
-    correct: 1,
-    funFact: "NW Salmon Smokehouse smokes up the best Pacific Northwest salmon \u2014 no fishing required! \ud83c\udf23"
-  },
-  {
-    id: 8,
+    id: 3, key: "glam5j",
     name: "JJ Nails",
     address: "542 N Market Blvd",
     icon: "\ud83d\udc85",
-    question: "Bigfoot's toenails are getting out of control. He squeezes into JJ Nails for a pedicure. How many toenails does the nail tech have to paint?",
+    question: "Bigfoot's toenails are getting out of control \u2014 each one is the size of a dinner plate. He squeezes into JJ Nails for some help. Which of these services can their nail techs actually do for him?",
     options: [
-      "10 \u2014 same as humans, just MUCH bigger",
-      "20 \u2014 hands AND feet, obviously (he's treating himself)",
-      "Just 2 big ones \u2014 accent nails are very in right now",
-      "Zero \u2014 Bigfoot is too ticklish for pedicures!"
+      "Only basic nail clipping \u2014 nothing fancy",
+      "Gel nails, acrylics, dip powder, nail art, manicures, and pedicures",
+      "Full claw sharpening and talon polishing (forest predator special)",
+      "They only do hair, not nails \u2014 Bigfoot is in the wrong shop"
     ],
     correct: 1,
-    funFact: "JJ Nails will make YOUR nails look amazing \u2014 even if they're not Bigfoot-sized! \ud83d\udc85\u2728"
+    funFact: "JJ Nails offers the works \u2014 gel nails, acrylics, dip powder, nail art, manicures, and pedicures. Even Bigfoot's toenails would look fabulous! \ud83d\udc85\u2728"
   },
   {
-    id: 9,
-    name: "Royal Sushi & Teriyaki",
-    address: "575 N Market Blvd",
-    icon: "\ud83c\udf63",
-    question: "Bigfoot walks into Royal Sushi & Teriyaki and orders his signature roll. What's it called?",
+    id: 4, key: "cave9t",
+    name: "Bigfoot Treasures",
+    address: "Downtown Chehalis",
+    icon: "\ud83e\uddb6",
+    question: "Bigfoot walks into his favorite store in town \u2014 a place literally named after him! What's the ONE thing he can't find on the shelves?",
     options: [
-      "The Sasquatch Roll \u2014 it's 3 feet long and wrapped in cedar bark",
-      "The \"Blurry Photo\" Roll \u2014 you can never quite tell what's in it",
-      "The Big Foot-Long Roll \u2014 exactly 12 inches of deliciousness",
-      "The Forest Crunch Roll \u2014 salmon, avocado & pinecone tempura"
+      "Cryptid and paranormal-themed T-shirts and stickers",
+      "A real, authenticated Sasquatch DNA test kit",
+      "Bacon-flavored candy canes",
+      "Jewelry, coloring books, and novelty gifts"
     ],
-    correct: 3,
-    funFact: "Royal Sushi & Teriyaki serves up rolls almost as legendary as Bigfoot himself! \ud83c\udf63"
+    correct: 1,
+    funFact: "Bigfoot Treasure is packed with cryptid-themed clothes, quirky novelties, bacon candy canes, and all the Bigfoot merch a Sasquatch could dream of! \ud83d\udc8e"
   },
   {
-    id: 10,
-    name: "Smith's Mercantile",
-    address: "464 N Market Blvd",
-    icon: "\ud83c\udfea",
-    question: "Bigfoot sneaks into Smith's Mercantile after hours to do some shopping. What's the FIRST thing he grabs off the shelf?",
+    id: 5, key: "pine2s",
+    name: "Spruce",
+    address: "534 N Market Blvd",
+    icon: "\ud83c\udf32",
+    question: "Bigfoot has a hot date and wants to \"spruce\" up! He walks into Spruce Skin & Wax Shoppe for a glow-up. What can he actually get done here?",
     options: [
-      "The biggest pair of boots they carry (still two sizes too small)",
-      "A cowboy hat \u2014 he's going for a new look this season",
-      "Trail mix \u2014 literally his favorite food group",
-      "A \"I Believe\" Bigfoot t-shirt (the irony is not lost on him)"
+      "A full haircut and beard trim (he's very attached to his look)",
+      "HydraFacial treatments, clinical peels, and full body waxing",
+      "A tattoo of a footprint on his bicep",
+      "Just a basic bar of soap and good luck"
     ],
-    correct: 3,
-    funFact: "Smith's Mercantile has been a downtown Chehalis treasure for years \u2014 come find YOUR perfect find! \ud83d\udecd\ufe0f"
+    correct: 1,
+    funFact: "Spruce Skin & Wax Shoppe specializes in HydraFacials, clinical skincare, customized facials, and expert waxing \u2014 plus they sell clothes, jewelry, and accessories. Originally started in Olympia! \u2728"
   },
   {
-    id: 11,
-    name: "Taqueria Lolita",
-    address: "337 NW Chehalis Ave",
-    icon: "\ud83c\udf2e",
-    question: "Bigfoot discovers tacos for the first time at Taqueria Lolita. How does he react?",
+    id: 6, key: "paint4b",
+    name: "Book 'N' Brush",
+    address: "Downtown Chehalis",
+    icon: "\ud83c\udfa8",
+    question: "Bigfoot finally comes out of the woods and wanders into Book 'N' Brush. He's amazed \u2014 this shop has been here since 1969! What does he NOT find inside?",
     options: [
-      "He eats 47 tacos and writes a 5-star Yelp review (anonymously, of course)",
-      "He tries to pay with pinecones (the staff is very understanding)",
-      "He cries a single happy tear \u2014 tacos are the best thing since wild berries",
-      "All of the above"
+      "Fine art supplies and custom framing",
+      "A Bigfoot tracking GPS with thermal vision (military grade)",
+      "A curated selection of books and local artisan gifts",
+      "Children's toys and cozy reading chairs"
     ],
-    correct: 3,
-    funFact: "Taqueria Lolita's tacos are so good, even a Sasquatch would come out of hiding for them! \ud83c\udf2e\u2764\ufe0f"
+    correct: 1,
+    funFact: "Book 'N' Brush has been a Chehalis treasure since 1969, offering books, fine art supplies, custom framing, local artisan gifts, and children's toys for over 50 years! \ud83d\uddbc\ufe0f"
   },
   {
-    id: 12,
-    name: "Furniture World",
-    address: "563 N Market Blvd",
-    icon: "\ud83d\udecb\ufe0f",
-    question: "Bigfoot is tired of sleeping on a pile of leaves. He goes to Furniture World to upgrade. What's his #1 requirement for a new couch?",
+    id: 7, key: "fish8k",
+    name: "NW Salmon Smokehouse",
+    address: "486 N Market Blvd",
+    icon: "\ud83d\udc1f",
+    question: "Bigfoot LOVES salmon \u2014 he catches them right out of the river! But at NW Salmon Smokehouse & Artisan Market, they do things a little fancier. Which of these is a real menu item?",
     options: [
-      "Must hold at least 800 pounds of pure Sasquatch",
-      "Has to come in \"Forest Camouflage\" to match his cave decor",
-      "Extra-long \u2014 his feet hang off everything",
-      "Built-in snack holder (for salmon jerky, obviously)"
+      "Smoked salmon chowder",
+      "Bigfoot's Bear-Claw Brisket Burger",
+      "Deep-fried salmon jerky on a stick",
+      "Sasquatch-sized salmon sashimi platter"
     ],
-    correct: 2,
-    funFact: "Furniture World has comfy furniture for every size \u2014 maybe not QUITE Bigfoot-sized, but close! \ud83d\udecb\ufe0f"
+    correct: 0,
+    funFact: "NW Salmon Smokehouse serves up smoked salmon chowder, smoked salmon paninis, and smokehouse baked potatoes \u2014 plus an artisan market with specialty foods and locally crafted goods! \ud83c\udf23"
   },
   {
-    id: 13,
+    id: 8, key: "paws9d",
     name: "Doggie Designs",
     address: "571 N Market Blvd",
     icon: "\ud83d\udc36",
-    question: "Bigfoot brings his best friend (a very large wolf pup he adopted) to Doggie Designs for a grooming session. What style does he request?",
+    question: "Bigfoot brings his best friend (a very large wolf pup he adopted) to Doggie Designs for a spa day. Which of these is NOT a real service they offer?",
     options: [
-      "\"The Teddy Bear Cut\" \u2014 so the wolf looks less intimidating at the dog park",
-      "\"Match My Owner\" \u2014 long, wild, and mysterious",
-      "\"The Poodle\" \u2014 Bigfoot thinks poodle cuts are hilarious",
-      "Just a bath \u2014 the wolf rolled in something unspeakable in the forest"
+      "De-shedding treatments",
+      "Teeth cleaning",
+      "A doggie aromatherapy massage with essential oils",
+      "Flea and tick prevention"
     ],
-    correct: 3,
-    funFact: "Doggie Designs will pamper your pup like the forest royalty they are! \ud83d\udc3e\u2728"
+    correct: 2,
+    funFact: "Doggie Designs offers bathing, haircuts, nail trimming, ear cleaning, de-shedding, teeth cleaning, and flea & tick prevention \u2014 all in a low-stress environment. Even Bigfoot's wolf pup would feel pampered! \ud83d\udc3e\u2728"
+  },
+  {
+    id: 9, key: "sofa3w",
+    name: "Furniture World",
+    address: "563 N Market Blvd",
+    icon: "\ud83d\udecb\ufe0f",
+    question: "Bigfoot is tired of sleeping on a pile of leaves. He goes to Furniture World to upgrade. This family-owned business has been in the furniture industry for over 40 years \u2014 how many locations do they have across Western Washington?",
+    options: [
+      "Just this one \u2014 it's a hidden gem",
+      "Three \u2014 Chehalis, Seattle, and Spokane",
+      "Eight family-owned locations",
+      "Fifty \u2014 there's a Furniture World on every corner"
+    ],
+    correct: 2,
+    funFact: "Furniture World is family owned and operated with eight locations across Western Washington. Their first store opened in Vancouver, WA in 1993 and they've been growing ever since! \ud83d\udecb\ufe0f"
+  },
+  {
+    id: 10, key: "dice6g",
+    name: "Diversified Games",
+    address: "551 N Market Blvd",
+    icon: "\ud83c\udfb2",
+    question: "It's game night in Bigfoot's cave! He heads to Diversified Games to stock up. This shop has been going strong since 1999 \u2014 which of these can Bigfoot actually find there?",
+    options: [
+      "Comic books, graphic novels, and manga",
+      "A life-sized Bigfoot action figure with kung fu grip",
+      "Only video games \u2014 nothing else",
+      "Just Monopoly and Scrabble, that's it"
+    ],
+    correct: 0,
+    funFact: "Diversified Games is a full-service comic and game store carrying back issues, new comics, graphic novels, manga, CCGs, RPGs, board games, miniatures, and hobby supplies \u2014 open since 1999! \ud83c\udfae"
+  },
+  {
+    id: 11, key: "brew5c",
+    name: "Mint City Coffee Roasting",
+    address: "539 N Market Blvd",
+    icon: "\u2615",
+    question: "Bigfoot needs his morning caffeine fix and stumbles into Mint City Coffee Roasting. This small-batch roaster operates out of a beautifully renovated historic building. About how old is the building they call home?",
+    options: [
+      "About 50 years old \u2014 built in the 1970s",
+      "About 128 years old \u2014 over a century of history",
+      "Brand new \u2014 built last year just for the coffee shop",
+      "Nobody knows \u2014 the building's birth certificate was lost in a Bigfoot sighting"
+    ],
+    correct: 1,
+    funFact: "Mint City Coffee Roasting operates in a 128-year-old, 6,000-square-foot building in historic downtown Chehalis, with their roastery right in the back! \u2615\ud83c\udf31"
+  },
+  {
+    id: 12, key: "shoe2b",
+    name: "Brunswig's Shoes",
+    address: "525 N Market Blvd",
+    icon: "\ud83d\udc5f",
+    question: "Bigfoot's been going barefoot his whole life, but he's finally ready for his first pair of shoes. He walks into Brunswig's Shoe Store \u2014 how many generations of the Brunswig family have been selling shoes in downtown Chehalis?",
+    options: [
+      "Just one \u2014 it opened last year",
+      "Two generations \u2014 father and son",
+      "Four generations \u2014 over 100 years of family shoe-selling",
+      "Seven generations \u2014 they've been here since before Chehalis existed"
+    ],
+    correct: 2,
+    funFact: "Brunswig's Shoe Store has been in downtown Chehalis for four generations and over 100 years! They still measure your feet with antique measuring devices and bring shoes out from the back \u2014 no self-serve here! \ud83d\udc5f\u2b50"
+  },
+  {
+    id: 13, key: "boot4m",
+    name: "Smith's Mercantile",
+    address: "464 N Market Blvd",
+    icon: "\ud83c\udfea",
+    question: "Bigfoot sneaks into Smith's Mercantile looking for a new outfit. What kind of shop is he in?",
+    options: [
+      "A hardware store \u2014 nothing but hammers and nails",
+      "A curated boutique with home d\u00e9cor, clothing, accessories, and gifts",
+      "A Bigfoot costume rental shop (he's going undercover as a human)",
+      "A grocery store with a really misleading name"
+    ],
+    correct: 1,
+    funFact: "Smith's Mercantile is a boutique with a blend of rustic charm and modern style, offering handpicked home d\u00e9cor, clothing, accessories, and gifts \u2014 perfect for finding something unique in downtown Chehalis! \ud83d\udecd\ufe0f"
+  },
+  {
+    id: 14, key: "herb7f",
+    name: "Nature Nurture Farmacy",
+    address: "Downtown Chehalis",
+    icon: "\ud83c\udf3f",
+    question: "Bigfoot's been foraging in the woods for years, but he just discovered Nature Nurture Farmacy has an even more selection. What can he grab from their herbal apothecary that he can't find under a log?",
+    options: [
+      "A packet of open-pollinated seeds from their community seed library (he wants to start a garden in his cave)",
+      "A jar of pickled pinecones (Bigfoot's favorite midnight snack)",
+      "A prescription for \"essence of mystery\" (smells like fog and secrets)",
+      "A map to the nearest Bigfoot-sized hot tub"
+    ],
+    correct: 0,
+    funFact: "Nature Nurture Farmacy is a non-profit with a real community seed library full of non-GMO, open-pollinated seed packets, plus herbal teas, supplements, and classes on herbs and nutrition! \ud83c\udf3f"
+  },
+  {
+    id: 16, key: "roll1r",
+    name: "Royal Sushi & Teriyaki",
+    address: "575 N Market Blvd",
+    icon: "\ud83c\udf63",
+    question: "Bigfoot walks into Royal Sushi & Teriyaki and stares at the menu. He sees something called \"hamachi\" \u2014 what is it?",
+    options: [
+      "A spicy dipping sauce made from wasabi and honey",
+      "A type of chopstick holder shaped like a little fish",
+      "Yellowtail \u2014 a rich, buttery fish popular in sushi",
+      "A deep-fried dessert roll filled with sweet red bean paste"
+    ],
+    correct: 2,
+    funFact: "Hamachi is the Japanese word for yellowtail, a favorite at sushi restaurants for its rich, buttery flavor. Now you can order like a pro at Royal Sushi & Teriyaki! \ud83c\udf63"
+  },
+  {
+    id: 17, key: "taco7l",
+    name: "Taqueria Lolita",
+    address: "337 NW Chehalis Ave",
+    icon: "\ud83c\udf2e",
+    question: "Bigfoot discovers tacos for the first time at Taqueria Lolita and instantly falls in love. Now for a taco trivia question \u2014 how many tacos does the average American eat per year?",
+    options: [
+      "About 10 \u2014 most people stick to Taco Tuesday",
+      "Around 60 \u2014 a little more than one a week",
+      "Exactly 100 \u2014 it's a national requirement",
+      "Over 200 \u2014 Bigfoot thinks those are rookie numbers"
+    ],
+    correct: 1,
+    funFact: "Americans eat roughly 4.5 billion tacos a year \u2014 that works out to about 60 per person! Bigfoot plans to single-handedly raise that average after visiting Taqueria Lolita. \ud83c\udf2e\u2764\ufe0f"
   }
 ];
+
 
 const TOTAL_STOPS = STOPS.length;
 
 // ============ STATE MANAGEMENT ============
-const STORAGE_KEY = 'squatchquest_state';
+// Persist progress in localStorage so it survives between QR scans
+const STORAGE_KEY = 'pnw_wilds_hunt_2026';
 
 function loadState() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) return JSON.parse(saved);
-  } catch (e) { /* localStorage unavailable */ }
-  return { completed: {}, teamName: '', teamSize: '', submitted: false };
+  } catch(e) {}
+  return { completed: {}, unlocked: {}, teamName: '', teamSize: '', submitted: false };
 }
 
 function saveState() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch (e) { /* localStorage unavailable */ }
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
 }
 
 let state = loadState();
@@ -807,6 +947,15 @@ let state = loadState();
 function getStopFromURL() {
   const params = new URLSearchParams(window.location.search);
   return parseInt(params.get('stop')) || null;
+}
+
+function getKeyFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('key') || null;
+}
+
+function isUnlocked(stopId) {
+  return !!state.unlocked[stopId];
 }
 
 function getCompletedCount() {
@@ -851,11 +1000,27 @@ const app = document.getElementById('app');
 
 function render() {
   const stopId = getStopFromURL();
+  const urlKey = getKeyFromURL();
+
+  // If arriving with a valid key, unlock this stop
+  if (stopId && urlKey) {
+    const stop = STOPS.find(s => s.id === stopId);
+    if (stop && stop.key === urlKey) {
+      if (!state.unlocked) state.unlocked = {};
+      state.unlocked[stopId] = true;
+      saveState();
+    }
+  }
+
+  // Ensure unlocked exists for older saved states
+  if (!state.unlocked) { state.unlocked = {}; saveState(); }
 
   if (state.submitted) {
     renderThankYou();
-  } else if (stopId) {
+  } else if (stopId && isUnlocked(stopId)) {
     renderStop(stopId);
+  } else if (stopId) {
+    renderLocked(stopId);
   } else {
     renderHub();
   }
@@ -867,11 +1032,15 @@ function renderHub() {
   const allDone = completed >= TOTAL_STOPS;
 
   let html = `
+    <a href="/" class="back-to-site">🦶 ← SquatchSightling</a>
     <div class="header">
-      <span class="bigfoot-icon">\ud83e\uddb6</span>
+      <div class="logo-wrapper">
+        <img class="bigfoot-logo" src="../assets/patches/squatch-map-compass.jpg" alt="SquatchSighting logo" width="200" height="200">
+      </div>
       <h1>PNW Wilds<br>Market Street Adventure</h1>
       <div class="subtitle">What's Out There? \ud83d\udc40</div>
       <div class="tagline">A Bigfoot Scavenger Hunt \u2022 Downtown Chehalis</div>
+      <div class="benefiting">Benefiting <strong>Nature Nurture Farmacy</strong> &amp; <strong>Lewis County Historical Museum</strong></div>
     </div>
 
     <div class="progress-section">
@@ -879,7 +1048,7 @@ function renderHub() {
         <span>\ud83d\udccd Stops Completed</span>
         <span>${completed} / ${TOTAL_STOPS}</span>
       </div>
-      <div class="progress-bar">
+      <div class="progress-bar" role="progressbar" aria-valuenow="${completed}" aria-valuemin="0" aria-valuemax="${TOTAL_STOPS}" aria-label="Hunt progress: ${completed} of ${TOTAL_STOPS} stops completed">
         <div class="progress-fill" style="width: ${pct}%">
           ${pct > 8 ? '<span class="footprint">\ud83e\uddb6</span>' : ''}
         </div>
@@ -902,16 +1071,31 @@ function renderHub() {
 
   STOPS.forEach(stop => {
     const done = state.completed[stop.id];
-    html += `
-      <a class="hub-card ${done ? 'completed' : ''}" href="?stop=${stop.id}">
-        <span class="hub-icon">${stop.icon}</span>
-        <div class="hub-name">${stop.name}</div>
-        ${done
-          ? '<span class="checkmark">\u2713</span>'
-          : '<div class="hub-status pending">Tap to visit!</div>'
-        }
-      </a>
-    `;
+    const unlocked = isUnlocked(stop.id);
+    const cardClass = done ? 'completed' : unlocked ? 'unlocked' : 'locked';
+
+    if (done) {
+      html += `
+        <a class="hub-card completed" href="?stop=${stop.id}&key=${stop.key}">
+          <span class="hub-icon">${stop.icon}</span>
+          <div class="hub-name">${stop.name}</div>
+          <span class="checkmark">\u2713</span>
+        </a>`;
+    } else if (unlocked) {
+      html += `
+        <a class="hub-card unlocked" href="?stop=${stop.id}&key=${stop.key}">
+          <span class="hub-icon">${stop.icon}</span>
+          <div class="hub-name">${stop.name}</div>
+          <div class="hub-status" style="color:var(--purple);">Tap to answer!</div>
+        </a>`;
+    } else {
+      html += `
+        <div class="hub-card locked">
+          <span class="hub-icon" style="opacity:0.4">\ud83d\udd12</span>
+          <div class="hub-name" style="opacity:0.6">${stop.name}</div>
+          <div class="hub-status pending">Scan QR at store</div>
+        </div>`;
+    }
   });
 
   html += `</div>`;
@@ -920,19 +1104,9 @@ function renderHub() {
   html += `
     <div style="text-align:center; margin: 24px 0 8px;">
       <a href="demo.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--purple);color:white;border-radius:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;box-shadow:0 2px 8px rgba(106,76,147,0.3);transition:all 0.2s;">
-        \ud83d\udcf1 Try a Demo
+        📱 Try a Demo
       </a>
       <div style="font-size:0.8rem;color:#999;margin-top:6px;">Scan QR codes from your screen!</div>
-    </div>
-  `;
-
-  // Reset button for testing / shared devices
-  html += `
-    <div style="text-align:center; margin-top: 12px;">
-      <button onclick="if(confirm('Reset all progress? This cannot be undone.')){state={completed:{},teamName:'',teamSize:'',submitted:false};saveState();render();}"
-        style="background:none;border:none;color:#ccc;font-size:0.75rem;cursor:pointer;text-decoration:underline;">
-        Reset Progress
-      </button>
     </div>
   `;
 
@@ -947,15 +1121,47 @@ function renderHub() {
   }
 }
 
+function renderLocked(stopId) {
+  const stop = STOPS.find(s => s.id === stopId);
+  if (!stop) {
+    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" aria-label="Back to map" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
+    return;
+  }
+
+  app.innerHTML = `
+    <a href="/" class="back-to-site">🦶 ← SquatchSightling</a>
+    <div class="header">
+      <span class="bigfoot-icon">\ud83d\udd12</span>
+      <h1>${stop.name}</h1>
+    </div>
+    <div class="stop-card" style="border-color: var(--purple); text-align: center;">
+      <div class="business-icon">${stop.icon}</div>
+      <div class="business-name">${stop.name}</div>
+      <div class="business-address">\ud83d\udccd ${stop.address}</div>
+      <div style="padding: 20px 10px;">
+        <div style="font-size: 3rem; margin-bottom: 12px;">\ud83e\uddb6\ud83d\udcf1</div>
+        <p style="font-size: 1.1rem; font-weight: 700; color: var(--purple-dark); margin-bottom: 12px;">
+          This stop is locked!
+        </p>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--brown);">
+          Head to <strong>${stop.name}</strong> and scan the QR code posted there to unlock this question. Bigfoot is waiting for you!
+        </p>
+      </div>
+      <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Back to Adventure Map</button>
+    </div>
+  `;
+}
+
 function renderStop(stopId) {
   const stop = STOPS.find(s => s.id === stopId);
   if (!stop) {
-    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
+    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" aria-label="Back to map" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
     return;
   }
 
   if (state.completed[stopId]) {
     app.innerHTML = `
+      <a href="/" class="back-to-site">🦶 ← SquatchSightling</a>
       <div class="header">
         <span class="bigfoot-icon">${stop.icon}</span>
         <h1>${stop.name}</h1>
@@ -965,6 +1171,7 @@ function renderStop(stopId) {
         <h3>Already Completed!</h3>
         <p>You've already conquered this stop, adventurer! Bigfoot is impressed.</p>
         <p style="font-size:0.85rem; color:var(--purple); font-style:italic; margin-top:8px;">${stop.funFact}</p>
+        ${stop.website ? `<a href="${stop.website}" target="_blank" rel="noopener" class="nav-btn" style="display:inline-flex; text-decoration:none; margin-top:8px; background:var(--green);">🌐 Visit ${stop.name}</a>` : ''}
         <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Back to Adventure Map</button>
       </div>
     `;
@@ -975,23 +1182,24 @@ function renderStop(stopId) {
 
   let html = `
     <div class="header" style="padding-bottom:8px">
+      <a href="/" class="back-to-site" style="margin-bottom:12px">🦶 ← SquatchSightling</a>
       <button class="nav-btn" onclick="window.location='?'" style="margin-bottom:12px">\ud83d\uddfa\ufe0f Adventure Map</button>
     </div>
     <div class="stop-card">
       <div class="business-icon">${stop.icon}</div>
       <div class="business-name">${stop.name}</div>
-      <div class="business-address">\ud83d\udccd ${stop.address}</div>
+      <div class="business-address">\ud83d\udccd ${stop.address}${stop.website ? ` · <a href="${stop.website}" target="_blank" rel="noopener" style="color:#7b5ea7;">Visit website</a>` : ''}</div>
       <div class="question-label">\ud83e\uddb6 Bigfoot wants to know...</div>
       <div class="question">${stop.question}</div>
       <div class="options" id="options-${stop.id}">
         ${stop.options.map((opt, i) => `
-          <button class="option-btn" data-stop="${stop.id}" data-idx="${i}" onclick="handleAnswer(${stop.id}, ${i})">
+          <button class="option-btn" data-stop="${stop.id}" data-idx="${i}" aria-label="Answer ${letters[i]}: ${opt}" onclick="handleAnswer(${stop.id}, ${i})">
             <span class="letter">${letters[i]}</span>
             <span>${opt}</span>
           </button>
         `).join('')}
       </div>
-      <div id="result-${stop.id}"></div>
+      <div id="result-${stop.id}" aria-live="polite" role="status"></div>
     </div>
   `;
 
@@ -1022,13 +1230,16 @@ function handleAnswer(stopId, selectedIdx) {
   saveState();
 
   if (isCorrect) {
+    const visitLink = stop.website ? `<div style="margin-top:8px;"><a href="${stop.website}" target="_blank" rel="noopener" style="color:#7b5ea7; font-weight:600; font-size:0.9rem;">🌐 Visit ${stop.name}</a></div>` : '';
+
     resultDiv.innerHTML = `
       <div class="result-msg correct">
         \ud83c\udf1f Correct! Bigfoot approves! \ud83e\uddb6
         <div class="fun-fact">${stop.funFact}</div>
+        ${visitLink}
       </div>
       <div style="text-align:center">
-        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
+        <button class="nav-btn" aria-label="Continue adventure, ${getCompletedCount()} of ${TOTAL_STOPS} stops completed" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
       </div>
     `;
     launchConfetti();
@@ -1037,9 +1248,10 @@ function handleAnswer(stopId, selectedIdx) {
       <div class="result-msg wrong">
         \ud83d\ude04 Nice try! The answer was <strong>${String.fromCharCode(65 + stop.correct)}</strong> \u2014 but Bigfoot still gives you credit for showing up!
         <div class="fun-fact">${stop.funFact}</div>
+        ${visitLink}
       </div>
       <div style="text-align:center">
-        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
+        <button class="nav-btn" aria-label="Continue adventure, ${getCompletedCount()} of ${TOTAL_STOPS} stops completed" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
       </div>
     `;
   }
@@ -1092,14 +1304,9 @@ function handleSubmit(e) {
   state.email = document.getElementById('email').value;
   state.phone = document.getElementById('phone').value || '';
   state.favorite = document.getElementById('favorite').value || '';
-  state.completedAt = new Date().toISOString();
   state.submitted = true;
+  state.completedAt = new Date().toISOString();
   saveState();
-
-  // Submit to Google Form (if configured)
-  if (GOOGLE_FORM_URL) {
-    submitToGoogleForm();
-  }
 
   render();
   launchConfetti();
@@ -1130,6 +1337,7 @@ function renderThankYou() {
         Thank you for supporting Nature Nurture Farmacy &amp; Lewis County Historical Museum!
       </p>
       <div style="margin-top: 24px; font-size: 3rem;">\ud83c\udf32\ud83e\uddb6\ud83c\udf32</div>
+      <a href="/" class="back-to-site" style="margin-top: 20px; display: inline-flex;">🦶 ← Back to SquatchSightling</a>
     </div>
   `;
 }

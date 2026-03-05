@@ -2,429 +2,382 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SquatchSightling - Custom Location-Based Adventures</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SquatchSight.ing — Custom Bigfoot Scavenger Hunts</title>
+<meta name="theme-color" content="#6a4c93">
+<meta name="description" content="Custom Bigfoot-themed QR code scavenger hunts for your community, downtown, or event. Built in the Pacific Northwest.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦶</text></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Quicksand:wght@400;600;700&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --forest-green: #2d5a3e;
-  --moss-green: #4a7c59;
-  --sage-green: #7cb87c;
-  --pine-dark: #1a3a2e;
-  --earth-brown: #5d4037;
-  --sasquatch-brown: #8d6e63;
-  --mist-gray: #b0bec5;
+  --pink: #f0b8c8;
+  --pink-light: #fce4ec;
+  --purple: #9b7cb8;
+  --purple-dark: #6a4c93;
+  --green: #4a7c59;
+  --green-light: #7cb87c;
+  --green-dark: #2d5a3e;
   --cream: #fef9f0;
-  --adventure-orange: #ff8f00;
-  --discovery-purple: #6a4c93;
+  --brown: #5d4037;
 }
 
 body {
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(135deg, var(--cream) 0%, #e8f5e9 40%, var(--mist-gray) 100%);
+  background: linear-gradient(180deg, var(--pink-light) 0%, var(--cream) 30%, #e8f5e9 100%);
   min-height: 100vh;
-  color: var(--earth-brown);
-  line-height: 1.6;
+  color: var(--brown);
 }
 
 .container {
-  max-width: 900px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px 16px;
+  min-height: 100vh;
+  position: relative;
 }
 
-.hero {
+.content { position: relative; z-index: 1; }
+
+/* Header */
+.header {
   text-align: center;
-  padding: 40px 20px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 20px;
-  margin-bottom: 40px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-}
-
-.hero h1 {
-  font-family: 'Lilita One', cursive;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  color: var(--forest-green);
-  text-shadow: 2px 2px 0 rgba(255,255,255,0.7);
-  margin-bottom: 16px;
-}
-
-.hero .tagline {
-  font-size: 1.3rem;
-  color: var(--discovery-purple);
-  font-weight: 600;
+  padding: 40px 10px 20px;
   margin-bottom: 20px;
 }
 
-.hero .description {
-  font-size: 1.1rem;
-  color: var(--earth-brown);
-  max-width: 600px;
-  margin: 0 auto 30px;
+.header .bigfoot-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 12px;
+  animation: wobble 3s ease-in-out infinite;
 }
 
-.bigfoot-icon {
-  font-size: 4rem;
-  margin-bottom: 16px;
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.header h1 {
+  font-family: 'Lilita One', cursive;
+  font-size: 2.8rem;
+  color: var(--purple-dark);
+  text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.header .subtitle {
+  font-size: 1.15rem;
+  color: var(--green-dark);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.header .tagline {
+  font-size: 0.95rem;
+  color: var(--purple);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 3px solid var(--pink);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card h2 {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.5rem;
+  color: var(--purple-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: var(--brown);
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.card ul li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card ul li::before {
+  content: '🦶';
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+/* Hunt links */
+.hunt-card {
+  border-color: var(--green-light);
+  background: linear-gradient(135deg, white 0%, #f0f9f0 100%);
+  text-decoration: none;
   display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.hunt-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+.hunt-card .hunt-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.4rem;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+
+.hunt-card .hunt-location {
+  font-size: 0.85rem;
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.hunt-card .hunt-desc {
+  font-size: 0.9rem;
+  color: var(--brown);
+  margin-top: 8px;
+}
+
+.hunt-card .hunt-badge {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+/* Team section */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.team-member {
+  text-align: center;
+  padding: 16px;
+  background: var(--cream);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-2px);
+}
+
+.team-member .team-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.team-member .team-name {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.1rem;
+  color: var(--purple-dark);
+  margin-bottom: 4px;
+}
+
+.team-member .team-role {
+  font-size: 0.8rem;
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+/* CTA */
+.cta-section {
+  text-align: center;
+  padding: 24px;
+  margin-top: 8px;
 }
 
 .cta-button {
   display: inline-block;
-  padding: 16px 32px;
-  background: linear-gradient(135deg, var(--adventure-orange), #f57c00);
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
   color: white;
-  text-decoration: none;
-  border-radius: 50px;
   font-family: 'Lilita One', cursive;
   font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 16px rgba(255, 143, 0, 0.3);
-  transition: all 0.3s ease;
-  margin-top: 20px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(106, 76, 147, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 143, 0, 0.4);
-  background: linear-gradient(135deg, #f57c00, var(--adventure-orange));
+  box-shadow: 0 6px 24px rgba(106, 76, 147, 0.4);
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-bottom: 50px;
-}
-
-.feature-card {
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  border: 2px solid var(--sage-green);
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-}
-
-.feature-icon {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  display: block;
-}
-
-.feature-card h3 {
-  font-family: 'Lilita One', cursive;
-  font-size: 1.5rem;
-  color: var(--forest-green);
-  margin-bottom: 16px;
-}
-
-.feature-card p {
-  font-size: 1rem;
-  color: var(--earth-brown);
-}
-
-.about {
-  background: rgba(255,255,255,0.95);
-  border-radius: 20px;
-  padding: 40px;
-  margin-bottom: 40px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-
-.about h2 {
-  font-family: 'Lilita One', cursive;
-  font-size: 2.5rem;
-  color: var(--forest-green);
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  align-items: start;
-}
-
-.team-section h3 {
-  font-family: 'Lilita One', cursive;
-  font-size: 1.8rem;
-  color: var(--discovery-purple);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.team-member {
-  margin-bottom: 30px;
-}
-
-.team-member h4 {
-  font-weight: 700;
-  color: var(--forest-green);
-  margin-bottom: 8px;
-  font-size: 1.2rem;
-}
-
-.team-member p {
-  color: var(--earth-brown);
-  margin-bottom: 12px;
-}
-
-.team-member a {
-  color: var(--adventure-orange);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.team-member a:hover {
-  text-decoration: underline;
-}
-
-.sample-adventures {
-  margin: 40px 0;
-}
-
-.sample-adventures h2 {
-  font-family: 'Lilita One', cursive;
-  font-size: 2.2rem;
-  color: var(--forest-green);
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.adventures-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px;
-}
-
-.adventure-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  border: 2px solid var(--sage-green);
-  transition: all 0.3s ease;
-}
-
-.adventure-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-
-.adventure-header {
-  padding: 20px;
-  background: linear-gradient(135deg, var(--sage-green), var(--moss-green));
-  color: white;
-  text-align: center;
-}
-
-.adventure-header .icon {
-  font-size: 2.5rem;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.adventure-header h3 {
-  font-family: 'Lilita One', cursive;
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-}
-
-.adventure-body {
-  padding: 20px;
-}
-
-.adventure-body p {
-  color: var(--earth-brown);
-  margin-bottom: 16px;
-}
-
-.adventure-link {
-  display: inline-block;
-  padding: 12px 24px;
-  background: var(--adventure-orange);
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.adventure-link:hover {
-  background: #f57c00;
-  transform: scale(1.05);
-}
-
+/* Footer */
 .footer {
   text-align: center;
-  padding: 30px 20px;
-  color: var(--mist-gray);
-  font-size: 0.9rem;
+  padding: 32px 16px;
+  font-size: 0.8rem;
+  color: var(--purple);
 }
 
-.forest-bg {
+.footer a {
+  color: var(--purple-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+/* Forest background */
+.bg-decor {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 300px;
+  height: 200px;
   pointer-events: none;
-  z-index: -1;
-  opacity: 0.3;
+  z-index: 0;
+  overflow: hidden;
 }
 
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2.5rem; }
-  .hero .tagline { font-size: 1.1rem; }
-  .hero .description { font-size: 1rem; }
-  .about-content { grid-template-columns: 1fr; }
+.bg-decor svg { width: 100%; height: 100%; }
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 2.2rem; }
+  .team-grid { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
 }
 </style>
 </head>
 <body>
 
-<div class="forest-bg">
-  <svg viewBox="0 0 800 300" preserveAspectRatio="none">
-    <!-- Mountain silhouettes -->
-    <polygon points="0,300 80,120 160,180 240,80 320,150 400,90 480,160 560,110 640,190 720,100 800,300" fill="#2d5a3e"/>
-    <polygon points="0,300 60,160 140,200 220,140 300,180 380,130 460,200 540,150 620,220 700,160 800,300" fill="#4a7c59"/>
-    <!-- Trees -->
-    <polygon points="50,300 65,180 80,300" fill="#1a3a2e"/>
-    <polygon points="150,300 165,160 180,300" fill="#2d5a3e"/>
-    <polygon points="300,300 315,140 330,300" fill="#1a3a2e"/>
-    <polygon points="450,300 465,170 480,300" fill="#2d5a3e"/>
-    <polygon points="600,300 615,150 630,300" fill="#1a3a2e"/>
-    <polygon points="720,300 735,180 750,300" fill="#2d5a3e"/>
-  </svg>
-</div>
-
 <div class="container">
-  <div class="hero">
-    <span class="bigfoot-icon">🦶🏽</span>
-    <h1>SquatchSightling</h1>
-    <div class="tagline">Custom Location-Based Adventures</div>
-    <div class="description">
-      We create immersive scavenger hunts and location-based adventures that bring communities together, 
-      support local businesses, and turn any place into a playground of discovery.
-    </div>
-    <a href="/pnwwilds" class="cta-button">🦶 Try Our PNW Adventure!</a>
+<div class="content">
+
+  <!-- Header -->
+  <div class="header">
+    <span class="bigfoot-icon">🦶</span>
+    <h1>SquatchSight.ing</h1>
+    <div class="subtitle">Custom Bigfoot Scavenger Hunts</div>
+    <div class="tagline">QR-powered adventures for your downtown, your trails, your community</div>
   </div>
 
-  <div class="features">
-    <div class="feature-card">
-      <span class="feature-icon">🗺️</span>
-      <h3>Custom Scavenger Hunts</h3>
-      <p>Tailored adventures that highlight your local businesses, landmarks, and hidden gems. Every hunt is uniquely designed for your community.</p>
-    </div>
-    
-    <div class="feature-card">
-      <span class="feature-icon">🏪</span>
-      <h3>Local Business Focus</h3>
-      <p>Our hunts drive foot traffic to local shops, restaurants, and services while creating memorable experiences for participants.</p>
-    </div>
-    
-    <div class="feature-card">
-      <span class="feature-icon">🎯</span>
-      <h3>Interactive Storytelling</h3>
-      <p>Every clue, question, and challenge is woven into an engaging narrative that makes exploring feel like an adventure.</p>
-    </div>
-    
-    <div class="feature-card">
-      <span class="feature-icon">📱</span>
-      <h3>Mobile-First Design</h3>
-      <p>Sleek, responsive web apps that work perfectly on any device. No downloads required - just scan and start exploring.</p>
-    </div>
+  <!-- What is this? -->
+  <div class="card">
+    <h2>👁️ What is SquatchSighting?</h2>
+    <p>We build custom Bigfoot-themed QR code scavenger hunts that bring people together in real places. Whether it's a downtown shopping district, a local trail system, or a community event — we create fun, phone-powered adventures that get people exploring.</p>
+    <p>Each hunt features:</p>
+    <ul>
+      <li>Weatherproof QR code stickers placed at real locations</li>
+      <li>A mobile-friendly web app — no downloads required</li>
+      <li>Custom Bigfoot-themed trivia and challenges at each stop</li>
+      <li>Progress tracking so participants can see how many sightings they've made</li>
+      <li>Support for local businesses and community organizations</li>
+    </ul>
   </div>
 
-  <div class="sample-adventures">
-    <h2>🌲 Sample Adventures</h2>
-    <div class="adventures-grid">
-      <div class="adventure-card">
-        <div class="adventure-header">
-          <span class="icon">🦶</span>
-          <h3>PNW Wilds Market Street</h3>
-          <p>Chehalis, WA • March 7, 2026</p>
-        </div>
-        <div class="adventure-body">
-          <p>Join Bigfoot on a hilarious quest through downtown Chehalis! Visit local businesses, solve cryptid-themed puzzles, and support Nature Nurture Farmacy & Lewis County Historical Museum.</p>
-          <a href="/pnwwilds" class="adventure-link">Start Adventure</a>
-        </div>
-      </div>
-      
-      <div class="adventure-card">
-        <div class="adventure-header">
-          <span class="icon">🏴‍☠️</span>
-          <h3>Pirate Treasure Hunt</h3>
-          <p>Example Adventure</p>
-        </div>
-        <div class="adventure-body">
-          <p>Ahoy matey! Follow the clues through historic waterfront districts, visit maritime museums, and discover hidden treasures while learning local nautical history.</p>
-          <a href="#" class="adventure-link" onclick="alert('Contact us to create this adventure for your area!'); return false;">Coming Soon</a>
-        </div>
-      </div>
-      
-      <div class="adventure-card">
-        <div class="adventure-header">
-          <span class="icon">🔮</span>
-          <h3>Mystery & Magic Tour</h3>
-          <p>Example Adventure</p>
-        </div>
-        <div class="adventure-body">
-          <p>Uncover supernatural secrets and local legends as you explore mysterious locations, visit quirky shops, and solve magical puzzles throughout your town.</p>
-          <a href="#" class="adventure-link" onclick="alert('Contact us to create this adventure for your area!'); return false;">Coming Soon</a>
-        </div>
-      </div>
+  <!-- How it works -->
+  <div class="card">
+    <h2>🗺️ How It Works</h2>
+    <p>We work with you to design a scavenger hunt tailored to your community:</p>
+    <ul>
+      <li><strong>Pick your locations</strong> — local businesses, trail markers, landmarks, or event stations</li>
+      <li><strong>We build the hunt</strong> — custom questions, Bigfoot lore, and a beautiful mobile app</li>
+      <li><strong>QR stickers go up</strong> — weatherproof stickers that participants scan at each stop</li>
+      <li><strong>People explore!</strong> — walk, discover, answer questions, track progress</li>
+    </ul>
+    <p>Everything runs in the browser. No app store. No accounts. Just scan and go.</p>
+  </div>
+
+  <!-- Active Hunts -->
+  <div class="card">
+    <h2>🌲 Active Hunts</h2>
+    <p>Check out our current adventures:</p>
+  </div>
+
+  <a href="/pnwwilds/" class="card hunt-card">
+    <div class="hunt-title">🏔️ PNW Wilds Market Street Adventure</div>
+    <div class="hunt-location">Downtown Chehalis, WA</div>
+    <div class="hunt-desc">13 local businesses, Bigfoot-themed trivia, and a walk through the heart of downtown. Visit Nature Nurture Farmacy, Book and Brush, Bigfoot Treasures, and more!</div>
+    <span class="hunt-badge">March 7, 2026</span>
+  </a>
+
+  <!-- Who's behind this -->
+  <div class="card">
+    <h2>🤝 Who's Behind This</h2>
+    <p>SquatchSighting is built by a team of Pacific Northwest humans (and a few friendly AIs) who believe that community engagement should be fun, accessible, and a little weird.</p>
+    <div class="team-grid">
+      <a href="https://cascadiatm.com" target="_blank" rel="noopener" class="team-member">
+        <span class="team-icon">🏔️</span>
+        <div class="team-name">Cascadia TM</div>
+        <div class="team-role">Technical Mentorship</div>
+      </a>
+      <a href="https://marikaolson.com" target="_blank" rel="noopener" class="team-member">
+        <span class="team-icon">✨</span>
+        <div class="team-name">Marika Olson</div>
+        <div class="team-role">Strategy & Consulting</div>
+      </a>
     </div>
   </div>
 
-  <div class="about">
-    <h2>🌲 The Team Behind SquatchSightling</h2>
-    <div class="about-content">
-      <div class="team-section">
-        <h3>🚀 The Creators</h3>
-        <div class="team-member">
-          <h4>Cascadia Technical Mentorship</h4>
-          <p>Fractional CTO services and technical strategy for growing organizations. Specializing in distributed teams, open source governance, and product strategy.</p>
-          <a href="https://cascadiatm.com" target="_blank">→ cascadiatm.com</a>
-        </div>
-        
-        <div class="team-member">
-          <h4>Marika Olson</h4>
-          <p>Creative director and community engagement specialist. Expert in location-based experiences, local business partnerships, and immersive storytelling.</p>
-          <a href="https://marikaolson.com" target="_blank">→ marikaolson.com</a>
-        </div>
-      </div>
-      
-      <div class="team-section">
-        <h3>🎯 Our Mission</h3>
-        <p>We believe that every community has unique stories worth telling and local businesses worth celebrating. Our location-based adventures create meaningful connections between people and places while supporting local economies.</p>
-        
-        <p>Whether you're planning a community event, promoting downtown revitalization, or just want to create something fun for your neighbors, we'll design a custom adventure that brings your vision to life.</p>
-        
-        <h4 style="margin-top: 24px; color: var(--discovery-purple);">Ready to Create Something Amazing?</h4>
-        <p>Contact us to discuss your custom SquatchSightling adventure. From concept to launch, we'll work with you to create an unforgettable experience for your community.</p>
-      </div>
-    </div>
+  <!-- CTA -->
+  <div class="cta-section">
+    <p style="margin-bottom: 16px; font-weight: 600; color: var(--green-dark);">Want a custom scavenger hunt for your town or event?</p>
+    <a href="mailto:hello@squatchsight.ing" class="cta-button">Get In Touch 🦶</a>
   </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Made with 🌲 in the Pacific Northwest</p>
+    <p style="margin-top: 8px;">
+      <a href="https://cascadiatm.com">Cascadia TM</a> · <a href="https://marikaolson.com">Marika Olson</a>
+    </p>
+  </div>
+
+</div>
 </div>
 
-<div class="footer">
-  <p>🦶 SquatchSightling • Custom Location-Based Adventures<br>
-  Built with ❤️ by <a href="https://cascadiatm.com">Cascadia Technical Mentorship</a> & <a href="https://marikaolson.com">Marika Olson</a></p>
+<!-- Forest background decoration -->
+<div class="bg-decor">
+  <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+    <path d="M0 200 L0 120 Q120 80 240 100 Q360 120 480 90 Q600 60 720 80 Q840 100 960 70 Q1080 40 1200 80 Q1320 120 1440 90 L1440 200Z" fill="#2d5a3e" opacity="0.3"/>
+    <path d="M0 200 L0 140 Q180 110 360 130 Q540 150 720 120 Q900 90 1080 120 Q1260 150 1440 110 L1440 200Z" fill="#4a7c59" opacity="0.2"/>
+  </svg>
 </div>
 
 </body>

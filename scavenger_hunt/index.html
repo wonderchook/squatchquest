@@ -2,15 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>SquatchSight.ing — Custom Bigfoot Scavenger Hunts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>SquatchSighting — Bigfoot Scavenger Hunts in the Pacific Northwest</title>
+<meta name="description" content="QR-powered Bigfoot scavenger hunts that drive foot traffic to local businesses. Join the PNW Wilds Market Street Adventure in Downtown Chehalis on March 7, 2026!">
+<meta name="keywords" content="scavenger hunt, QR code, Bigfoot, Sasquatch, Chehalis, Pacific Northwest, local business, downtown, community event">
 <meta name="theme-color" content="#6a4c93">
-<meta name="description" content="Custom Bigfoot-themed QR code scavenger hunts for your community, downtown, or event. Built in the Pacific Northwest.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://squatchsight.ing/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="SquatchSighting — Bigfoot Scavenger Hunts">
+<meta property="og:description" content="QR-powered scavenger hunts that bring people to local businesses. Join the PNW Wilds Market Street Adventure — Downtown Chehalis, March 7, 2026.">
+<meta property="og:url" content="https://squatchsight.ing/">
+<meta property="og:site_name" content="SquatchSighting">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SquatchSighting — Bigfoot Scavenger Hunts">
+<meta name="twitter:description" content="QR-powered scavenger hunts that bring people to local businesses. Downtown Chehalis, March 7, 2026.">
+
+<!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦶</text></svg>">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SquatchSighting",
+  "url": "https://squatchsight.ing/",
+  "description": "QR-powered Bigfoot scavenger hunts that drive foot traffic to local businesses in the Pacific Northwest."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "PNW Wilds Market Street Adventure",
+  "description": "A 13-stop Bigfoot-themed QR scavenger hunt through Downtown Chehalis. Free to play, with a prize drawing for those who complete all stops.",
+  "startDate": "2026-03-07",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Downtown Chehalis",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "North Market Boulevard",
+      "addressLocality": "Chehalis",
+      "addressRegion": "WA",
+      "postalCode": "98532",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "SquatchSighting",
+    "url": "https://squatchsight.ing/"
+  },
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Quicksand:wght@400;600;700&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --pink: #f0b8c8;
@@ -29,6 +94,7 @@ body {
   background: linear-gradient(180deg, var(--pink-light) 0%, var(--cream) 30%, #e8f5e9 100%);
   min-height: 100vh;
   color: var(--brown);
+  line-height: 1.6;
 }
 
 .container {
@@ -41,14 +107,14 @@ body {
 
 .content { position: relative; z-index: 1; }
 
-/* Header */
-.header {
+/* ---- Header ---- */
+header {
   text-align: center;
   padding: 40px 10px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-.header .bigfoot-icon {
+header .bigfoot-icon {
   font-size: 4rem;
   display: block;
   margin-bottom: 12px;
@@ -60,7 +126,7 @@ body {
   50% { transform: rotate(3deg); }
 }
 
-.header h1 {
+header h1 {
   font-family: 'Lilita One', cursive;
   font-size: 2.8rem;
   color: var(--purple-dark);
@@ -69,22 +135,22 @@ body {
   margin-bottom: 8px;
 }
 
-.header .subtitle {
+header .subtitle {
   font-size: 1.15rem;
   color: var(--green-dark);
   font-weight: 700;
   margin-top: 4px;
 }
 
-.header .tagline {
+header .tagline {
   font-size: 0.95rem;
   color: var(--purple);
   margin-top: 12px;
   font-style: italic;
 }
 
-/* Cards */
-.card {
+/* ---- Sections ---- */
+section {
   background: white;
   border-radius: 20px;
   padding: 28px;
@@ -99,7 +165,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.card h2 {
+section h2 {
   font-family: 'Lilita One', cursive;
   font-size: 1.5rem;
   color: var(--purple-dark);
@@ -109,20 +175,18 @@ body {
   gap: 8px;
 }
 
-.card p {
+section p {
   font-size: 1rem;
-  line-height: 1.6;
   margin-bottom: 12px;
-  color: var(--brown);
 }
 
-.card ul {
+section ul {
   list-style: none;
   padding: 0;
   margin-bottom: 12px;
 }
 
-.card ul li {
+section ul li {
   padding: 8px 0;
   padding-left: 28px;
   position: relative;
@@ -130,72 +194,133 @@ body {
   line-height: 1.5;
 }
 
-.card ul li::before {
+section ul li::before {
   content: '🦶';
   position: absolute;
   left: 0;
   font-size: 1rem;
 }
 
-/* Hunt links */
-.hunt-card {
+/* ---- Event Banner ---- */
+.event-banner {
   border-color: var(--green-light);
   background: linear-gradient(135deg, white 0%, #f0f9f0 100%);
-  text-decoration: none;
-  display: block;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+  text-align: center;
+  padding: 32px 28px;
 }
 
-.hunt-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-}
-
-.hunt-card .hunt-title {
-  font-family: 'Lilita One', cursive;
-  font-size: 1.4rem;
+.event-banner h2 {
+  justify-content: center;
+  font-size: 1.6rem;
   color: var(--green-dark);
-  margin-bottom: 4px;
 }
 
-.hunt-card .hunt-location {
-  font-size: 0.85rem;
-  color: var(--purple);
-  font-weight: 600;
+.event-date {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.8rem;
+  color: var(--purple-dark);
+  margin: 12px 0;
 }
 
-.hunt-card .hunt-desc {
+.event-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.event-detail {
+  background: var(--cream);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
   font-size: 0.9rem;
   color: var(--brown);
-  margin-top: 8px;
 }
 
-.hunt-card .hunt-badge {
+/* ---- Hunt Link ---- */
+.hunt-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--green);
+  background: linear-gradient(135deg, #f0f9f0 0%, white 100%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.hunt-link:hover, .hunt-link:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+}
+
+.hunt-link .play-btn {
   display: inline-block;
-  background: var(--green);
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
   color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 12px;
-  margin-top: 8px;
+  font-family: 'Lilita One', cursive;
+  font-size: 1.2rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  margin-top: 16px;
+  box-shadow: 0 4px 16px rgba(74,124,89,0.3);
+  transition: transform 0.2s;
 }
 
-/* Team section */
+.hunt-link:hover .play-btn {
+  transform: scale(1.05);
+}
+
+/* ---- How It Works ---- */
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+}
+
+.steps li {
+  padding: 12px 0 12px 52px;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 36px;
+  height: 36px;
+  background: var(--purple);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Lilita One', cursive;
+}
+
+/* ---- Team ---- */
 .team-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .team-member {
   text-align: center;
-  padding: 16px;
+  padding: 20px 16px;
   background: var(--cream);
   border-radius: 16px;
   text-decoration: none;
+  color: inherit;
   transition: transform 0.2s ease;
 }
 
@@ -222,11 +347,18 @@ body {
   font-weight: 600;
 }
 
-/* CTA */
-.cta-section {
+/* ---- CTA ---- */
+.cta {
   text-align: center;
-  padding: 24px;
-  margin-top: 8px;
+  padding: 32px 24px;
+  border-color: var(--purple);
+}
+
+.cta p {
+  font-weight: 600;
+  color: var(--green-dark);
+  font-size: 1.05rem;
+  margin-bottom: 16px;
 }
 
 .cta-button {
@@ -238,32 +370,32 @@ body {
   padding: 14px 32px;
   border-radius: 50px;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(106, 76, 147, 0.3);
+  box-shadow: 0 4px 16px rgba(106,76,147,0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(106, 76, 147, 0.4);
+  box-shadow: 0 6px 24px rgba(106,76,147,0.4);
 }
 
-/* Footer */
-.footer {
+/* ---- Footer ---- */
+footer {
   text-align: center;
   padding: 32px 16px;
   font-size: 0.8rem;
   color: var(--purple);
 }
 
-.footer a {
+footer a {
   color: var(--purple-dark);
   text-decoration: none;
   font-weight: 600;
 }
 
-.footer a:hover { text-decoration: underline; }
+footer a:hover { text-decoration: underline; }
 
-/* Forest background */
+/* ---- Background ---- */
 .bg-decor {
   position: fixed;
   bottom: 0;
@@ -277,10 +409,12 @@ body {
 
 .bg-decor svg { width: 100%; height: 100%; }
 
+/* ---- Responsive ---- */
 @media (max-width: 480px) {
-  .header h1 { font-size: 2.2rem; }
+  header h1 { font-size: 2.2rem; }
+  .event-date { font-size: 1.4rem; }
   .team-grid { grid-template-columns: 1fr; }
-  .card { padding: 20px; }
+  section { padding: 20px; }
 }
 </style>
 </head>
@@ -290,90 +424,99 @@ body {
 <div class="content">
 
   <!-- Header -->
-  <div class="header">
-    <span class="bigfoot-icon">🦶</span>
-    <h1>SquatchSight.ing</h1>
-    <div class="subtitle">Custom Bigfoot Scavenger Hunts</div>
-    <div class="tagline">QR-powered adventures for your downtown, your trails, your community</div>
-  </div>
+  <header>
+    <span class="bigfoot-icon" role="img" aria-label="Bigfoot footprint">🦶</span>
+    <h1>SquatchSighting</h1>
+    <p class="subtitle">Bigfoot-Themed Scavenger Hunts</p>
+    <p class="tagline">QR-powered adventures for your downtown, your trails, your community</p>
+  </header>
 
-  <!-- What is this? -->
-  <div class="card">
-    <h2>👁️ What is SquatchSighting?</h2>
-    <p>We build custom Bigfoot-themed QR code scavenger hunts that bring people together in real places. Whether it's a downtown shopping district, a local trail system, or a community event — we create fun, phone-powered adventures that get people exploring.</p>
-    <p>Each hunt features:</p>
-    <ul>
-      <li>Weatherproof QR code stickers placed at real locations</li>
-      <li>A mobile-friendly web app — no downloads required</li>
-      <li>Custom Bigfoot-themed trivia and challenges at each stop</li>
-      <li>Progress tracking so participants can see how many sightings they've made</li>
-      <li>Support for local businesses and community organizations</li>
-    </ul>
-  </div>
+  <!-- Event Banner -->
+  <section class="event-banner" aria-label="Upcoming event">
+    <h2>🌲 Next Adventure</h2>
+    <div class="event-date">March 7, 2026</div>
+    <p><strong>PNW Wilds Market Street Adventure</strong><br>A 13-stop Bigfoot scavenger hunt through Downtown Chehalis, WA</p>
+    <div class="event-details">
+      <span class="event-detail">📍 Downtown Chehalis</span>
+      <span class="event-detail">🆓 Free to Play</span>
+      <span class="event-detail">🏆 Prize Drawing</span>
+      <span class="event-detail">📱 No App Needed</span>
+    </div>
+  </section>
 
-  <!-- How it works -->
-  <div class="card">
-    <h2>🗺️ How It Works</h2>
-    <p>We work with you to design a scavenger hunt tailored to your community:</p>
-    <ul>
-      <li><strong>Pick your locations</strong> — local businesses, trail markers, landmarks, or event stations</li>
-      <li><strong>We build the hunt</strong> — custom questions, Bigfoot lore, and a beautiful mobile app</li>
-      <li><strong>QR stickers go up</strong> — weatherproof stickers that participants scan at each stop</li>
-      <li><strong>People explore!</strong> — walk, discover, answer questions, track progress</li>
-    </ul>
-    <p>Everything runs in the browser. No app store. No accounts. Just scan and go.</p>
-  </div>
-
-  <!-- Active Hunts -->
-  <div class="card">
-    <h2>🌲 Active Hunts</h2>
-    <p>Check out our current adventures:</p>
-  </div>
-
-  <a href="/pnwwilds/" class="card hunt-card">
-    <div class="hunt-title">🏔️ PNW Wilds Market Street Adventure</div>
-    <div class="hunt-location">Downtown Chehalis, WA</div>
-    <div class="hunt-desc">13 local businesses, Bigfoot-themed trivia, and a walk through the heart of downtown. Visit Nature Nurture Farmacy, Book and Brush, Bigfoot Treasures, and more!</div>
-    <span class="hunt-badge">March 7, 2026</span>
+  <!-- Play Now Link -->
+  <a href="/pnwwilds/" class="hunt-link" aria-label="Start the PNW Wilds scavenger hunt">
+    <section style="border:none; box-shadow:none; margin:0; background:none;">
+      <h2 style="justify-content:center;">🏔️ PNW Wilds Market Street Adventure</h2>
+      <p>13 local businesses. Bigfoot trivia at every stop. Walk downtown, scan QR codes, answer questions, and enter to win prizes.</p>
+      <span class="play-btn">Start the Hunt 🦶</span>
+    </section>
   </a>
 
-  <!-- Who's behind this -->
-  <div class="card">
+  <!-- How It Works -->
+  <section>
+    <h2>🗺️ How It Works</h2>
+    <ol class="steps">
+      <li><strong>Find a QR code</strong> at a participating business</li>
+      <li><strong>Scan it</strong> with your phone's camera — no app download required</li>
+      <li><strong>Answer the trivia question</strong> — Bigfoot-themed, naturally</li>
+      <li><strong>Visit all the stops</strong> and track your progress</li>
+      <li><strong>Complete the hunt</strong> to enter the prize drawing!</li>
+    </ol>
+  </section>
+
+  <!-- What Is This -->
+  <section>
+    <h2>👁️ What is SquatchSighting?</h2>
+    <p>We create custom QR code scavenger hunts that bring people to local businesses. Each hunt is themed, fun, and designed to get folks exploring their downtown on foot.</p>
+    <ul>
+      <li>Browser-based — works on any phone, no downloads</li>
+      <li>Custom trivia and challenges at every stop</li>
+      <li>Progress tracking so you know how close you are to finishing</li>
+      <li>Prize drawings for participants who complete the hunt</li>
+      <li>Built to support local businesses and community events</li>
+    </ul>
+  </section>
+
+  <!-- Team -->
+  <section>
     <h2>🤝 Who's Behind This</h2>
-    <p>SquatchSighting is built by a team of Pacific Northwest humans (and a few friendly AIs) who believe that community engagement should be fun, accessible, and a little weird.</p>
+    <p>SquatchSighting is a Pacific Northwest project built by people who believe community engagement should be fun, accessible, and a little weird.</p>
     <div class="team-grid">
       <a href="https://cascadiatm.com" target="_blank" rel="noopener" class="team-member">
-        <span class="team-icon">🏔️</span>
-        <div class="team-name">Cascadia TM</div>
-        <div class="team-role">Technical Mentorship</div>
+        <span class="team-icon">🧠</span>
+        <div class="team-name">Cascadia Technical Mentorship</div>
+        <div class="team-role">Creator & Lead Developer</div>
       </a>
       <a href="https://marikaolson.com" target="_blank" rel="noopener" class="team-member">
         <span class="team-icon">✨</span>
-        <div class="team-name">Marika Olson</div>
-        <div class="team-role">Strategy & Consulting</div>
+        <div class="team-name">Rogue Bureaucrat LLC</div>
+        <div class="team-role">Business Strategy & Community</div>
       </a>
     </div>
-  </div>
+  </section>
 
   <!-- CTA -->
-  <div class="cta-section">
-    <p style="margin-bottom: 16px; font-weight: 600; color: var(--green-dark);">Want a custom scavenger hunt for your town or event?</p>
+  <section class="cta">
+    <p>Want a custom scavenger hunt for your town or event?</p>
     <a href="mailto:hello@squatchsight.ing" class="cta-button">Get In Touch 🦶</a>
-  </div>
+  </section>
 
   <!-- Footer -->
-  <div class="footer">
+  <footer>
     <p>Made with 🌲 in the Pacific Northwest</p>
     <p style="margin-top: 8px;">
-      <a href="https://cascadiatm.com">Cascadia TM</a> · <a href="https://marikaolson.com">Marika Olson</a>
+      <a href="https://cascadiatm.com">Cascadia Technical Mentorship</a> · 
+      <a href="https://marikaolson.com">Rogue Bureaucrat LLC</a>
     </p>
-  </div>
+    <p style="margin-top: 8px;">© 2026 SquatchSighting</p>
+  </footer>
 
 </div>
 </div>
 
-<!-- Forest background decoration -->
-<div class="bg-decor">
+<!-- Forest background -->
+<div class="bg-decor" aria-hidden="true">
   <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
     <path d="M0 200 L0 120 Q120 80 240 100 Q360 120 480 90 Q600 60 720 80 Q840 100 960 70 Q1080 40 1200 80 Q1320 120 1440 90 L1440 200Z" fill="#2d5a3e" opacity="0.3"/>
     <path d="M0 200 L0 140 Q180 110 360 130 Q540 150 720 120 Q900 90 1080 120 Q1260 150 1440 110 L1440 200Z" fill="#4a7c59" opacity="0.2"/>

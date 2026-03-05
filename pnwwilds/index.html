@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>PNW Wilds Market Street Adventure</title>
+<meta name="theme-color" content="#6a4c93">
+<meta name="description" content="A Bigfoot Scavenger Hunt in Downtown Chehalis - March 7, 2026">
+<link rel="manifest" href="data:application/json,{}">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Quicksand:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pink: #f0b8c8;
+  --pink-light: #fce4ec;
+  --purple: #9b7cb8;
+  --purple-dark: #6a4c93;
+  --green: #4a7c59;
+  --green-light: #7cb87c;
+  --green-dark: #2d5a3e;
+  --cream: #fef9f0;
+  --brown: #5d4037;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, var(--pink-light) 0%, var(--cream) 30%, #e8f5e9 100%);
+  min-height: 100vh;
+  color: var(--brown);
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Mountain/forest background decoration */
+.bg-decor {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-decor svg { width: 100%; height: 100%; }
+
+.content { position: relative; z-index: 1; }
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-family: 'Lilita One', cursive;
+  font-size: 2rem;
+  color: var(--purple-dark);
+  text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
+  line-height: 1.1;
+}
+
+.header .subtitle {
+  font-size: 1rem;
+  color: var(--green-dark);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.header .tagline {
+  font-size: 0.85rem;
+  color: var(--purple);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Bigfoot emoji/icon */
+.bigfoot-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Progress bar */
+.progress-section {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border: 2px solid var(--pink);
+}
+
+.progress-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--purple-dark);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green-light), var(--green));
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+.progress-fill .footprint {
+  font-size: 14px;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+}
+
+/* Stop card */
+.stop-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border: 3px solid var(--pink);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stop-card .business-icon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.stop-card .business-name {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.5rem;
+  color: var(--purple-dark);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.stop-card .business-address {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.stop-card .question-label {
+  font-weight: 700;
+  color: var(--green-dark);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stop-card .question {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--brown);
+  margin-bottom: 20px;
+  padding: 12px;
+  background: var(--pink-light);
+  border-radius: 12px;
+}
+
+/* Answer options */
+.options { display: flex; flex-direction: column; gap: 10px; }
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--cream);
+  border: 2px solid #e0d5c5;
+  border-radius: 14px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--brown);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.option-btn:hover, .option-btn:focus {
+  border-color: var(--purple);
+  background: #f3e5f5;
+  transform: scale(1.02);
+}
+
+.option-btn:active { transform: scale(0.98); }
+
+.option-btn .letter {
+  width: 32px;
+  height: 32px;
+  background: var(--purple);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.option-btn.correct {
+  border-color: var(--green);
+  background: #e8f5e9;
+  animation: correctPulse 0.5s ease;
+}
+
+.option-btn.wrong {
+  border-color: #e57373;
+  background: #ffebee;
+  animation: shake 0.4s ease;
+}
+
+@keyframes correctPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Result message */
+.result-msg {
+  text-align: center;
+  padding: 16px;
+  border-radius: 14px;
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  animation: slideUp 0.3s ease;
+}
+
+.result-msg.correct {
+  background: #e8f5e9;
+  color: var(--green-dark);
+  border: 2px solid var(--green-light);
+}
+
+.result-msg.wrong {
+  background: #fff3e0;
+  color: #e65100;
+  border: 2px solid #ffcc80;
+}
+
+.result-msg .fun-fact {
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-top: 8px;
+  font-style: italic;
+  color: var(--purple);
+}
+
+/* Home / hub screen */
+.hub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.hub-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px 12px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border: 2px solid #e0d5c5;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hub-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.hub-card.completed {
+  border-color: var(--green);
+  background: #f1f8e9;
+}
+
+.hub-card .hub-icon { font-size: 2rem; margin-bottom: 6px; display: block; }
+.hub-card .hub-name { font-weight: 700; font-size: 0.85rem; color: var(--purple-dark); line-height: 1.2; }
+.hub-card .hub-status { font-size: 0.75rem; margin-top: 4px; }
+.hub-card .hub-status.done { color: var(--green); }
+.hub-card .hub-status.pending { color: #bbb; }
+
+.hub-card .checkmark {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  line-height: 22px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Completion screen */
+.completion-screen {
+  text-align: center;
+  padding: 20px;
+}
+
+.completion-screen h2 {
+  font-family: 'Lilita One', cursive;
+  font-size: 2rem;
+  color: var(--green-dark);
+  margin: 16px 0 8px;
+}
+
+.completion-screen .celebration { font-size: 4rem; }
+
+.completion-screen p {
+  font-size: 1rem;
+  color: var(--brown);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Entry form */
+.entry-form {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border: 3px solid var(--green);
+}
+
+.entry-form h3 {
+  font-family: 'Lilita One', cursive;
+  color: var(--purple-dark);
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.form-group { margin-bottom: 14px; }
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e0d5c5;
+  border-radius: 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  background: var(--cream);
+  color: var(--brown);
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Lilita One', cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.submit-btn:active { transform: scale(0.98); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Nav button */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--purple);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.nav-btn:hover { background: var(--purple-dark); transform: scale(1.02); }
+
+/* Thank you */
+.thankyou {
+  text-align: center;
+  padding: 30px 20px;
+  animation: slideUp 0.5s ease;
+}
+
+.thankyou h2 {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.8rem;
+  color: var(--green-dark);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-top: 30px;
+}
+
+.footer a { color: var(--purple); text-decoration: none; }
+
+/* Confetti */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Already completed overlay */
+.already-done {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border: 3px solid var(--green);
+  animation: slideUp 0.4s ease;
+}
+
+.already-done h3 {
+  font-family: 'Lilita One', cursive;
+  color: var(--green-dark);
+  font-size: 1.3rem;
+  margin: 12px 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 360px) {
+  .header h1 { font-size: 1.6rem; }
+  .hub-grid { gap: 8px; }
+  .hub-card { padding: 12px 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Background decoration -->
+  <div class="bg-decor">
+    <svg viewBox="0 0 480 200" preserveAspectRatio="none">
+      <!-- Mountains -->
+      <polygon points="0,200 60,80 120,140 180,50 240,120 300,60 360,130 420,70 480,200" fill="#c5b3d4" opacity="0.3"/>
+      <polygon points="0,200 40,120 100,160 160,100 220,150 280,90 340,160 400,110 480,200" fill="#7cb87c" opacity="0.25"/>
+      <!-- Trees -->
+      <polygon points="30,200 45,130 60,200" fill="#4a7c59" opacity="0.3"/>
+      <polygon points="100,200 115,110 130,200" fill="#2d5a3e" opacity="0.3"/>
+      <polygon points="200,200 215,140 230,200" fill="#4a7c59" opacity="0.25"/>
+      <polygon points="350,200 365,120 380,200" fill="#2d5a3e" opacity="0.3"/>
+      <polygon points="430,200 445,135 460,200" fill="#4a7c59" opacity="0.25"/>
+    </svg>
+  </div>
+
+  <div class="content" id="app"></div>
+
+  <div class="footer">
+    <p>PNW Wilds Market Street Adventure &bull; March 7, 2026<br>
+    Benefiting <strong>Nature Nurture Farmacy</strong> &amp; <strong>Lewis County Historical Museum</strong><br>
+    Downtown Chehalis, WA</p>
+  </div>
+</div>
+
+<script>
+// ============ CONFIG ============
+// To connect a Google Form for entry collection:
+// 1. Create a Google Form with fields: Team Name, Team Size, Email, Phone, Favorite Stop, Completed At, Score
+// 2. Get the form's action URL and field entry IDs
+// 3. Fill in below:
+const GOOGLE_FORM_URL = ''; // e.g. 'https://docs.google.com/forms/d/e/XXXXX/formResponse'
+const FORM_FIELDS = {
+  teamName: '',    // e.g. 'entry.123456'
+  teamSize: '',    // e.g. 'entry.234567'
+  email: '',       // e.g. 'entry.345678'
+  phone: '',       // e.g. 'entry.456789'
+  favorite: '',    // e.g. 'entry.567890'
+  completedAt: '', // e.g. 'entry.678901'
+  score: '',       // e.g. 'entry.789012'
+};
+
+function submitToGoogleForm() {
+  const formData = new URLSearchParams();
+  if (FORM_FIELDS.teamName) formData.append(FORM_FIELDS.teamName, state.teamName);
+  if (FORM_FIELDS.teamSize) formData.append(FORM_FIELDS.teamSize, state.teamSize);
+  if (FORM_FIELDS.email) formData.append(FORM_FIELDS.email, state.email || '');
+  if (FORM_FIELDS.phone) formData.append(FORM_FIELDS.phone, state.phone || '');
+  if (FORM_FIELDS.favorite) formData.append(FORM_FIELDS.favorite, state.favorite || '');
+  if (FORM_FIELDS.completedAt) formData.append(FORM_FIELDS.completedAt, state.completedAt || new Date().toISOString());
+  if (FORM_FIELDS.score) formData.append(FORM_FIELDS.score, `${getCompletedCount()}/${TOTAL_STOPS}`);
+
+  // Fire-and-forget POST (Google Forms doesn't support CORS, so we use no-cors)
+  fetch(GOOGLE_FORM_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: formData.toString()
+  }).catch(() => {
+    // Silently fail — the confirmation screen still shows
+    // Kate can check the Google Sheet for entries
+  });
+}
+
+// ============ SCAVENGER HUNT DATA ============
+const STOPS = [
+  {
+    id: 1,
+    name: "Nature Nurture Farmacy",
+    address: "Downtown Chehalis",
+    icon: "\ud83c\udf3f",
+    question: "Bigfoot stumbles out of the forest with a nasty case of poison oak. He limps into Nature Nurture Farmacy begging for help. What does the pharmacist recommend?",
+    options: [
+      "A bath in essential oils & oatmeal (Bigfoot-sized tub not included)",
+      "Rub more poison oak on it \u2014 fight fire with fire!",
+      "A jar of Sasquatch Soothing Salve (patent pending)",
+      "Just shake it off and go back to the woods"
+    ],
+    correct: 0,
+    funFact: "Nature Nurture Farmacy specializes in natural remedies that even a Sasquatch would love! \ud83c\udf3f"
+  },
+  {
+    id: 2,
+    name: "Book and Brush",
+    address: "Downtown Chehalis",
+    icon: "\ud83c\udfa8",
+    question: "Bigfoot wants to paint a self-portrait but keeps snapping the tiny brushes! What art style would best capture his magnificent wild side?",
+    options: [
+      "Impressionism \u2014 all those blurry photos of him are basically impressionist already",
+      "Abstract \u2014 nobody can tell what he looks like anyway!",
+      "Bob Ross-style happy little trees (with a happy big Bigfoot)",
+      "Pointillism \u2014 one dot for each hair on his body (this could take a while)"
+    ],
+    correct: 2,
+    funFact: "Book and Brush is the perfect place to unleash your inner artist \u2014 Bigfoot-sized creativity welcome! \ud83d\uddbc\ufe0f"
+  },
+  {
+    id: 3,
+    name: "Bigfoot Treasures",
+    address: "Downtown Chehalis",
+    icon: "\ud83e\uddb6",
+    question: "Deep in Bigfoot's secret cave, he keeps a treasure collection. What's the MOST prized item on his shelf at Bigfoot Treasures?",
+    options: [
+      "A signed copy of \"How to Avoid Trail Cameras: A Memoir\"",
+      "The world's largest collection of blurry photographs of himself",
+      "A plaster cast of his OWN footprint \u2014 he thinks it's hilarious",
+      "A tiny pair of human shoes he finds absolutely adorable"
+    ],
+    correct: 2,
+    funFact: "Bigfoot Treasures is full of unique finds that even a Sasquatch would want for his cave! \ud83d\udc8e"
+  },
+  {
+    id: 4,
+    name: "Ewe & I",
+    address: "566 N Market Blvd",
+    icon: "\ud83d\udc11",
+    question: "Bigfoot needs a cozy sweater for the chilly PNW winters. He shuffles into Ewe & I for yarn. How many skeins would it take to knit a Bigfoot-sized sweater?",
+    options: [
+      "42 skeins (and two very tired knitting needles)",
+      "Just one \u2014 if it's from a REALLY big sheep",
+      "87 skeins and a dream",
+      "Trick question: Bigfoot runs too warm for sweaters!"
+    ],
+    correct: 2,
+    funFact: "Ewe & I carries beautiful yarns perfect for knitting everything from baby booties to Bigfoot beanies! \ud83e\uddf6"
+  },
+  {
+    id: 5,
+    name: "Diversified Games",
+    address: "551 N Market Blvd",
+    icon: "\ud83c\udfb2",
+    question: "It's game night in Bigfoot's cave! He invites some forest friends over. What's Bigfoot's favorite board game to play?",
+    options: [
+      "Hide & Seek: Championship Edition (he's undefeated since 1967)",
+      "Clue \u2014 \"It was the Sasquatch, in the forest, with the big feet\"",
+      "Bigfoot vs. the Board \u2014 he keeps accidentally flipping the table",
+      "Dungeons & Dragons \u2014 he always plays himself"
+    ],
+    correct: 0,
+    funFact: "Diversified Games has everything from board games to card games \u2014 perfect for your own cave game night! \ud83c\udfae"
+  },
+  {
+    id: 6,
+    name: "Spruce",
+    address: "534 N Market Blvd",
+    icon: "\ud83c\udf32",
+    question: "Bigfoot has a hot date and wants to \"spruce\" up! He walks into Spruce for a makeover. What treatment does he book first?",
+    options: [
+      "Full-body de-tangling session (estimated time: 6 hours)",
+      "\"The Sasquatch Special\" \u2014 deep conditioning for all 8 million hairs",
+      "Just a nice cologne that smells like pine trees and mystery",
+      "A mud mask (he's already halfway there from living in the woods)"
+    ],
+    correct: 1,
+    funFact: "Spruce will have you looking fabulous \u2014 no Sasquatch-level grooming challenges required! \u2728"
+  },
+  {
+    id: 7,
+    name: "NW Salmon Smokehouse",
+    address: "486 N Market Blvd",
+    icon: "\ud83d\udc1f",
+    question: "Bigfoot LOVES salmon \u2014 he catches them right out of the river! But how many pounds of smoked salmon from NW Salmon Smokehouse can he eat in one sitting?",
+    options: [
+      "A modest 12 pounds (he's watching his figure)",
+      "47 pounds and he's still eyeing the gift baskets",
+      "He doesn't eat it \u2014 he just likes the smoky smell on his fur",
+      "One sample tray (he's surprisingly polite about free samples)"
+    ],
+    correct: 1,
+    funFact: "NW Salmon Smokehouse smokes up the best Pacific Northwest salmon \u2014 no fishing required! \ud83c\udf23"
+  },
+  {
+    id: 8,
+    name: "JJ Nails",
+    address: "542 N Market Blvd",
+    icon: "\ud83d\udc85",
+    question: "Bigfoot's toenails are getting out of control. He squeezes into JJ Nails for a pedicure. How many toenails does the nail tech have to paint?",
+    options: [
+      "10 \u2014 same as humans, just MUCH bigger",
+      "20 \u2014 hands AND feet, obviously (he's treating himself)",
+      "Just 2 big ones \u2014 accent nails are very in right now",
+      "Zero \u2014 Bigfoot is too ticklish for pedicures!"
+    ],
+    correct: 1,
+    funFact: "JJ Nails will make YOUR nails look amazing \u2014 even if they're not Bigfoot-sized! \ud83d\udc85\u2728"
+  },
+  {
+    id: 9,
+    name: "Royal Sushi & Teriyaki",
+    address: "575 N Market Blvd",
+    icon: "\ud83c\udf63",
+    question: "Bigfoot walks into Royal Sushi & Teriyaki and orders his signature roll. What's it called?",
+    options: [
+      "The Sasquatch Roll \u2014 it's 3 feet long and wrapped in cedar bark",
+      "The \"Blurry Photo\" Roll \u2014 you can never quite tell what's in it",
+      "The Big Foot-Long Roll \u2014 exactly 12 inches of deliciousness",
+      "The Forest Crunch Roll \u2014 salmon, avocado & pinecone tempura"
+    ],
+    correct: 3,
+    funFact: "Royal Sushi & Teriyaki serves up rolls almost as legendary as Bigfoot himself! \ud83c\udf63"
+  },
+  {
+    id: 10,
+    name: "Smith's Mercantile",
+    address: "464 N Market Blvd",
+    icon: "\ud83c\udfea",
+    question: "Bigfoot sneaks into Smith's Mercantile after hours to do some shopping. What's the FIRST thing he grabs off the shelf?",
+    options: [
+      "The biggest pair of boots they carry (still two sizes too small)",
+      "A cowboy hat \u2014 he's going for a new look this season",
+      "Trail mix \u2014 literally his favorite food group",
+      "A \"I Believe\" Bigfoot t-shirt (the irony is not lost on him)"
+    ],
+    correct: 3,
+    funFact: "Smith's Mercantile has been a downtown Chehalis treasure for years \u2014 come find YOUR perfect find! \ud83d\udecd\ufe0f"
+  },
+  {
+    id: 11,
+    name: "Taqueria Lolita",
+    address: "337 NW Chehalis Ave",
+    icon: "\ud83c\udf2e",
+    question: "Bigfoot discovers tacos for the first time at Taqueria Lolita. How does he react?",
+    options: [
+      "He eats 47 tacos and writes a 5-star Yelp review (anonymously, of course)",
+      "He tries to pay with pinecones (the staff is very understanding)",
+      "He cries a single happy tear \u2014 tacos are the best thing since wild berries",
+      "All of the above"
+    ],
+    correct: 3,
+    funFact: "Taqueria Lolita's tacos are so good, even a Sasquatch would come out of hiding for them! \ud83c\udf2e\u2764\ufe0f"
+  },
+  {
+    id: 12,
+    name: "Furniture World",
+    address: "563 N Market Blvd",
+    icon: "\ud83d\udecb\ufe0f",
+    question: "Bigfoot is tired of sleeping on a pile of leaves. He goes to Furniture World to upgrade. What's his #1 requirement for a new couch?",
+    options: [
+      "Must hold at least 800 pounds of pure Sasquatch",
+      "Has to come in \"Forest Camouflage\" to match his cave decor",
+      "Extra-long \u2014 his feet hang off everything",
+      "Built-in snack holder (for salmon jerky, obviously)"
+    ],
+    correct: 2,
+    funFact: "Furniture World has comfy furniture for every size \u2014 maybe not QUITE Bigfoot-sized, but close! \ud83d\udecb\ufe0f"
+  },
+  {
+    id: 13,
+    name: "Doggie Designs",
+    address: "571 N Market Blvd",
+    icon: "\ud83d\udc36",
+    question: "Bigfoot brings his best friend (a very large wolf pup he adopted) to Doggie Designs for a grooming session. What style does he request?",
+    options: [
+      "\"The Teddy Bear Cut\" \u2014 so the wolf looks less intimidating at the dog park",
+      "\"Match My Owner\" \u2014 long, wild, and mysterious",
+      "\"The Poodle\" \u2014 Bigfoot thinks poodle cuts are hilarious",
+      "Just a bath \u2014 the wolf rolled in something unspeakable in the forest"
+    ],
+    correct: 3,
+    funFact: "Doggie Designs will pamper your pup like the forest royalty they are! \ud83d\udc3e\u2728"
+  }
+];
+
+const TOTAL_STOPS = STOPS.length;
+
+// ============ STATE MANAGEMENT ============
+const STORAGE_KEY = 'squatchquest_state';
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) return JSON.parse(saved);
+  } catch (e) { /* localStorage unavailable */ }
+  return { completed: {}, teamName: '', teamSize: '', submitted: false };
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) { /* localStorage unavailable */ }
+}
+
+let state = loadState();
+
+// Check URL params
+function getStopFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return parseInt(params.get('stop')) || null;
+}
+
+function getCompletedCount() {
+  return Object.keys(state.completed).length;
+}
+
+// ============ CONFETTI ============
+function launchConfetti() {
+  const container = document.createElement('div');
+  container.className = 'confetti-container';
+  document.body.appendChild(container);
+
+  const colors = ['#f0b8c8', '#9b7cb8', '#7cb87c', '#ffcc80', '#81d4fa', '#fff176'];
+  const shapes = ['\ud83e\uddb6', '\ud83c\udf32', '\u2b50', '\ud83c\udf1f', '\ud83d\udc3e'];
+
+  for (let i = 0; i < 40; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.animationDuration = (2 + Math.random() * 3) + 's';
+    piece.style.animationDelay = Math.random() * 1.5 + 's';
+
+    if (Math.random() > 0.5) {
+      piece.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+      piece.style.fontSize = '20px';
+      piece.style.background = 'none';
+    } else {
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      piece.style.width = (6 + Math.random() * 10) + 'px';
+      piece.style.height = (6 + Math.random() * 10) + 'px';
+    }
+
+    container.appendChild(piece);
+  }
+
+  setTimeout(() => container.remove(), 5000);
+}
+
+// ============ RENDERING ============
+const app = document.getElementById('app');
+
+function render() {
+  const stopId = getStopFromURL();
+
+  if (state.submitted) {
+    renderThankYou();
+  } else if (stopId) {
+    renderStop(stopId);
+  } else {
+    renderHub();
+  }
+}
+
+function renderHub() {
+  const completed = getCompletedCount();
+  const pct = Math.round((completed / TOTAL_STOPS) * 100);
+  const allDone = completed >= TOTAL_STOPS;
+
+  let html = `
+    <div class="header">
+      <span class="bigfoot-icon">\ud83e\uddb6</span>
+      <h1>PNW Wilds<br>Market Street Adventure</h1>
+      <div class="subtitle">What's Out There? \ud83d\udc40</div>
+      <div class="tagline">A Bigfoot Scavenger Hunt \u2022 Downtown Chehalis</div>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-label">
+        <span>\ud83d\udccd Stops Completed</span>
+        <span>${completed} / ${TOTAL_STOPS}</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${pct}%">
+          ${pct > 8 ? '<span class="footprint">\ud83e\uddb6</span>' : ''}
+        </div>
+      </div>
+    </div>
+  `;
+
+  if (allDone) {
+    html += `
+      <div class="completion-screen">
+        <div class="celebration">\ud83c\udf89</div>
+        <h2>YOU FOUND BIGFOOT!</h2>
+        <p>Amazing work, adventurer! You've completed all ${TOTAL_STOPS} stops on Market Street. Now enter your team info below to be entered into the prize drawing!</p>
+      </div>
+      ${renderEntryForm()}
+    `;
+  }
+
+  html += `<div class="hub-grid">`;
+
+  STOPS.forEach(stop => {
+    const done = state.completed[stop.id];
+    html += `
+      <a class="hub-card ${done ? 'completed' : ''}" href="?stop=${stop.id}">
+        <span class="hub-icon">${stop.icon}</span>
+        <div class="hub-name">${stop.name}</div>
+        ${done
+          ? '<span class="checkmark">\u2713</span>'
+          : '<div class="hub-status pending">Tap to visit!</div>'
+        }
+      </a>
+    `;
+  });
+
+  html += `</div>`;
+
+  // Reset button for testing / shared devices
+  html += `
+    <div style="text-align:center; margin-top: 12px;">
+      <button onclick="if(confirm('Reset all progress? This cannot be undone.')){state={completed:{},teamName:'',teamSize:'',submitted:false};saveState();render();}" 
+        style="background:none;border:none;color:#ccc;font-size:0.75rem;cursor:pointer;text-decoration:underline;">
+        Reset Progress
+      </button>
+    </div>
+  `;
+
+  app.innerHTML = html;
+
+  if (allDone) {
+    launchConfetti();
+    const form = document.getElementById('entryForm');
+    if (form) {
+      form.addEventListener('submit', handleSubmit);
+    }
+  }
+}
+
+function renderStop(stopId) {
+  const stop = STOPS.find(s => s.id === stopId);
+  if (!stop) {
+    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
+    return;
+  }
+
+  if (state.completed[stopId]) {
+    app.innerHTML = `
+      <div class="header">
+        <span class="bigfoot-icon">${stop.icon}</span>
+        <h1>${stop.name}</h1>
+      </div>
+      <div class="already-done">
+        <div style="font-size:3rem">\u2705</div>
+        <h3>Already Completed!</h3>
+        <p>You've already conquered this stop, adventurer! Bigfoot is impressed.</p>
+        <p style="font-size:0.85rem; color:var(--purple); font-style:italic; margin-top:8px;">${stop.funFact}</p>
+        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Back to Adventure Map</button>
+      </div>
+    `;
+    return;
+  }
+
+  const letters = ['A', 'B', 'C', 'D'];
+
+  let html = `
+    <div class="header" style="padding-bottom:8px">
+      <button class="nav-btn" onclick="window.location='?'" style="margin-bottom:12px">\ud83d\uddfa\ufe0f Adventure Map</button>
+    </div>
+    <div class="stop-card">
+      <div class="business-icon">${stop.icon}</div>
+      <div class="business-name">${stop.name}</div>
+      <div class="business-address">\ud83d\udccd ${stop.address}</div>
+      <div class="question-label">\ud83e\uddb6 Bigfoot wants to know...</div>
+      <div class="question">${stop.question}</div>
+      <div class="options" id="options-${stop.id}">
+        ${stop.options.map((opt, i) => `
+          <button class="option-btn" data-stop="${stop.id}" data-idx="${i}" onclick="handleAnswer(${stop.id}, ${i})">
+            <span class="letter">${letters[i]}</span>
+            <span>${opt}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div id="result-${stop.id}"></div>
+    </div>
+  `;
+
+  app.innerHTML = html;
+}
+
+function handleAnswer(stopId, selectedIdx) {
+  const stop = STOPS.find(s => s.id === stopId);
+  const buttons = document.querySelectorAll(`[data-stop="${stopId}"]`);
+  const resultDiv = document.getElementById(`result-${stopId}`);
+
+  // Disable all buttons
+  buttons.forEach(btn => {
+    btn.disabled = true;
+    btn.style.pointerEvents = 'none';
+  });
+
+  const isCorrect = selectedIdx === stop.correct;
+
+  // Highlight selected
+  buttons[selectedIdx].classList.add(isCorrect ? 'correct' : 'wrong');
+  if (!isCorrect) {
+    buttons[stop.correct].classList.add('correct');
+  }
+
+  // Mark as completed regardless of answer (it's for fun!)
+  state.completed[stopId] = true;
+  saveState();
+
+  if (isCorrect) {
+    resultDiv.innerHTML = `
+      <div class="result-msg correct">
+        \ud83c\udf1f Correct! Bigfoot approves! \ud83e\uddb6
+        <div class="fun-fact">${stop.funFact}</div>
+      </div>
+      <div style="text-align:center">
+        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
+      </div>
+    `;
+    launchConfetti();
+  } else {
+    resultDiv.innerHTML = `
+      <div class="result-msg wrong">
+        \ud83d\ude04 Nice try! The answer was <strong>${String.fromCharCode(65 + stop.correct)}</strong> \u2014 but Bigfoot still gives you credit for showing up!
+        <div class="fun-fact">${stop.funFact}</div>
+      </div>
+      <div style="text-align:center">
+        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
+      </div>
+    `;
+  }
+}
+
+function renderEntryForm() {
+  return `
+    <form class="entry-form" id="entryForm">
+      <h3>\ud83c\udfc6 Enter the Prize Drawing!</h3>
+      <div class="form-group">
+        <label for="teamName">\ud83e\uddb6 Team / Your Name</label>
+        <input type="text" id="teamName" placeholder="e.g., The Sasquatch Squad" required>
+      </div>
+      <div class="form-group">
+        <label for="teamSize">\ud83d\udc65 Team Size</label>
+        <select id="teamSize" required>
+          <option value="">Select...</option>
+          <option value="1">Just me (solo Squatcher)</option>
+          <option value="2">2 adventurers</option>
+          <option value="3">3 adventurers</option>
+          <option value="4">4 adventurers</option>
+          <option value="5+">5+ (a whole expedition!)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="email">\ud83d\udce7 Email (for prize notification)</label>
+        <input type="email" id="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">\ud83d\udcf1 Phone (optional)</label>
+        <input type="tel" id="phone" placeholder="(360) 555-1234">
+      </div>
+      <div class="form-group">
+        <label for="favorite">\u2764\ufe0f Favorite stop on the hunt?</label>
+        <select id="favorite">
+          <option value="">Pick your fave!</option>
+          ${STOPS.map(s => `<option value="${s.name}">${s.icon} ${s.name}</option>`).join('')}
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">\ud83e\uddb6 Submit & Enter Drawing!</button>
+    </form>
+  `;
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+
+  state.teamName = document.getElementById('teamName').value;
+  state.teamSize = document.getElementById('teamSize').value;
+  state.email = document.getElementById('email').value;
+  state.phone = document.getElementById('phone').value || '';
+  state.favorite = document.getElementById('favorite').value || '';
+  state.completedAt = new Date().toISOString();
+  state.submitted = true;
+  saveState();
+
+  // Submit to Google Form (if configured)
+  if (GOOGLE_FORM_URL) {
+    submitToGoogleForm();
+  }
+
+  render();
+  launchConfetti();
+}
+
+function renderThankYou() {
+  app.innerHTML = `
+    <div class="thankyou">
+      <div style="font-size:5rem">\ud83c\udf89\ud83e\uddb6\ud83c\udf89</div>
+      <h2>You Did It, ${state.teamName}!</h2>
+      <p style="margin: 16px 0; font-size: 1.1rem;">
+        Your team has been entered into the prize drawing!
+      </p>
+      <div style="background: white; border-radius: 16px; padding: 20px; border: 2px solid var(--green); margin: 20px 0;">
+        <p style="font-weight: 700; color: var(--green-dark); margin-bottom: 8px;">\ud83c\udfc6 What happens next?</p>
+        <p style="font-size: 0.95rem;">
+          <strong>Show this screen</strong> to the PNW Wilds team at the main event area to confirm your entry! Winners will be announced during the event.
+        </p>
+        <div style="margin-top: 16px; padding: 12px; background: var(--pink-light); border-radius: 10px;">
+          <p style="font-size: 0.85rem; color: var(--purple-dark);">
+            \ud83d\udcca Stops completed: <strong>${getCompletedCount()} / ${TOTAL_STOPS}</strong><br>
+            \ud83d\udc65 Team: <strong>${state.teamName}</strong> (${state.teamSize} member${state.teamSize === '1' ? '' : 's'})<br>
+            \u23f0 Completed: <strong>${new Date().toLocaleTimeString()}</strong>
+          </p>
+        </div>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--purple); font-style: italic;">
+        Thank you for supporting Nature Nurture Farmacy &amp; Lewis County Historical Museum!
+      </p>
+      <div style="margin-top: 24px; font-size: 3rem;">\ud83c\udf32\ud83e\uddb6\ud83c\udf32</div>
+    </div>
+  `;
+}
+
+// ============ INIT ============
+render();
+
+// Handle back/forward navigation
+window.addEventListener('popstate', render);
+</script>
+</body>
+</html>

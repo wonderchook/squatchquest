@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>PNW Wilds Market Street Adventure</title>
-<meta name="description" content="A Bigfoot-themed scavenger hunt through Downtown Chehalis! Visit 13 businesses, answer trivia, and win prizes. March 7, 2026.">
-<meta property="og:title" content="PNW Wilds Market Street Adventure">
-<meta property="og:description" content="A Bigfoot scavenger hunt through Downtown Chehalis! Visit 13 businesses, scan QR codes, answer trivia, and enter to win prizes.">
-<meta property="og:type" content="website">
+<title>SquatchSight.ing — Custom Bigfoot Scavenger Hunts</title>
 <meta name="theme-color" content="#6a4c93">
+<meta name="description" content="Custom Bigfoot-themed QR code scavenger hunts for your community, downtown, or event. Built in the Pacific Northwest.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦶</text></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Quicksand:wght@400;600;700&display=swap');
 
@@ -34,14 +32,238 @@ body {
 }
 
 .container {
-  max-width: 480px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 24px 16px;
   min-height: 100vh;
   position: relative;
 }
 
-/* Mountain/forest background decoration */
+.content { position: relative; z-index: 1; }
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 40px 10px 20px;
+  margin-bottom: 20px;
+}
+
+.header .bigfoot-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 12px;
+  animation: wobble 3s ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.header h1 {
+  font-family: 'Lilita One', cursive;
+  font-size: 2.8rem;
+  color: var(--purple-dark);
+  text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.header .subtitle {
+  font-size: 1.15rem;
+  color: var(--green-dark);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.header .tagline {
+  font-size: 0.95rem;
+  color: var(--purple);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 3px solid var(--pink);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card h2 {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.5rem;
+  color: var(--purple-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: var(--brown);
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.card ul li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card ul li::before {
+  content: '🦶';
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+/* Hunt links */
+.hunt-card {
+  border-color: var(--green-light);
+  background: linear-gradient(135deg, white 0%, #f0f9f0 100%);
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.hunt-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+.hunt-card .hunt-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.4rem;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+
+.hunt-card .hunt-location {
+  font-size: 0.85rem;
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.hunt-card .hunt-desc {
+  font-size: 0.9rem;
+  color: var(--brown);
+  margin-top: 8px;
+}
+
+.hunt-card .hunt-badge {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+/* Team section */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.team-member {
+  text-align: center;
+  padding: 16px;
+  background: var(--cream);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-2px);
+}
+
+.team-member .team-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.team-member .team-name {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.1rem;
+  color: var(--purple-dark);
+  margin-bottom: 4px;
+}
+
+.team-member .team-role {
+  font-size: 0.8rem;
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+/* CTA */
+.cta-section {
+  text-align: center;
+  padding: 24px;
+  margin-top: 8px;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+  color: white;
+  font-family: 'Lilita One', cursive;
+  font-size: 1.2rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(106, 76, 147, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(106, 76, 147, 0.4);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 0.8rem;
+  color: var(--purple);
+}
+
+.footer a {
+  color: var(--purple-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+/* Forest background */
 .bg-decor {
   position: fixed;
   bottom: 0;
@@ -52,1124 +274,111 @@ body {
   z-index: 0;
   overflow: hidden;
 }
+
 .bg-decor svg { width: 100%; height: 100%; }
 
-.content { position: relative; z-index: 1; }
-
-/* Header */
-.header {
-  text-align: center;
-  padding: 20px 10px;
-  margin-bottom: 20px;
-}
-
-.header h1 {
-  font-family: 'Lilita One', cursive;
-  font-size: 2rem;
-  color: var(--purple-dark);
-  text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
-  line-height: 1.1;
-}
-
-.header .subtitle {
-  font-size: 1rem;
-  color: var(--green-dark);
-  font-weight: 700;
-  margin-top: 4px;
-}
-
-.header .tagline {
-  font-size: 0.85rem;
-  color: var(--purple);
-  margin-top: 8px;
-  font-style: italic;
-}
-
-/* Bigfoot emoji/icon */
-.bigfoot-icon {
-  font-size: 3rem;
-  display: block;
-  margin-bottom: 8px;
-}
-
-/* Progress bar */
-.progress-section {
-  background: white;
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  border: 2px solid var(--pink);
-}
-
-.progress-label {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--purple-dark);
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.progress-bar {
-  height: 20px;
-  background: #f0f0f0;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--green-light), var(--green));
-  border-radius: 10px;
-  transition: width 0.5s ease;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 8px;
-}
-
-.progress-fill .footprint {
-  font-size: 14px;
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
-}
-
-/* Stop card */
-.stop-card {
-  background: white;
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  border: 3px solid var(--pink);
-  animation: slideUp 0.4s ease;
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.stop-card .business-icon {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.stop-card .business-name {
-  font-family: 'Lilita One', cursive;
-  font-size: 1.5rem;
-  color: var(--purple-dark);
-  text-align: center;
-  margin-bottom: 4px;
-}
-
-.stop-card .business-address {
-  text-align: center;
-  font-size: 0.8rem;
-  color: #999;
-  margin-bottom: 16px;
-}
-
-.stop-card .question-label {
-  font-weight: 700;
-  color: var(--green-dark);
-  font-size: 0.85rem;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.stop-card .question {
-  font-size: 1.05rem;
-  line-height: 1.5;
-  color: var(--brown);
-  margin-bottom: 20px;
-  padding: 12px;
-  background: var(--pink-light);
-  border-radius: 12px;
-}
-
-/* Answer options */
-.options { display: flex; flex-direction: column; gap: 10px; }
-
-.option-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  background: var(--cream);
-  border: 2px solid #e0d5c5;
-  border-radius: 14px;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--brown);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: left;
-  width: 100%;
-}
-
-.option-btn:hover, .option-btn:focus {
-  border-color: var(--purple);
-  background: #f3e5f5;
-  transform: scale(1.02);
-}
-
-.option-btn:active { transform: scale(0.98); }
-
-.option-btn .letter {
-  width: 32px;
-  height: 32px;
-  background: var(--purple);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.option-btn.correct {
-  border-color: var(--green);
-  background: #e8f5e9;
-  animation: correctPulse 0.5s ease;
-}
-
-.option-btn.wrong {
-  border-color: #e57373;
-  background: #ffebee;
-  animation: shake 0.4s ease;
-}
-
-@keyframes correctPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
-
-/* Result message */
-.result-msg {
-  text-align: center;
-  padding: 16px;
-  border-radius: 14px;
-  margin-top: 16px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  animation: slideUp 0.3s ease;
-}
-
-.result-msg.correct {
-  background: #e8f5e9;
-  color: var(--green-dark);
-  border: 2px solid var(--green-light);
-}
-
-.result-msg.wrong {
-  background: #fff3e0;
-  color: #e65100;
-  border: 2px solid #ffcc80;
-}
-
-.result-msg .fun-fact {
-  font-size: 0.85rem;
-  font-weight: 400;
-  margin-top: 8px;
-  font-style: italic;
-  color: var(--purple);
-}
-
-/* Home / hub screen */
-.hub-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.hub-card {
-  background: white;
-  border-radius: 16px;
-  padding: 16px 12px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  border: 2px solid #e0d5c5;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-}
-
-.hub-card:hover {
-  border-color: var(--purple);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-}
-
-.hub-card.completed {
-  border-color: var(--green);
-  background: #f1f8e9;
-}
-
-.hub-card.unlocked {
-  border-color: var(--purple);
-  background: #f3e5f5;
-  animation: gentlePulse 2s ease infinite;
-}
-
-@keyframes gentlePulse {
-  0%, 100% { box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
-  50% { box-shadow: 0 2px 16px rgba(155, 124, 184, 0.3); }
-}
-
-.hub-card.locked {
-  cursor: default;
-  background: #f5f5f5;
-  border-color: #e0e0e0;
-}
-
-.hub-card.locked:hover {
-  transform: none;
-  border-color: #e0e0e0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-}
-
-.hub-card .hub-icon { font-size: 2rem; margin-bottom: 6px; display: block; }
-.hub-card .hub-name { font-weight: 700; font-size: 0.85rem; color: var(--purple-dark); line-height: 1.2; }
-.hub-card .hub-status { font-size: 0.75rem; margin-top: 4px; }
-.hub-card .hub-status.done { color: var(--green); }
-.hub-card .hub-status.pending { color: #bbb; }
-
-.hub-card .checkmark {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  background: var(--green);
-  color: white;
-  border-radius: 50%;
-  line-height: 22px;
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-/* Completion screen */
-.completion-screen {
-  text-align: center;
-  padding: 20px;
-}
-
-.completion-screen h2 {
-  font-family: 'Lilita One', cursive;
-  font-size: 2rem;
-  color: var(--green-dark);
-  margin: 16px 0 8px;
-}
-
-.completion-screen .celebration { font-size: 4rem; }
-
-.completion-screen p {
-  font-size: 1rem;
-  color: var(--brown);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-/* Entry form */
-.entry-form {
-  background: white;
-  border-radius: 20px;
-  padding: 24px;
-  margin: 20px 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  border: 3px solid var(--green);
-}
-
-.entry-form h3 {
-  font-family: 'Lilita One', cursive;
-  color: var(--purple-dark);
-  font-size: 1.3rem;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.form-group { margin-bottom: 14px; }
-
-.form-group label {
-  display: block;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--green-dark);
-  margin-bottom: 6px;
-}
-
-.form-group input, .form-group select {
-  width: 100%;
-  padding: 12px 14px;
-  border: 2px solid #e0d5c5;
-  border-radius: 12px;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1rem;
-  background: var(--cream);
-  color: var(--brown);
-  transition: border-color 0.2s;
-}
-
-.form-group input:focus, .form-group select:focus {
-  outline: none;
-  border-color: var(--purple);
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 16px;
-  background: linear-gradient(135deg, var(--green), var(--green-dark));
-  color: white;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Lilita One', cursive;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 8px;
-  letter-spacing: 0.5px;
-}
-
-.submit-btn:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-.submit-btn:active { transform: scale(0.98); }
-.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-/* Nav button */
-.nav-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
-  background: var(--purple);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 12px;
-}
-
-.nav-btn:hover { background: var(--purple-dark); transform: scale(1.02); }
-
-/* Thank you */
-.thankyou {
-  text-align: center;
-  padding: 30px 20px;
-  animation: slideUp 0.5s ease;
-}
-
-.thankyou h2 {
-  font-family: 'Lilita One', cursive;
-  font-size: 1.8rem;
-  color: var(--green-dark);
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.75rem;
-  color: #aaa;
-  margin-top: 30px;
-}
-
-.footer a { color: var(--purple); text-decoration: none; }
-
-/* Confetti */
-.confetti-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 100;
-  overflow: hidden;
-}
-
-.confetti-piece {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: -10px;
-  animation: confettiFall linear forwards;
-}
-
-@keyframes confettiFall {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-}
-
-/* Already completed overlay */
-.already-done {
-  background: white;
-  border-radius: 20px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  border: 3px solid var(--green);
-  animation: slideUp 0.4s ease;
-}
-
-.already-done h3 {
-  font-family: 'Lilita One', cursive;
-  color: var(--green-dark);
-  font-size: 1.3rem;
-  margin: 12px 0;
-}
-
-/* Responsive tweaks */
-@media (max-width: 360px) {
-  .header h1 { font-size: 1.6rem; }
-  .hub-grid { gap: 8px; }
-  .hub-card { padding: 12px 8px; }
+@media (max-width: 480px) {
+  .header h1 { font-size: 2.2rem; }
+  .team-grid { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Background decoration -->
-  <div class="bg-decor">
-    <svg viewBox="0 0 480 200" preserveAspectRatio="none">
-      <!-- Mountains -->
-      <polygon points="0,200 60,80 120,140 180,50 240,120 300,60 360,130 420,70 480,200" fill="#c5b3d4" opacity="0.3"/>
-      <polygon points="0,200 40,120 100,160 160,100 220,150 280,90 340,160 400,110 480,200" fill="#7cb87c" opacity="0.25"/>
-      <!-- Trees -->
-      <polygon points="30,200 45,130 60,200" fill="#4a7c59" opacity="0.3"/>
-      <polygon points="100,200 115,110 130,200" fill="#2d5a3e" opacity="0.3"/>
-      <polygon points="200,200 215,140 230,200" fill="#4a7c59" opacity="0.25"/>
-      <polygon points="350,200 365,120 380,200" fill="#2d5a3e" opacity="0.3"/>
-      <polygon points="430,200 445,135 460,200" fill="#4a7c59" opacity="0.25"/>
-    </svg>
+<div class="content">
+
+  <!-- Header -->
+  <div class="header">
+    <span class="bigfoot-icon">🦶</span>
+    <h1>SquatchSight.ing</h1>
+    <div class="subtitle">Custom Bigfoot Scavenger Hunts</div>
+    <div class="tagline">QR-powered adventures for your downtown, your trails, your community</div>
   </div>
 
-  <div class="content" id="app"></div>
+  <!-- What is this? -->
+  <div class="card">
+    <h2>👁️ What is SquatchSighting?</h2>
+    <p>We build custom Bigfoot-themed QR code scavenger hunts that bring people together in real places. Whether it's a downtown shopping district, a local trail system, or a community event — we create fun, phone-powered adventures that get people exploring.</p>
+    <p>Each hunt features:</p>
+    <ul>
+      <li>Weatherproof QR code stickers placed at real locations</li>
+      <li>A mobile-friendly web app — no downloads required</li>
+      <li>Custom Bigfoot-themed trivia and challenges at each stop</li>
+      <li>Progress tracking so participants can see how many sightings they've made</li>
+      <li>Support for local businesses and community organizations</li>
+    </ul>
+  </div>
 
+  <!-- How it works -->
+  <div class="card">
+    <h2>🗺️ How It Works</h2>
+    <p>We work with you to design a scavenger hunt tailored to your community:</p>
+    <ul>
+      <li><strong>Pick your locations</strong> — local businesses, trail markers, landmarks, or event stations</li>
+      <li><strong>We build the hunt</strong> — custom questions, Bigfoot lore, and a beautiful mobile app</li>
+      <li><strong>QR stickers go up</strong> — weatherproof stickers that participants scan at each stop</li>
+      <li><strong>People explore!</strong> — walk, discover, answer questions, track progress</li>
+    </ul>
+    <p>Everything runs in the browser. No app store. No accounts. Just scan and go.</p>
+  </div>
+
+  <!-- Active Hunts -->
+  <div class="card">
+    <h2>🌲 Active Hunts</h2>
+    <p>Check out our current adventures:</p>
+  </div>
+
+  <a href="/pnwwilds/" class="card hunt-card">
+    <div class="hunt-title">🏔️ PNW Wilds Market Street Adventure</div>
+    <div class="hunt-location">Downtown Chehalis, WA</div>
+    <div class="hunt-desc">13 local businesses, Bigfoot-themed trivia, and a walk through the heart of downtown. Visit Nature Nurture Farmacy, Book and Brush, Bigfoot Treasures, and more!</div>
+    <span class="hunt-badge">March 7, 2026</span>
+  </a>
+
+  <!-- Who's behind this -->
+  <div class="card">
+    <h2>🤝 Who's Behind This</h2>
+    <p>SquatchSighting is built by a team of Pacific Northwest humans (and a few friendly AIs) who believe that community engagement should be fun, accessible, and a little weird.</p>
+    <div class="team-grid">
+      <a href="https://cascadiatm.com" target="_blank" rel="noopener" class="team-member">
+        <span class="team-icon">🏔️</span>
+        <div class="team-name">Cascadia TM</div>
+        <div class="team-role">Technical Mentorship</div>
+      </a>
+      <a href="https://marikaolson.com" target="_blank" rel="noopener" class="team-member">
+        <span class="team-icon">✨</span>
+        <div class="team-name">Marika Olson</div>
+        <div class="team-role">Strategy & Consulting</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p style="margin-bottom: 16px; font-weight: 600; color: var(--green-dark);">Want a custom scavenger hunt for your town or event?</p>
+    <a href="mailto:hello@squatchsight.ing" class="cta-button">Get In Touch 🦶</a>
+  </div>
+
+  <!-- Footer -->
   <div class="footer">
-    <p>PNW Wilds Market Street Adventure &bull; March 7, 2026<br>
-    Benefiting <strong>Nature Nurture Farmacy</strong> &amp; <strong>Lewis County Historical Museum</strong><br>
-    Downtown Chehalis, WA</p>
-    <p style="margin-top:8px"><a href="#" onclick="if(confirm('Reset all progress? This cannot be undone!')){localStorage.removeItem('pnw_wilds_hunt_2026');location.href='?';}return false;">Reset Progress</a></p>
+    <p>Made with 🌲 in the Pacific Northwest</p>
+    <p style="margin-top: 8px;">
+      <a href="https://cascadiatm.com">Cascadia TM</a> · <a href="https://marikaolson.com">Marika Olson</a>
+    </p>
   </div>
+
+</div>
 </div>
 
-<script>
-// ============ SCAVENGER HUNT DATA ============
-const STOPS = [
-  {
-    id: 1, key: "herb7f",
-    name: "Nature Nurture Farmacy",
-    address: "Downtown Chehalis",
-    icon: "\ud83c\udf3f",
-    question: "Bigfoot's been foraging in the woods for years, but he just discovered Nature Nurture Farmacy has an even more selection. What can he grab from their herbal apothecary that he can't find under a log?",
-    options: [
-      "A packet of open-pollinated seeds from their community seed library (he wants to start a garden in his cave)",
-      "A jar of pickled pinecones (Bigfoot's favorite midnight snack)",
-      "A prescription for \"essence of mystery\" (smells like fog and secrets)",
-      "A map to the nearest Bigfoot-sized hot tub"
-    ],
-    correct: 0,
-    funFact: "Nature Nurture Farmacy is a non-profit with a real community seed library full of non-GMO, open-pollinated seed packets, plus herbal teas, supplements, and classes on herbs and nutrition! \ud83c\udf3f"
-  },
-  {
-    id: 2, key: "paint4b",
-    name: "Book 'N' Brush",
-    address: "Downtown Chehalis",
-    icon: "\ud83c\udfa8",
-    question: "Bigfoot finally comes out of the woods and wanders into Book 'N' Brush. He's amazed \u2014 this shop has been here since 1969! What does he NOT find inside?",
-    options: [
-      "Fine art supplies and custom framing",
-      "A Bigfoot tracking GPS with thermal vision (military grade)",
-      "A curated selection of books and local artisan gifts",
-      "Children's toys and cozy reading chairs"
-    ],
-    correct: 1,
-    funFact: "Book 'N' Brush has been a Chehalis treasure since 1969, offering books, fine art supplies, custom framing, local artisan gifts, and children's toys for over 50 years! \ud83d\uddbc\ufe0f"
-  },
-  {
-    id: 3, key: "cave9t",
-    name: "Bigfoot Treasures",
-    address: "Downtown Chehalis",
-    icon: "\ud83e\uddb6",
-    question: "Bigfoot walks into his favorite store in town \u2014 a place literally named after him! What's the ONE thing he can't find on the shelves?",
-    options: [
-      "Cryptid and paranormal-themed T-shirts and stickers",
-      "A real, authenticated Sasquatch DNA test kit",
-      "Bacon-flavored candy canes",
-      "Jewelry, coloring books, and novelty gifts"
-    ],
-    correct: 1,
-    funFact: "Bigfoot Treasure is packed with cryptid-themed clothes, quirky novelties, bacon candy canes, and all the Bigfoot merch a Sasquatch could dream of! \ud83d\udc8e"
-  },
-  {
-    id: 4, key: "wool3e",
-    name: "Ewe & I",
-    address: "566 N Market Blvd",
-    icon: "\ud83d\udc11",
-    question: "Bigfoot needs a cozy sweater for the chilly PNW winters. He shuffles into Ewe & I for supplies. What can he find at this local yarn store?",
-    options: [
-      "Only basic acrylic yarn in three colors",
-      "Independently dyed yarns and supplies for knitting, spinning, weaving, and felting",
-      "Pre-made Bigfoot-sized sweaters (one size fits all Sasquatch)",
-      "Just knitting needles \u2014 you have to bring your own yarn"
-    ],
-    correct: 1,
-    funFact: "Ewe & I is a full fiber arts shop carrying independently dyed yarns alongside national brands, plus tools and supplies for knitting, spinning, weaving, and felting! \ud83e\uddf6"
-  },
-  {
-    id: 5, key: "dice6g",
-    name: "Diversified Games",
-    address: "551 N Market Blvd",
-    icon: "\ud83c\udfb2",
-    question: "It's game night in Bigfoot's cave! He heads to Diversified Games to stock up. This shop has been going strong since 1999 \u2014 which of these can Bigfoot actually find there?",
-    options: [
-      "Comic books, graphic novels, and manga",
-      "A life-sized Bigfoot action figure with kung fu grip",
-      "Only video games \u2014 nothing else",
-      "Just Monopoly and Scrabble, that's it"
-    ],
-    correct: 0,
-    funFact: "Diversified Games is a full-service comic and game store carrying back issues, new comics, graphic novels, manga, CCGs, RPGs, board games, miniatures, and hobby supplies \u2014 open since 1999! \ud83c\udfae"
-  },
-  {
-    id: 6, key: "pine2s",
-    name: "Spruce",
-    address: "534 N Market Blvd",
-    icon: "\ud83c\udf32",
-    question: "Bigfoot has a hot date and wants to \"spruce\" up! He walks into Spruce Skin & Wax Shoppe for a glow-up. What can he actually get done here?",
-    options: [
-      "A full haircut and beard trim (he's very attached to his look)",
-      "HydraFacial treatments, clinical peels, and full body waxing",
-      "A tattoo of a footprint on his bicep",
-      "Just a basic bar of soap and good luck"
-    ],
-    correct: 1,
-    funFact: "Spruce Skin & Wax Shoppe specializes in HydraFacials, clinical skincare, customized facials, and expert waxing \u2014 plus they sell clothes, jewelry, and accessories. Originally started in Olympia! \u2728"
-  },
-  {
-    id: 7, key: "fish8k",
-    name: "NW Salmon Smokehouse",
-    address: "486 N Market Blvd",
-    icon: "\ud83d\udc1f",
-    question: "Bigfoot LOVES salmon \u2014 he catches them right out of the river! But at NW Salmon Smokehouse & Artisan Market, they do things a little fancier. Which of these is a real menu item?",
-    options: [
-      "Smoked salmon chowder",
-      "Bigfoot's Bear-Claw Brisket Burger",
-      "Deep-fried salmon jerky on a stick",
-      "Sasquatch-sized salmon sashimi platter"
-    ],
-    correct: 0,
-    funFact: "NW Salmon Smokehouse serves up smoked salmon chowder, smoked salmon paninis, and smokehouse baked potatoes \u2014 plus an artisan market with specialty foods and locally crafted goods! \ud83c\udf23"
-  },
-  {
-    id: 8, key: "glam5j",
-    name: "JJ Nails",
-    address: "542 N Market Blvd",
-    icon: "\ud83d\udc85",
-    question: "Bigfoot's toenails are getting out of control \u2014 each one is the size of a dinner plate. He squeezes into JJ Nails for some help. Which of these services can their nail techs actually do for him?",
-    options: [
-      "Only basic nail clipping \u2014 nothing fancy",
-      "Gel nails, acrylics, dip powder, nail art, manicures, and pedicures",
-      "Full claw sharpening and talon polishing (forest predator special)",
-      "They only do hair, not nails \u2014 Bigfoot is in the wrong shop"
-    ],
-    correct: 1,
-    funFact: "JJ Nails offers the works \u2014 gel nails, acrylics, dip powder, nail art, manicures, and pedicures. Even Bigfoot's toenails would look fabulous! \ud83d\udc85\u2728"
-  },
-  {
-    id: 9, key: "roll1r",
-    name: "Royal Sushi & Teriyaki",
-    address: "575 N Market Blvd",
-    icon: "\ud83c\udf63",
-    question: "Bigfoot walks into Royal Sushi & Teriyaki and stares at the menu. He sees something called \"hamachi\" \u2014 what is it?",
-    options: [
-      "A spicy dipping sauce made from wasabi and honey",
-      "A type of chopstick holder shaped like a little fish",
-      "Yellowtail \u2014 a rich, buttery fish popular in sushi",
-      "A deep-fried dessert roll filled with sweet red bean paste"
-    ],
-    correct: 2,
-    funFact: "Hamachi is the Japanese word for yellowtail, a favorite at sushi restaurants for its rich, buttery flavor. Now you can order like a pro at Royal Sushi & Teriyaki! \ud83c\udf63"
-  },
-  {
-    id: 10, key: "boot4m",
-    name: "Smith's Mercantile",
-    address: "464 N Market Blvd",
-    icon: "\ud83c\udfea",
-    question: "Bigfoot sneaks into Smith's Mercantile looking for a new outfit. What kind of shop is he in?",
-    options: [
-      "A hardware store \u2014 nothing but hammers and nails",
-      "A curated boutique with home d\u00e9cor, clothing, accessories, and gifts",
-      "A Bigfoot costume rental shop (he's going undercover as a human)",
-      "A grocery store with a really misleading name"
-    ],
-    correct: 1,
-    funFact: "Smith's Mercantile is a boutique with a blend of rustic charm and modern style, offering handpicked home d\u00e9cor, clothing, accessories, and gifts \u2014 perfect for finding something unique in downtown Chehalis! \ud83d\udecd\ufe0f"
-  },
-  {
-    id: 11, key: "taco7l",
-    name: "Taqueria Lolita",
-    address: "337 NW Chehalis Ave",
-    icon: "\ud83c\udf2e",
-    question: "Bigfoot discovers tacos for the first time at Taqueria Lolita and instantly falls in love. Now for a taco trivia question \u2014 how many tacos does the average American eat per year?",
-    options: [
-      "About 10 \u2014 most people stick to Taco Tuesday",
-      "Around 60 \u2014 a little more than one a week",
-      "Exactly 100 \u2014 it's a national requirement",
-      "Over 200 \u2014 Bigfoot thinks those are rookie numbers"
-    ],
-    correct: 1,
-    funFact: "Americans eat roughly 4.5 billion tacos a year \u2014 that works out to about 60 per person! Bigfoot plans to single-handedly raise that average after visiting Taqueria Lolita. \ud83c\udf2e\u2764\ufe0f"
-  },
-  {
-    id: 12, key: "sofa3w",
-    name: "Furniture World",
-    address: "563 N Market Blvd",
-    icon: "\ud83d\udecb\ufe0f",
-    question: "Bigfoot is tired of sleeping on a pile of leaves. He goes to Furniture World to upgrade. This family-owned business has been in the furniture industry for over 40 years \u2014 how many locations do they have across Western Washington?",
-    options: [
-      "Just this one \u2014 it's a hidden gem",
-      "Three \u2014 Chehalis, Seattle, and Spokane",
-      "Eight family-owned locations",
-      "Fifty \u2014 there's a Furniture World on every corner"
-    ],
-    correct: 2,
-    funFact: "Furniture World is family owned and operated with eight locations across Western Washington. Their first store opened in Vancouver, WA in 1993 and they've been growing ever since! \ud83d\udecb\ufe0f"
-  },
-  {
-    id: 13, key: "paws9d",
-    name: "Doggie Designs",
-    address: "571 N Market Blvd",
-    icon: "\ud83d\udc36",
-    question: "Bigfoot brings his best friend (a very large wolf pup he adopted) to Doggie Designs for a spa day. Which of these is NOT a real service they offer?",
-    options: [
-      "De-shedding treatments",
-      "Teeth cleaning",
-      "A doggie aromatherapy massage with essential oils",
-      "Flea and tick prevention"
-    ],
-    correct: 2,
-    funFact: "Doggie Designs offers bathing, haircuts, nail trimming, ear cleaning, de-shedding, teeth cleaning, and flea & tick prevention \u2014 all in a low-stress environment. Even Bigfoot's wolf pup would feel pampered! \ud83d\udc3e\u2728"
-  }
-];
+<!-- Forest background decoration -->
+<div class="bg-decor">
+  <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+    <path d="M0 200 L0 120 Q120 80 240 100 Q360 120 480 90 Q600 60 720 80 Q840 100 960 70 Q1080 40 1200 80 Q1320 120 1440 90 L1440 200Z" fill="#2d5a3e" opacity="0.3"/>
+    <path d="M0 200 L0 140 Q180 110 360 130 Q540 150 720 120 Q900 90 1080 120 Q1260 150 1440 110 L1440 200Z" fill="#4a7c59" opacity="0.2"/>
+  </svg>
+</div>
 
-const TOTAL_STOPS = STOPS.length;
-
-// ============ STATE MANAGEMENT ============
-// Persist progress in localStorage so it survives between QR scans
-const STORAGE_KEY = 'pnw_wilds_hunt_2026';
-
-function loadState() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) return JSON.parse(saved);
-  } catch(e) {}
-  return { completed: {}, unlocked: {}, teamName: '', teamSize: '', submitted: false };
-}
-
-function saveState() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
-}
-
-let state = loadState();
-
-// Check URL params
-function getStopFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  return parseInt(params.get('stop')) || null;
-}
-
-function getKeyFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get('key') || null;
-}
-
-function isUnlocked(stopId) {
-  return !!state.unlocked[stopId];
-}
-
-function getCompletedCount() {
-  return Object.keys(state.completed).length;
-}
-
-// ============ CONFETTI ============
-function launchConfetti() {
-  const container = document.createElement('div');
-  container.className = 'confetti-container';
-  document.body.appendChild(container);
-
-  const colors = ['#f0b8c8', '#9b7cb8', '#7cb87c', '#ffcc80', '#81d4fa', '#fff176'];
-  const shapes = ['\ud83e\uddb6', '\ud83c\udf32', '\u2b50', '\ud83c\udf1f', '\ud83d\udc3e'];
-
-  for (let i = 0; i < 40; i++) {
-    const piece = document.createElement('div');
-    piece.className = 'confetti-piece';
-    piece.style.left = Math.random() * 100 + '%';
-    piece.style.animationDuration = (2 + Math.random() * 3) + 's';
-    piece.style.animationDelay = Math.random() * 1.5 + 's';
-
-    if (Math.random() > 0.5) {
-      piece.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-      piece.style.fontSize = '20px';
-      piece.style.background = 'none';
-    } else {
-      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-      piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-      piece.style.width = (6 + Math.random() * 10) + 'px';
-      piece.style.height = (6 + Math.random() * 10) + 'px';
-    }
-
-    container.appendChild(piece);
-  }
-
-  setTimeout(() => container.remove(), 5000);
-}
-
-// ============ RENDERING ============
-const app = document.getElementById('app');
-
-function render() {
-  const stopId = getStopFromURL();
-  const urlKey = getKeyFromURL();
-
-  // If arriving with a valid key, unlock this stop
-  if (stopId && urlKey) {
-    const stop = STOPS.find(s => s.id === stopId);
-    if (stop && stop.key === urlKey) {
-      if (!state.unlocked) state.unlocked = {};
-      state.unlocked[stopId] = true;
-      saveState();
-    }
-  }
-
-  // Ensure unlocked exists for older saved states
-  if (!state.unlocked) { state.unlocked = {}; saveState(); }
-
-  if (state.submitted) {
-    renderThankYou();
-  } else if (stopId && isUnlocked(stopId)) {
-    renderStop(stopId);
-  } else if (stopId) {
-    renderLocked(stopId);
-  } else {
-    renderHub();
-  }
-}
-
-function renderHub() {
-  const completed = getCompletedCount();
-  const pct = Math.round((completed / TOTAL_STOPS) * 100);
-  const allDone = completed >= TOTAL_STOPS;
-
-  let html = `
-    <div class="header">
-      <span class="bigfoot-icon">\ud83e\uddb6</span>
-      <h1>PNW Wilds<br>Market Street Adventure</h1>
-      <div class="subtitle">What's Out There? \ud83d\udc40</div>
-      <div class="tagline">A Bigfoot Scavenger Hunt \u2022 Downtown Chehalis</div>
-    </div>
-
-    <div class="progress-section">
-      <div class="progress-label">
-        <span>\ud83d\udccd Stops Completed</span>
-        <span>${completed} / ${TOTAL_STOPS}</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" style="width: ${pct}%">
-          ${pct > 8 ? '<span class="footprint">\ud83e\uddb6</span>' : ''}
-        </div>
-      </div>
-    </div>
-  `;
-
-  if (allDone) {
-    html += `
-      <div class="completion-screen">
-        <div class="celebration">\ud83c\udf89</div>
-        <h2>YOU FOUND BIGFOOT!</h2>
-        <p>Amazing work, adventurer! You've completed all ${TOTAL_STOPS} stops on Market Street. Now enter your team info below to be entered into the prize drawing!</p>
-      </div>
-      ${renderEntryForm()}
-    `;
-  }
-
-  html += `<div class="hub-grid">`;
-
-  STOPS.forEach(stop => {
-    const done = state.completed[stop.id];
-    const unlocked = isUnlocked(stop.id);
-    const cardClass = done ? 'completed' : unlocked ? 'unlocked' : 'locked';
-
-    if (done) {
-      html += `
-        <a class="hub-card completed" href="?stop=${stop.id}&key=${stop.key}">
-          <span class="hub-icon">${stop.icon}</span>
-          <div class="hub-name">${stop.name}</div>
-          <span class="checkmark">\u2713</span>
-        </a>`;
-    } else if (unlocked) {
-      html += `
-        <a class="hub-card unlocked" href="?stop=${stop.id}&key=${stop.key}">
-          <span class="hub-icon">${stop.icon}</span>
-          <div class="hub-name">${stop.name}</div>
-          <div class="hub-status" style="color:var(--purple);">Tap to answer!</div>
-        </a>`;
-    } else {
-      html += `
-        <div class="hub-card locked">
-          <span class="hub-icon" style="opacity:0.4">\ud83d\udd12</span>
-          <div class="hub-name" style="opacity:0.6">${stop.name}</div>
-          <div class="hub-status pending">Scan QR at store</div>
-        </div>`;
-    }
-  });
-
-  html += `</div>`;
-  app.innerHTML = html;
-
-  if (allDone) {
-    launchConfetti();
-    const form = document.getElementById('entryForm');
-    if (form) {
-      form.addEventListener('submit', handleSubmit);
-    }
-  }
-}
-
-function renderLocked(stopId) {
-  const stop = STOPS.find(s => s.id === stopId);
-  if (!stop) {
-    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
-    return;
-  }
-
-  app.innerHTML = `
-    <div class="header">
-      <span class="bigfoot-icon">\ud83d\udd12</span>
-      <h1>${stop.name}</h1>
-    </div>
-    <div class="stop-card" style="border-color: var(--purple); text-align: center;">
-      <div class="business-icon">${stop.icon}</div>
-      <div class="business-name">${stop.name}</div>
-      <div class="business-address">\ud83d\udccd ${stop.address}</div>
-      <div style="padding: 20px 10px;">
-        <div style="font-size: 3rem; margin-bottom: 12px;">\ud83e\uddb6\ud83d\udcf1</div>
-        <p style="font-size: 1.1rem; font-weight: 700; color: var(--purple-dark); margin-bottom: 12px;">
-          This stop is locked!
-        </p>
-        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--brown);">
-          Head to <strong>${stop.name}</strong> and scan the QR code posted there to unlock this question. Bigfoot is waiting for you!
-        </p>
-      </div>
-      <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Back to Adventure Map</button>
-    </div>
-  `;
-}
-
-function renderStop(stopId) {
-  const stop = STOPS.find(s => s.id === stopId);
-  if (!stop) {
-    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
-    return;
-  }
-
-  if (state.completed[stopId]) {
-    app.innerHTML = `
-      <div class="header">
-        <span class="bigfoot-icon">${stop.icon}</span>
-        <h1>${stop.name}</h1>
-      </div>
-      <div class="already-done">
-        <div style="font-size:3rem">\u2705</div>
-        <h3>Already Completed!</h3>
-        <p>You've already conquered this stop, adventurer! Bigfoot is impressed.</p>
-        <p style="font-size:0.85rem; color:var(--purple); font-style:italic; margin-top:8px;">${stop.funFact}</p>
-        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Back to Adventure Map</button>
-      </div>
-    `;
-    return;
-  }
-
-  const letters = ['A', 'B', 'C', 'D'];
-
-  let html = `
-    <div class="header" style="padding-bottom:8px">
-      <button class="nav-btn" onclick="window.location='?'" style="margin-bottom:12px">\ud83d\uddfa\ufe0f Adventure Map</button>
-    </div>
-    <div class="stop-card">
-      <div class="business-icon">${stop.icon}</div>
-      <div class="business-name">${stop.name}</div>
-      <div class="business-address">\ud83d\udccd ${stop.address}</div>
-      <div class="question-label">\ud83e\uddb6 Bigfoot wants to know...</div>
-      <div class="question">${stop.question}</div>
-      <div class="options" id="options-${stop.id}">
-        ${stop.options.map((opt, i) => `
-          <button class="option-btn" data-stop="${stop.id}" data-idx="${i}" onclick="handleAnswer(${stop.id}, ${i})">
-            <span class="letter">${letters[i]}</span>
-            <span>${opt}</span>
-          </button>
-        `).join('')}
-      </div>
-      <div id="result-${stop.id}"></div>
-    </div>
-  `;
-
-  app.innerHTML = html;
-}
-
-function handleAnswer(stopId, selectedIdx) {
-  const stop = STOPS.find(s => s.id === stopId);
-  const buttons = document.querySelectorAll(`[data-stop="${stopId}"]`);
-  const resultDiv = document.getElementById(`result-${stopId}`);
-
-  // Disable all buttons
-  buttons.forEach(btn => {
-    btn.disabled = true;
-    btn.style.pointerEvents = 'none';
-  });
-
-  const isCorrect = selectedIdx === stop.correct;
-
-  // Highlight selected
-  buttons[selectedIdx].classList.add(isCorrect ? 'correct' : 'wrong');
-  if (!isCorrect) {
-    buttons[stop.correct].classList.add('correct');
-  }
-
-  // Mark as completed regardless of answer (it's for fun!)
-  state.completed[stopId] = true;
-  saveState();
-
-  if (isCorrect) {
-    resultDiv.innerHTML = `
-      <div class="result-msg correct">
-        \ud83c\udf1f Correct! Bigfoot approves! \ud83e\uddb6
-        <div class="fun-fact">${stop.funFact}</div>
-      </div>
-      <div style="text-align:center">
-        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
-      </div>
-    `;
-    launchConfetti();
-  } else {
-    resultDiv.innerHTML = `
-      <div class="result-msg wrong">
-        \ud83d\ude04 Nice try! The answer was <strong>${String.fromCharCode(65 + stop.correct)}</strong> \u2014 but Bigfoot still gives you credit for showing up!
-        <div class="fun-fact">${stop.funFact}</div>
-      </div>
-      <div style="text-align:center">
-        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
-      </div>
-    `;
-  }
-}
-
-function renderEntryForm() {
-  return `
-    <form class="entry-form" id="entryForm">
-      <h3>\ud83c\udfc6 Enter the Prize Drawing!</h3>
-      <div class="form-group">
-        <label for="teamName">\ud83e\uddb6 Team / Your Name</label>
-        <input type="text" id="teamName" placeholder="e.g., The Sasquatch Squad" required>
-      </div>
-      <div class="form-group">
-        <label for="teamSize">\ud83d\udc65 Team Size</label>
-        <select id="teamSize" required>
-          <option value="">Select...</option>
-          <option value="1">Just me (solo Squatcher)</option>
-          <option value="2">2 adventurers</option>
-          <option value="3">3 adventurers</option>
-          <option value="4">4 adventurers</option>
-          <option value="5+">5+ (a whole expedition!)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="email">\ud83d\udce7 Email (for prize notification)</label>
-        <input type="email" id="email" placeholder="your@email.com" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">\ud83d\udcf1 Phone (optional)</label>
-        <input type="tel" id="phone" placeholder="(360) 555-1234">
-      </div>
-      <div class="form-group">
-        <label for="favorite">\u2764\ufe0f Favorite stop on the hunt?</label>
-        <select id="favorite">
-          <option value="">Pick your fave!</option>
-          ${STOPS.map(s => `<option value="${s.name}">${s.icon} ${s.name}</option>`).join('')}
-        </select>
-      </div>
-      <button type="submit" class="submit-btn">\ud83e\uddb6 Submit & Enter Drawing!</button>
-    </form>
-  `;
-}
-
-function handleSubmit(e) {
-  e.preventDefault();
-
-  state.teamName = document.getElementById('teamName').value;
-  state.teamSize = document.getElementById('teamSize').value;
-  state.email = document.getElementById('email').value;
-  state.phone = document.getElementById('phone').value || '';
-  state.favorite = document.getElementById('favorite').value || '';
-  state.submitted = true;
-  state.completedAt = new Date().toISOString();
-  saveState();
-
-  render();
-  launchConfetti();
-}
-
-function renderThankYou() {
-  app.innerHTML = `
-    <div class="thankyou">
-      <div style="font-size:5rem">\ud83c\udf89\ud83e\uddb6\ud83c\udf89</div>
-      <h2>You Did It, ${state.teamName}!</h2>
-      <p style="margin: 16px 0; font-size: 1.1rem;">
-        Your team has been entered into the prize drawing!
-      </p>
-      <div style="background: white; border-radius: 16px; padding: 20px; border: 2px solid var(--green); margin: 20px 0;">
-        <p style="font-weight: 700; color: var(--green-dark); margin-bottom: 8px;">\ud83c\udfc6 What happens next?</p>
-        <p style="font-size: 0.95rem;">
-          <strong>Show this screen</strong> to the PNW Wilds team at the main event area to confirm your entry! Winners will be announced during the event.
-        </p>
-        <div style="margin-top: 16px; padding: 12px; background: var(--pink-light); border-radius: 10px;">
-          <p style="font-size: 0.85rem; color: var(--purple-dark);">
-            \ud83d\udcca Stops completed: <strong>${getCompletedCount()} / ${TOTAL_STOPS}</strong><br>
-            \ud83d\udc65 Team: <strong>${state.teamName}</strong> (${state.teamSize} member${state.teamSize === '1' ? '' : 's'})<br>
-            \u23f0 Completed: <strong>${new Date().toLocaleTimeString()}</strong>
-          </p>
-        </div>
-      </div>
-      <p style="font-size: 0.9rem; color: var(--purple); font-style: italic;">
-        Thank you for supporting Nature Nurture Farmacy &amp; Lewis County Historical Museum!
-      </p>
-      <div style="margin-top: 24px; font-size: 3rem;">\ud83c\udf32\ud83e\uddb6\ud83c\udf32</div>
-    </div>
-  `;
-}
-
-// ============ INIT ============
-render();
-
-// Handle back/forward navigation
-window.addEventListener('popstate', render);
-</script>
 </body>
 </html>

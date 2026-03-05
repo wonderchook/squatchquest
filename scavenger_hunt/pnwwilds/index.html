@@ -634,7 +634,7 @@ body {
 <div class="container">
   <!-- Background decoration -->
   <div class="bg-decor">
-    <svg viewBox="0 0 480 200" preserveAspectRatio="none">
+    <svg viewBox="0 0 480 200" preserveAspectRatio="none" aria-hidden="true">
       <!-- Mountains -->
       <polygon points="0,200 60,80 120,140 180,50 240,120 300,60 360,130 420,70 480,200" fill="#c5b3d4" opacity="0.3"/>
       <polygon points="0,200 40,120 100,160 160,100 220,150 280,90 340,160 400,110 480,200" fill="#7cb87c" opacity="0.25"/>
@@ -994,7 +994,7 @@ function renderHub() {
         <span>\ud83d\udccd Stops Completed</span>
         <span>${completed} / ${TOTAL_STOPS}</span>
       </div>
-      <div class="progress-bar">
+      <div class="progress-bar" role="progressbar" aria-valuenow="${completed}" aria-valuemin="0" aria-valuemax="${TOTAL_STOPS}" aria-label="Hunt progress: ${completed} of ${TOTAL_STOPS} stops completed">
         <div class="progress-fill" style="width: ${pct}%">
           ${pct > 8 ? '<span class="footprint">\ud83e\uddb6</span>' : ''}
         </div>
@@ -1059,7 +1059,7 @@ function renderHub() {
 function renderLocked(stopId) {
   const stop = STOPS.find(s => s.id === stopId);
   if (!stop) {
-    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
+    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" aria-label="Back to map" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
     return;
   }
 
@@ -1090,7 +1090,7 @@ function renderLocked(stopId) {
 function renderStop(stopId) {
   const stop = STOPS.find(s => s.id === stopId);
   if (!stop) {
-    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
+    app.innerHTML = `<div class="header"><h1>Stop not found!</h1><button class="nav-btn" aria-label="Back to map" onclick="window.location='?'">\u2190 Back to Map</button></div>`;
     return;
   }
 
@@ -1128,13 +1128,13 @@ function renderStop(stopId) {
       <div class="question">${stop.question}</div>
       <div class="options" id="options-${stop.id}">
         ${stop.options.map((opt, i) => `
-          <button class="option-btn" data-stop="${stop.id}" data-idx="${i}" onclick="handleAnswer(${stop.id}, ${i})">
+          <button class="option-btn" data-stop="${stop.id}" data-idx="${i}" aria-label="Answer ${letters[i]}: ${opt}" onclick="handleAnswer(${stop.id}, ${i})">
             <span class="letter">${letters[i]}</span>
             <span>${opt}</span>
           </button>
         `).join('')}
       </div>
-      <div id="result-${stop.id}"></div>
+      <div id="result-${stop.id}" aria-live="polite" role="status"></div>
     </div>
   `;
 
@@ -1174,7 +1174,7 @@ function handleAnswer(stopId, selectedIdx) {
         ${visitLink}
       </div>
       <div style="text-align:center">
-        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
+        <button class="nav-btn" aria-label="Continue adventure, ${getCompletedCount()} of ${TOTAL_STOPS} stops completed" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
       </div>
     `;
     launchConfetti();
@@ -1186,7 +1186,7 @@ function handleAnswer(stopId, selectedIdx) {
         ${visitLink}
       </div>
       <div style="text-align:center">
-        <button class="nav-btn" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
+        <button class="nav-btn" aria-label="Continue adventure, ${getCompletedCount()} of ${TOTAL_STOPS} stops completed" onclick="window.location='?'">\ud83d\uddfa\ufe0f Continue Adventure (${getCompletedCount()}/${TOTAL_STOPS})</button>
       </div>
     `;
   }

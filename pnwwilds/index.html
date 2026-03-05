@@ -147,7 +147,40 @@ body {
   font-weight: 600;
 }
 
-/* Bigfoot emoji/icon */
+/* Bigfoot logo */
+.bigfoot-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 40%;
+  border: 3px solid var(--purple-dark);
+  box-shadow: 0 3px 12px rgba(106,76,147,0.2);
+  filter: blur(0.5px) saturate(1.1) contrast(1.05);
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.logo-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 12px;
+  border: 3px solid var(--purple-dark);
+  box-shadow: 0 3px 12px rgba(106,76,147,0.2);
+}
+
+.logo-wrapper .bigfoot-logo {
+  width: 200px;
+  height: 200px;
+  margin: -35px 0 0 -40px;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Bigfoot emoji/icon (for stop cards) */
 .bigfoot-icon {
   font-size: 3rem;
   display: block;
@@ -982,7 +1015,9 @@ function renderHub() {
   let html = `
     <a href="/" class="back-to-site">🦶 ← SquatchSightling</a>
     <div class="header">
-      <span class="bigfoot-icon">\ud83e\uddb6</span>
+      <div class="logo-wrapper">
+        <img class="bigfoot-logo" src="../assets/patches/squatch-map-compass.jpg" alt="SquatchSighting logo" width="200" height="200">
+      </div>
       <h1>PNW Wilds<br>Market Street Adventure</h1>
       <div class="subtitle">What's Out There? \ud83d\udc40</div>
       <div class="tagline">A Bigfoot Scavenger Hunt \u2022 Downtown Chehalis</div>

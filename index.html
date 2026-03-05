@@ -574,52 +574,7 @@ body {
 // ============ SCAVENGER HUNT DATA ============
 const STOPS = [
   {
-    id: 1, key: "herb7f",
-    name: "Nature Nurture Farmacy",
-    address: "Downtown Chehalis",
-    icon: "\ud83c\udf3f",
-    question: "Bigfoot's been foraging in the woods for years, but he just discovered Nature Nurture Farmacy has an even more selection. What can he grab from their herbal apothecary that he can't find under a log?",
-    options: [
-      "A packet of open-pollinated seeds from their community seed library (he wants to start a garden in his cave)",
-      "A jar of pickled pinecones (Bigfoot's favorite midnight snack)",
-      "A prescription for \"essence of mystery\" (smells like fog and secrets)",
-      "A map to the nearest Bigfoot-sized hot tub"
-    ],
-    correct: 0,
-    funFact: "Nature Nurture Farmacy is a non-profit with a real community seed library full of non-GMO, open-pollinated seed packets, plus herbal teas, supplements, and classes on herbs and nutrition! \ud83c\udf3f"
-  },
-  {
-    id: 2, key: "paint4b",
-    name: "Book 'N' Brush",
-    address: "Downtown Chehalis",
-    icon: "\ud83c\udfa8",
-    question: "Bigfoot finally comes out of the woods and wanders into Book 'N' Brush. He's amazed \u2014 this shop has been here since 1969! What does he NOT find inside?",
-    options: [
-      "Fine art supplies and custom framing",
-      "A Bigfoot tracking GPS with thermal vision (military grade)",
-      "A curated selection of books and local artisan gifts",
-      "Children's toys and cozy reading chairs"
-    ],
-    correct: 1,
-    funFact: "Book 'N' Brush has been a Chehalis treasure since 1969, offering books, fine art supplies, custom framing, local artisan gifts, and children's toys for over 50 years! \ud83d\uddbc\ufe0f"
-  },
-  {
-    id: 3, key: "cave9t",
-    name: "Bigfoot Treasures",
-    address: "Downtown Chehalis",
-    icon: "\ud83e\uddb6",
-    question: "Bigfoot walks into his favorite store in town \u2014 a place literally named after him! What's the ONE thing he can't find on the shelves?",
-    options: [
-      "Cryptid and paranormal-themed T-shirts and stickers",
-      "A real, authenticated Sasquatch DNA test kit",
-      "Bacon-flavored candy canes",
-      "Jewelry, coloring books, and novelty gifts"
-    ],
-    correct: 1,
-    funFact: "Bigfoot Treasure is packed with cryptid-themed clothes, quirky novelties, bacon candy canes, and all the Bigfoot merch a Sasquatch could dream of! \ud83d\udc8e"
-  },
-  {
-    id: 4, key: "wool3e",
+    id: 2, key: "wool3e",
     name: "Ewe & I",
     address: "566 N Market Blvd",
     icon: "\ud83d\udc11",
@@ -634,22 +589,37 @@ const STOPS = [
     funFact: "Ewe & I is a full fiber arts shop carrying independently dyed yarns alongside national brands, plus tools and supplies for knitting, spinning, weaving, and felting! \ud83e\uddf6"
   },
   {
-    id: 5, key: "dice6g",
-    name: "Diversified Games",
-    address: "551 N Market Blvd",
-    icon: "\ud83c\udfb2",
-    question: "It's game night in Bigfoot's cave! He heads to Diversified Games to stock up. This shop has been going strong since 1999 \u2014 which of these can Bigfoot actually find there?",
+    id: 3, key: "glam5j",
+    name: "JJ Nails",
+    address: "542 N Market Blvd",
+    icon: "\ud83d\udc85",
+    question: "Bigfoot's toenails are getting out of control \u2014 each one is the size of a dinner plate. He squeezes into JJ Nails for some help. Which of these services can their nail techs actually do for him?",
     options: [
-      "Comic books, graphic novels, and manga",
-      "A life-sized Bigfoot action figure with kung fu grip",
-      "Only video games \u2014 nothing else",
-      "Just Monopoly and Scrabble, that's it"
+      "Only basic nail clipping \u2014 nothing fancy",
+      "Gel nails, acrylics, dip powder, nail art, manicures, and pedicures",
+      "Full claw sharpening and talon polishing (forest predator special)",
+      "They only do hair, not nails \u2014 Bigfoot is in the wrong shop"
     ],
-    correct: 0,
-    funFact: "Diversified Games is a full-service comic and game store carrying back issues, new comics, graphic novels, manga, CCGs, RPGs, board games, miniatures, and hobby supplies \u2014 open since 1999! \ud83c\udfae"
+    correct: 1,
+    funFact: "JJ Nails offers the works \u2014 gel nails, acrylics, dip powder, nail art, manicures, and pedicures. Even Bigfoot's toenails would look fabulous! \ud83d\udc85\u2728"
   },
   {
-    id: 6, key: "pine2s",
+    id: 4, key: "cave9t",
+    name: "Bigfoot Treasures",
+    address: "Downtown Chehalis",
+    icon: "\ud83e\uddb6",
+    question: "Bigfoot walks into his favorite store in town \u2014 a place literally named after him! What's the ONE thing he can't find on the shelves?",
+    options: [
+      "Cryptid and paranormal-themed T-shirts and stickers",
+      "A real, authenticated Sasquatch DNA test kit",
+      "Bacon-flavored candy canes",
+      "Jewelry, coloring books, and novelty gifts"
+    ],
+    correct: 1,
+    funFact: "Bigfoot Treasure is packed with cryptid-themed clothes, quirky novelties, bacon candy canes, and all the Bigfoot merch a Sasquatch could dream of! \ud83d\udc8e"
+  },
+  {
+    id: 5, key: "pine2s",
     name: "Spruce",
     address: "534 N Market Blvd",
     icon: "\ud83c\udf32",
@@ -662,6 +632,21 @@ const STOPS = [
     ],
     correct: 1,
     funFact: "Spruce Skin & Wax Shoppe specializes in HydraFacials, clinical skincare, customized facials, and expert waxing \u2014 plus they sell clothes, jewelry, and accessories. Originally started in Olympia! \u2728"
+  },
+  {
+    id: 6, key: "paint4b",
+    name: "Book 'N' Brush",
+    address: "Downtown Chehalis",
+    icon: "\ud83c\udfa8",
+    question: "Bigfoot finally comes out of the woods and wanders into Book 'N' Brush. He's amazed \u2014 this shop has been here since 1969! What does he NOT find inside?",
+    options: [
+      "Fine art supplies and custom framing",
+      "A Bigfoot tracking GPS with thermal vision (military grade)",
+      "A curated selection of books and local artisan gifts",
+      "Children's toys and cozy reading chairs"
+    ],
+    correct: 1,
+    funFact: "Book 'N' Brush has been a Chehalis treasure since 1969, offering books, fine art supplies, custom framing, local artisan gifts, and children's toys for over 50 years! \ud83d\uddbc\ufe0f"
   },
   {
     id: 7, key: "fish8k",
@@ -679,67 +664,22 @@ const STOPS = [
     funFact: "NW Salmon Smokehouse serves up smoked salmon chowder, smoked salmon paninis, and smokehouse baked potatoes \u2014 plus an artisan market with specialty foods and locally crafted goods! \ud83c\udf23"
   },
   {
-    id: 8, key: "glam5j",
-    name: "JJ Nails",
-    address: "542 N Market Blvd",
-    icon: "\ud83d\udc85",
-    question: "Bigfoot's toenails are getting out of control \u2014 each one is the size of a dinner plate. He squeezes into JJ Nails for some help. Which of these services can their nail techs actually do for him?",
+    id: 8, key: "paws9d",
+    name: "Doggie Designs",
+    address: "571 N Market Blvd",
+    icon: "\ud83d\udc36",
+    question: "Bigfoot brings his best friend (a very large wolf pup he adopted) to Doggie Designs for a spa day. Which of these is NOT a real service they offer?",
     options: [
-      "Only basic nail clipping \u2014 nothing fancy",
-      "Gel nails, acrylics, dip powder, nail art, manicures, and pedicures",
-      "Full claw sharpening and talon polishing (forest predator special)",
-      "They only do hair, not nails \u2014 Bigfoot is in the wrong shop"
-    ],
-    correct: 1,
-    funFact: "JJ Nails offers the works \u2014 gel nails, acrylics, dip powder, nail art, manicures, and pedicures. Even Bigfoot's toenails would look fabulous! \ud83d\udc85\u2728"
-  },
-  {
-    id: 9, key: "roll1r",
-    name: "Royal Sushi & Teriyaki",
-    address: "575 N Market Blvd",
-    icon: "\ud83c\udf63",
-    question: "Bigfoot walks into Royal Sushi & Teriyaki and stares at the menu. He sees something called \"hamachi\" \u2014 what is it?",
-    options: [
-      "A spicy dipping sauce made from wasabi and honey",
-      "A type of chopstick holder shaped like a little fish",
-      "Yellowtail \u2014 a rich, buttery fish popular in sushi",
-      "A deep-fried dessert roll filled with sweet red bean paste"
+      "De-shedding treatments",
+      "Teeth cleaning",
+      "A doggie aromatherapy massage with essential oils",
+      "Flea and tick prevention"
     ],
     correct: 2,
-    funFact: "Hamachi is the Japanese word for yellowtail, a favorite at sushi restaurants for its rich, buttery flavor. Now you can order like a pro at Royal Sushi & Teriyaki! \ud83c\udf63"
+    funFact: "Doggie Designs offers bathing, haircuts, nail trimming, ear cleaning, de-shedding, teeth cleaning, and flea & tick prevention \u2014 all in a low-stress environment. Even Bigfoot's wolf pup would feel pampered! \ud83d\udc3e\u2728"
   },
   {
-    id: 10, key: "boot4m",
-    name: "Smith's Mercantile",
-    address: "464 N Market Blvd",
-    icon: "\ud83c\udfea",
-    question: "Bigfoot sneaks into Smith's Mercantile looking for a new outfit. What kind of shop is he in?",
-    options: [
-      "A hardware store \u2014 nothing but hammers and nails",
-      "A curated boutique with home d\u00e9cor, clothing, accessories, and gifts",
-      "A Bigfoot costume rental shop (he's going undercover as a human)",
-      "A grocery store with a really misleading name"
-    ],
-    correct: 1,
-    funFact: "Smith's Mercantile is a boutique with a blend of rustic charm and modern style, offering handpicked home d\u00e9cor, clothing, accessories, and gifts \u2014 perfect for finding something unique in downtown Chehalis! \ud83d\udecd\ufe0f"
-  },
-  {
-    id: 11, key: "taco7l",
-    name: "Taqueria Lolita",
-    address: "337 NW Chehalis Ave",
-    icon: "\ud83c\udf2e",
-    question: "Bigfoot discovers tacos for the first time at Taqueria Lolita and instantly falls in love. Now for a taco trivia question \u2014 how many tacos does the average American eat per year?",
-    options: [
-      "About 10 \u2014 most people stick to Taco Tuesday",
-      "Around 60 \u2014 a little more than one a week",
-      "Exactly 100 \u2014 it's a national requirement",
-      "Over 200 \u2014 Bigfoot thinks those are rookie numbers"
-    ],
-    correct: 1,
-    funFact: "Americans eat roughly 4.5 billion tacos a year \u2014 that works out to about 60 per person! Bigfoot plans to single-handedly raise that average after visiting Taqueria Lolita. \ud83c\udf2e\u2764\ufe0f"
-  },
-  {
-    id: 12, key: "sofa3w",
+    id: 9, key: "sofa3w",
     name: "Furniture World",
     address: "563 N Market Blvd",
     icon: "\ud83d\udecb\ufe0f",
@@ -754,19 +694,109 @@ const STOPS = [
     funFact: "Furniture World is family owned and operated with eight locations across Western Washington. Their first store opened in Vancouver, WA in 1993 and they've been growing ever since! \ud83d\udecb\ufe0f"
   },
   {
-    id: 13, key: "paws9d",
-    name: "Doggie Designs",
-    address: "571 N Market Blvd",
-    icon: "\ud83d\udc36",
-    question: "Bigfoot brings his best friend (a very large wolf pup he adopted) to Doggie Designs for a spa day. Which of these is NOT a real service they offer?",
+    id: 10, key: "dice6g",
+    name: "Diversified Games",
+    address: "551 N Market Blvd",
+    icon: "\ud83c\udfb2",
+    question: "It's game night in Bigfoot's cave! He heads to Diversified Games to stock up. This shop has been going strong since 1999 \u2014 which of these can Bigfoot actually find there?",
     options: [
-      "De-shedding treatments",
-      "Teeth cleaning",
-      "A doggie aromatherapy massage with essential oils",
-      "Flea and tick prevention"
+      "Comic books, graphic novels, and manga",
+      "A life-sized Bigfoot action figure with kung fu grip",
+      "Only video games \u2014 nothing else",
+      "Just Monopoly and Scrabble, that's it"
+    ],
+    correct: 0,
+    funFact: "Diversified Games is a full-service comic and game store carrying back issues, new comics, graphic novels, manga, CCGs, RPGs, board games, miniatures, and hobby supplies \u2014 open since 1999! \ud83c\udfae"
+  },
+  {
+    id: 11, key: "brew5c",
+    name: "Mint City Coffee Roasting",
+    address: "539 N Market Blvd",
+    icon: "\u2615",
+    question: "Bigfoot needs his morning caffeine fix and stumbles into Mint City Coffee Roasting. This small-batch roaster operates out of a beautifully renovated historic building. About how old is the building they call home?",
+    options: [
+      "About 50 years old \u2014 built in the 1970s",
+      "About 128 years old \u2014 over a century of history",
+      "Brand new \u2014 built last year just for the coffee shop",
+      "Nobody knows \u2014 the building's birth certificate was lost in a Bigfoot sighting"
+    ],
+    correct: 1,
+    funFact: "Mint City Coffee Roasting operates in a 128-year-old, 6,000-square-foot building in historic downtown Chehalis, with their roastery right in the back! \u2615\ud83c\udf31"
+  },
+  {
+    id: 12, key: "shoe2b",
+    name: "Brunswig's Shoes",
+    address: "525 N Market Blvd",
+    icon: "\ud83d\udc5f",
+    question: "Bigfoot's been going barefoot his whole life, but he's finally ready for his first pair of shoes. He walks into Brunswig's Shoe Store \u2014 how many generations of the Brunswig family have been selling shoes in downtown Chehalis?",
+    options: [
+      "Just one \u2014 it opened last year",
+      "Two generations \u2014 father and son",
+      "Four generations \u2014 over 100 years of family shoe-selling",
+      "Seven generations \u2014 they've been here since before Chehalis existed"
     ],
     correct: 2,
-    funFact: "Doggie Designs offers bathing, haircuts, nail trimming, ear cleaning, de-shedding, teeth cleaning, and flea & tick prevention \u2014 all in a low-stress environment. Even Bigfoot's wolf pup would feel pampered! \ud83d\udc3e\u2728"
+    funFact: "Brunswig's Shoe Store has been in downtown Chehalis for four generations and over 100 years! They still measure your feet with antique measuring devices and bring shoes out from the back \u2014 no self-serve here! \ud83d\udc5f\u2b50"
+  },
+  {
+    id: 13, key: "boot4m",
+    name: "Smith's Mercantile",
+    address: "464 N Market Blvd",
+    icon: "\ud83c\udfea",
+    question: "Bigfoot sneaks into Smith's Mercantile looking for a new outfit. What kind of shop is he in?",
+    options: [
+      "A hardware store \u2014 nothing but hammers and nails",
+      "A curated boutique with home d\u00e9cor, clothing, accessories, and gifts",
+      "A Bigfoot costume rental shop (he's going undercover as a human)",
+      "A grocery store with a really misleading name"
+    ],
+    correct: 1,
+    funFact: "Smith's Mercantile is a boutique with a blend of rustic charm and modern style, offering handpicked home d\u00e9cor, clothing, accessories, and gifts \u2014 perfect for finding something unique in downtown Chehalis! \ud83d\udecd\ufe0f"
+  },
+  {
+    id: 14, key: "herb7f",
+    name: "Nature Nurture Farmacy",
+    address: "Downtown Chehalis",
+    icon: "\ud83c\udf3f",
+    question: "Bigfoot's been foraging in the woods for years, but he just discovered Nature Nurture Farmacy has an even more selection. What can he grab from their herbal apothecary that he can't find under a log?",
+    options: [
+      "A packet of open-pollinated seeds from their community seed library (he wants to start a garden in his cave)",
+      "A jar of pickled pinecones (Bigfoot's favorite midnight snack)",
+      "A prescription for \"essence of mystery\" (smells like fog and secrets)",
+      "A map to the nearest Bigfoot-sized hot tub"
+    ],
+    correct: 0,
+    funFact: "Nature Nurture Farmacy is a non-profit with a real community seed library full of non-GMO, open-pollinated seed packets, plus herbal teas, supplements, and classes on herbs and nutrition! \ud83c\udf3f"
+  },
+  {
+    id: 16, key: "roll1r",
+    name: "Royal Sushi & Teriyaki",
+    address: "575 N Market Blvd",
+    icon: "\ud83c\udf63",
+    question: "Bigfoot walks into Royal Sushi & Teriyaki and stares at the menu. He sees something called \"hamachi\" \u2014 what is it?",
+    options: [
+      "A spicy dipping sauce made from wasabi and honey",
+      "A type of chopstick holder shaped like a little fish",
+      "Yellowtail \u2014 a rich, buttery fish popular in sushi",
+      "A deep-fried dessert roll filled with sweet red bean paste"
+    ],
+    correct: 2,
+    funFact: "Hamachi is the Japanese word for yellowtail, a favorite at sushi restaurants for its rich, buttery flavor. Now you can order like a pro at Royal Sushi & Teriyaki! \ud83c\udf63"
+  },
+  {
+    id: 17, key: "taco7l",
+    name: "Taqueria Lolita",
+    address: "337 NW Chehalis Ave",
+    icon: "\ud83c\udf2e",
+    question: "Bigfoot discovers tacos for the first time at Taqueria Lolita and instantly falls in love. Now for a taco trivia question \u2014 how many tacos does the average American eat per year?",
+    options: [
+      "About 10 \u2014 most people stick to Taco Tuesday",
+      "Around 60 \u2014 a little more than one a week",
+      "Exactly 100 \u2014 it's a national requirement",
+      "Over 200 \u2014 Bigfoot thinks those are rookie numbers"
+    ],
+    correct: 1,
+    funFact: "Americans eat roughly 4.5 billion tacos a year \u2014 that works out to about 60 per person! Bigfoot plans to single-handedly raise that average after visiting Taqueria Lolita. \ud83c\udf2e\u2764\ufe0f"
   }
 ];
 

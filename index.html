@@ -117,8 +117,12 @@ header {
 header .bigfoot-icon {
   display: block;
   margin: 0 auto 16px;
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--purple-dark);
+  box-shadow: 0 4px 20px rgba(106,76,147,0.2);
 }
 
 header h1 {
@@ -421,55 +425,7 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Header -->
   <header>
-    <svg class="bigfoot-icon" viewBox="0 0 200 200" aria-label="SquatchSighting logo" role="img" xmlns="http://www.w3.org/2000/svg">
-      <!-- Badge circle -->
-      <circle cx="100" cy="100" r="95" fill="none" stroke="#6a4c93" stroke-width="4"/>
-      <circle cx="100" cy="100" r="88" fill="none" stroke="#6a4c93" stroke-width="1.5" stroke-dasharray="4,4"/>
-      <!-- Mountain range -->
-      <polygon points="20,140 55,85 75,110 100,70 125,110 145,85 180,140" fill="#2d5a3e" opacity="0.9"/>
-      <polygon points="30,140 70,95 90,115 100,100 110,115 130,95 170,140" fill="#4a7c59" opacity="0.7"/>
-      <!-- Trees -->
-      <polygon points="38,140 45,112 52,140" fill="#2d5a3e"/>
-      <polygon points="148,140 155,108 162,140" fill="#2d5a3e"/>
-      <polygon points="58,140 64,118 70,140" fill="#2d5a3e" opacity="0.8"/>
-      <polygon points="130,140 136,115 142,140" fill="#2d5a3e" opacity="0.8"/>
-      <!-- Classic Bigfoot silhouette — Patterson-Gimlin style stride -->
-      <g transform="translate(72,48)" fill="#5d4037">
-        <path d="
-          M30,0 Q35,-2 37,3 Q38,7 35,10 L33,10
-          Q34,8 33,5 Q32,2 30,2 Z
-          M25,5 Q22,3 20,5 Q17,8 19,12 Q21,14 25,13 Q29,12 31,10
-          Q33,10 35,10 Q36,13 35,16
-          L34,20 Q36,24 37,30 Q38,36 36,42
-          L38,48 Q40,54 42,60 Q43,64 40,66 L36,67 Q33,67 33,64
-          Q34,60 32,54 Q30,48 29,44
-          L27,44 Q24,50 22,56 Q20,62 18,66 Q16,68 13,67
-          L10,65 Q8,64 10,60 Q13,54 16,48 Q18,42 18,38
-          Q16,32 14,26 Q11,22 8,20
-          L4,24 Q1,26 0,24 Q-1,22 1,20
-          Q4,16 8,14 Q12,12 14,14
-          Q16,16 18,20 Q20,18 22,14
-          Q22,10 24,7 Z
-        " fill="#5d4037"/>
-      </g>
-      <!-- Stars -->
-      <circle cx="45" cy="55" r="2" fill="#f0b8c8"/>
-      <circle cx="160" cy="50" r="2.5" fill="#f0b8c8"/>
-      <circle cx="55" cy="38" r="1.5" fill="#f0b8c8"/>
-      <circle cx="148" cy="35" r="1.5" fill="#f0b8c8"/>
-      <circle cx="100" cy="30" r="2" fill="#f0b8c8"/>
-      <!-- Ground line -->
-      <path d="M20,140 Q60,135 100,140 Q140,145 180,140" fill="none" stroke="#4a7c59" stroke-width="2" opacity="0.5"/>
-      <!-- Badge text arc -->
-      <path id="topArc" d="M40,100 A60,60 0 0,1 160,100" fill="none"/>
-      <path id="bottomArc" d="M45,115 A55,55 0 0,0 155,115" fill="none"/>
-      <text font-family="'Quicksand', sans-serif" font-weight="700" font-size="10" fill="#6a4c93" letter-spacing="3">
-        <textPath href="#topArc" startOffset="50%" text-anchor="middle">SQUATCHSIGHTING</textPath>
-      </text>
-      <text font-family="'Quicksand', sans-serif" font-weight="600" font-size="8" fill="#9b7cb8" letter-spacing="2">
-        <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">PACIFIC NORTHWEST</textPath>
-      </text>
-    </svg>
+    <img class="bigfoot-icon" src="assets/patches/squatch-map-compass.jpg" alt="SquatchSighting — Sasquatch with map and compass, embroidered patch style" width="180" height="180">
     <h1>SquatchSighting</h1>
     <p class="subtitle">Bigfoot-Themed Scavenger Hunts</p>
     <p class="tagline">QR-powered adventures for your downtown, your trails, your community</p>

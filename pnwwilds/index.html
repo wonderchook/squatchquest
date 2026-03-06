@@ -1244,8 +1244,9 @@ function handleAnswer(stopId, selectedIdx) {
   state.completed[stopId] = true;
   saveState();
 
+  const visitLink = stop.website ? `<div style="margin-top:8px;"><a href="${stop.website}" target="_blank" rel="noopener" style="color:#7b5ea7; font-weight:600; font-size:0.9rem;">🌐 Visit ${stop.name}</a></div>` : '';
+
   if (isCorrect) {
-    const visitLink = stop.website ? `<div style="margin-top:8px;"><a href="${stop.website}" target="_blank" rel="noopener" style="color:#7b5ea7; font-weight:600; font-size:0.9rem;">🌐 Visit ${stop.name}</a></div>` : '';
 
     resultDiv.innerHTML = `
       <div class="result-msg correct">

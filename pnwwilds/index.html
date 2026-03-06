@@ -1115,16 +1115,6 @@ function renderHub() {
 
   html += `</div>`;
 
-  // Demo mode link
-  html += `
-    <div style="text-align:center; margin: 24px 0 8px;">
-      <a href="demo.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--purple);color:white;border-radius:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;box-shadow:0 2px 8px rgba(106,76,147,0.3);transition:all 0.2s;">
-        📱 Try a Demo
-      </a>
-      <div style="font-size:0.8rem;color:#999;margin-top:6px;">Scan QR codes from your screen!</div>
-    </div>
-  `;
-
   app.innerHTML = html;
 
   if (allDone) {

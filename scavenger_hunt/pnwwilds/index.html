@@ -696,6 +696,21 @@ body {
 // ============ SCAVENGER HUNT DATA ============
 const STOPS = [
   {
+    id: 1, key: "depot8m",
+    name: "Lewis County Historical Museum",
+    address: "599 NW Front Way",
+    icon: "\ud83c\udfdb\ufe0f",
+    question: "Bigfoot wanders into the Lewis County Historical Museum and is amazed by the building itself. What was this building originally used as before it became a museum?",
+    options: [
+      "A general store where settlers traded furs for supplies",
+      "A Northern Pacific Railway depot built in 1912",
+      "The original Lewis County Courthouse",
+      "A lumber mill office during the timber boom"
+    ],
+    correct: 1,
+    funFact: "The museum is housed in the 1912 Northern Pacific Railway depot! Local citizens saved it from demolition in the 1970s and it opened as a museum in 1979. \ud83d\ude82"
+  },
+  {
     id: 2, key: "wool3e",
     name: "Ewe & I",
     address: "566 N Market Blvd",
@@ -1099,6 +1114,17 @@ function renderHub() {
   });
 
   html += `</div>`;
+
+  // Demo mode link
+  html += `
+    <div style="text-align:center; margin: 24px 0 8px;">
+      <a href="demo.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--purple);color:white;border-radius:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;box-shadow:0 2px 8px rgba(106,76,147,0.3);transition:all 0.2s;">
+        📱 Try a Demo
+      </a>
+      <div style="font-size:0.8rem;color:#999;margin-top:6px;">Scan QR codes from your screen!</div>
+    </div>
+  `;
+
   app.innerHTML = html;
 
   if (allDone) {
